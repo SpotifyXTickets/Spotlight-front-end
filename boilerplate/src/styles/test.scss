@@ -1,0 +1,7 @@
+.test-page {
+  @apply bg-purple-600;
+
+  &__link {
+    @apply text-white;
+  }
+}
