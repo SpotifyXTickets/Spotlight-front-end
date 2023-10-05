@@ -1,11 +1,11 @@
 import Link from "next/link";
-import "../styles/test.scss";
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="test-page">
-      <Link className="test-page__link" href="/">
-        test
+    <main className="">
+      <h1>Empty page (src/pages/page.tsx)</h1>
+      <Link className="" href="/">
+        Link back to home page
       </Link>
     </main>
   );

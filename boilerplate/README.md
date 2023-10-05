@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+change project name from boilerplate to project name
+
 First, run the development server:
 
 ```bash
