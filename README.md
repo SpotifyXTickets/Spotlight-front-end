@@ -1,3 +1,5 @@
+#Front-end boilerplate
+Currently using: V2
 This is a front-end boilerplate for our team to easily create new poc's with the same configurations. This boilerplate should keep evolving during the span of the project so that whenever we use a new technology it will be included in the boilerplate. If anything is unclear or needs to be explained further please notify Raf Schapendonk.
 
 ## Getting Started
