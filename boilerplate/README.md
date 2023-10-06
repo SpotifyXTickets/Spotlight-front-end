@@ -32,6 +32,12 @@ In order to use cypress run the following line:
 npm run cypress
 ```
 
+In order to use playwright run the following line:
+
+```bash
+npm run playwright
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
