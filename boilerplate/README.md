@@ -44,5 +44,7 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Tailwind documentation](https://tailwindcss.com/docs/installation) - learn about what tailwindcss has to offer
+- [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress) - learn how cypress works.
+- [Playwright documentation](https://playwright.dev/docs/getting-started-vscode) - learn how playwright works.
 - [SCSS syntax](https://sass-lang.com/documentation/syntax/) - see what SCSS has to offer.
 - [What is BEM](https://getbem.com) - BEM methodology explained.
