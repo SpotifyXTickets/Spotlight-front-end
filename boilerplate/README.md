@@ -24,6 +24,14 @@ This project features a custom tailwind configuration with custom values and a f
 
 All css including tailwind should be written in an scss file with the BEM methodology
 
+## Testing
+
+In order to use cypress run the following line:
+
+```bash
+npm run cypress
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
