@@ -43,7 +43,7 @@ npm run playwright
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies we're using, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Tailwind documentation](https://tailwindcss.com/docs/installation) - learn about what tailwindcss has to offer
