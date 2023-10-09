@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <header className="fixed top-0 left-0 h-24 flex w-full justify-between items-center px-28 bg-slate-50 z-99">
       <nav className="flex justify-between items-center gap-12">
-        <span className="uppercase text-2xl tracking-tight text-slate-100 bg-gray-600 p-2 rounded-lg">
+        <span className="uppercase text-2xl tracking-tight text-slate-100 bg-slate-700 p-2 rounded-lg">
           Citric labs
         </span>
         <ul className="flex items-center gap-6 list-none font-medium">
