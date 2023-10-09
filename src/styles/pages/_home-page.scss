@@ -1,7 +1,13 @@
-.home-page {
-  @apply bg-purple-600 p-sm;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+.home-page {
   h1 {
     @apply text-h1;
   }
+}
+
+body {
+  margin: 0;
 }
