@@ -77,6 +77,20 @@ const config: Config = {
     },
 
     extend: {
+      spacing: {
+        xs: "6px",
+        sm: "12px",
+        mob: "18px",
+        def: "24px",
+        md: "36px",
+        lg: "48px",
+        xl: "60px",
+        "2xl": "72px",
+        80: "80px",
+        "3xl": "96px",
+        "1-col": "calc(100% / 12)",
+        "2-col": "calc(100% / 12 * 2)",
+      },
       // Define custom margins.
       margin: {
         xs: "6px",
@@ -87,6 +101,7 @@ const config: Config = {
         lg: "48px",
         xl: "60px",
         "2xl": "72px",
+        80: "80px",
         "3xl": "96px",
         "1-col": "calc(100% / 12)",
         "2-col": "calc(100% / 12 * 2)",
@@ -167,6 +182,10 @@ const config: Config = {
         xl: "60px",
         "2xl": "72px",
         "3xl": "96px",
+      },
+      borderRadius: {
+        6: "6px",
+        10: "10px",
       },
       // Define custom font sizes using the results of loadFontSizes()
       fontSize: loadFontSizes(fontSizesList),

@@ -1,0 +1,19 @@
+.search-bar {
+  @apply max-h-lg relative;
+
+  &__icon {
+    @apply absolute;
+
+    top: 16px;
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .search-bar__input {
+    @apply rounded-6 h-lg border-2 border-solid pr-xs;
+
+    padding-left: 40px;
+    width: 320px;
+    border-color: #cbd2e0;
+  }
+}

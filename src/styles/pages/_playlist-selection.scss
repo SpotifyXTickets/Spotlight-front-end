@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.playlist-selection {
+  @apply mx-80;
+
+  h1 {
+    @apply text-h1 mb-md;
+  }
+
+  .search-header {
+    @apply flex flex-row justify-between;
+
+    &__dropdowns {
+      @apply flex flex-row gap-sm;
+    }
+  }
+
+  body {
+    margin: 0;
+  }
+}
