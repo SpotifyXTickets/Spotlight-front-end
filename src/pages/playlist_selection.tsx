@@ -3,6 +3,8 @@ import SearchBar from "@/components/SearchBar";
 import Dropdown from "@/components/Dropdown";
 import PlaylistCard from "@/components/PlaylistCard";
 import StickyFooter from "@/components/StickyFooter";
+import Navigation from "@/components/Navigation";
+import Header from "@/components/Header";
 
 let PlaylistLoremIpsumData = [
   {
@@ -159,6 +161,7 @@ let PlaylistLoremIpsumData = [
 export default function Page() {
   return (
     <section className="playlist-selection__wrapper">
+      <Header />
       <main className="playlist-selection">
         <h1 className="h1">Header</h1>
         <div className="search-header">
