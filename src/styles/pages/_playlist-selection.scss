@@ -3,18 +3,25 @@
 @tailwind utilities;
 
 .playlist-selection {
-  @apply mx-80;
-
-  h1 {
+  @apply mx-2-col;
+  @apply h1 {
     @apply text-h1 mb-md;
   }
 
   .search-header {
-    @apply flex flex-row justify-between;
+    @apply flex flex-row justify-between mb-md;
 
     &__dropdowns {
       @apply flex flex-row gap-sm;
     }
+  }
+
+  &__item-list {
+    @apply grid grid-cols-3 gap-sm;
+  }
+
+  &__item {
+    @apply bg-purple-500;
   }
 
   body {
