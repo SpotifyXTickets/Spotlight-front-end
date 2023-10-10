@@ -77,6 +77,10 @@ const config: Config = {
     },
 
     extend: {
+      colors: {
+        lead: "#2D3648",
+      },
+
       spacing: {
         xs: "6px",
         sm: "12px",

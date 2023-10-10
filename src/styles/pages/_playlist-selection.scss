@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 .playlist-selection {
-  @apply mx-2-col;
+  @apply mx-1-col min-h-full pb-3xl;
 
   h1 {
     @apply text-h1 mb-md;
+  }
+
+  &__wrapper {
+    @apply h-screen;
   }
 
   .search-header {
@@ -18,7 +22,9 @@
   }
 
   &__item-list {
-    @apply grid grid-cols-3 gap-sm;
+    @apply grid grid-cols-3 gap-def;
+    @apply lg:grid-cols-2;
+    @apply sm:grid-cols-1;
   }
 
   &__item {

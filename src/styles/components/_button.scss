@@ -1,0 +1,9 @@
+.button {
+  @apply bg-lead text-white font-bold text-default py-xs px-sm border-2 border-lead;
+
+  border-radius: 6px;
+
+  &--clear {
+    @apply bg-transparent text-lead;
+  }
+}

@@ -2,6 +2,7 @@ import "../styles/pages/_playlist-selection.scss";
 import SearchBar from "@/components/SearchBar";
 import Dropdown from "@/components/Dropdown";
 import PlaylistCard from "@/components/PlaylistCard";
+import StickyFooter from "@/components/StickyFooter";
 
 let PlaylistLoremIpsumData = [
   {
@@ -53,24 +54,127 @@ let PlaylistLoremIpsumData = [
     album: "Irure Dolor",
     year: 2017,
   },
+  {
+    id: 6,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 7,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 8,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 9,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 10,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 11,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 12,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 13,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 14,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
+  {
+    id: 15,
+    title: "Duis Aute Irure Dolor",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    duration: "3:00",
+    artist: "David Kim",
+    album: "Irure Dolor",
+    year: 2017,
+  },
 ];
 
 export default function Page() {
   return (
-    <main className="playlist-selection">
-      <h1 className="h1">Header</h1>
-      <div className="search-header">
-        <SearchBar />
-        <div className="search-header__dropdowns">
-          <Dropdown dropdownTitle={"Sort by"} />
-          <Dropdown dropdownTitle={"Filters"} />
+    <section className="playlist-selection__wrapper">
+      <main className="playlist-selection">
+        <h1 className="h1">Header</h1>
+        <div className="search-header">
+          <SearchBar />
+          <div className="search-header__dropdowns">
+            <Dropdown dropdownTitle={"Sort by"} />
+            <Dropdown dropdownTitle={"Filters"} />
+          </div>
         </div>
-      </div>
-      <div className="playlist-selection__item-list">
-        {PlaylistLoremIpsumData.map((item) => (
-          <PlaylistCard key={item.id} data={item} />
-        ))}
-      </div>
-    </main>
+        <div className="playlist-selection__item-list">
+          {PlaylistLoremIpsumData.map((item) => (
+            <PlaylistCard key={item.id} data={item} />
+          ))}
+        </div>
+      </main>
+      <StickyFooter />
+    </section>
   );
 }
