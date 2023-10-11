@@ -26,6 +26,10 @@
   }
 
   &__settings {
-    @apply hover:cursor-pointer;
+    @apply hover:cursor-pointer ml-2;
+  }
+
+  &__icon {
+    @apply rounded-lg bg-black w-md;
   }
 }
