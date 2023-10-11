@@ -7,7 +7,7 @@ export default function Dropdown(props: { dropdownTitle: string }) {
     <section className="dropdown-wrapper">
       <div className="dropdown">
         <select className="dropdown__options">
-          <option value="" disabled selected>
+          <option value="" selected disabled>
             {props.dropdownTitle}
           </option>
           <option>option 1</option>

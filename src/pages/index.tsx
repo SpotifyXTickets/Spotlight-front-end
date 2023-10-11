@@ -18,7 +18,9 @@ export default function Home() {
             <Dropdown dropdownTitle={"Filters"} />
           </div>
         </div>
-        <div>
+        <div className="recommendations-selection__list">
+          <EventCard />
+          <EventCard />
           <EventCard />
         </div>
       </main>

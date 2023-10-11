@@ -67,7 +67,8 @@ const config: Config = {
   theme: {
     // Define custom breakpoints.
     screens: {
-      xl: "1177px",
+      xxl: "1280px",
+      xl: { max: "1177px" },
       lg: { max: "1176px" },
       md: { max: "900px" },
       sm: { max: "768px" },

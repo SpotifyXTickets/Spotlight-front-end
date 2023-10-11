@@ -23,17 +23,11 @@
     }
   }
 
-  &__item-list {
-    @apply grid grid-cols-3 gap-def;
-    @apply lg:grid-cols-2;
-    @apply sm:grid-cols-1;
-  }
-
-  &__item {
-    @apply bg-purple-500;
-  }
-
   body {
     margin: 0;
+  }
+
+  &__list {
+    @apply grid gap-12;
   }
 }
