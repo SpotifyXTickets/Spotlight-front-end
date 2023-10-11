@@ -1,11 +1,29 @@
-import Link from "next/link";
-import "../styles/pages/_home-page.scss";
+import "../styles/pages/_recommendations-selection.scss";
+
+import EventCard from "@/components/EventCard";
+import Header from "@/components/Header";
+import SearchBar from "@/components/SearchBar";
+import Dropdown from "@/components/Dropdown";
 
 export default function Home() {
   return (
-    <main className="home-page">
-      <h1 className="">Home page (src/pages/index.tsx)</h1>
-      <Link href="/page">link showing route to different page</Link>
-    </main>
+    <section className="recommendations-selection__wrapper">
+      <Header />
+      <main className="recommendations-selection">
+        <h1 className="h1">Header</h1>
+        <div className="search-header">
+          <SearchBar />
+          <div className="search-header__dropdowns">
+            <Dropdown dropdownTitle={"Sort by"} />
+            <Dropdown dropdownTitle={"Filters"} />
+          </div>
+        </div>
+        <div className="recommendations-selection__list">
+          <EventCard />
+          <EventCard />
+          <EventCard />
+        </div>
+      </main>
+    </section>
   );
 }

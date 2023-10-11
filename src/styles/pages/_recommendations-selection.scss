@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.recommendations-selection {
+  @apply mx-1-col min-h-full pb-3xl;
+
+  padding-top: 140px;
+
+  h1 {
+    @apply text-h1 mb-md;
+  }
+
+  &__wrapper {
+    @apply h-screen;
+  }
+
+  .search-header {
+    @apply flex flex-row justify-between mb-md;
+
+    &__dropdowns {
+      @apply flex flex-row gap-sm;
+    }
+  }
+
+  body {
+    margin: 0;
+  }
+
+  &__list {
+    @apply grid gap-12;
+  }
+}
