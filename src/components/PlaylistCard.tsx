@@ -1,9 +1,9 @@
 import "@/styles/components/_playlist-card.scss";
 
 export default function PlaylistCard(props: {
-  key: number;
+  key: string;
   data: {
-    id: number;
+    id: string;
     title: string;
     description: string;
     duration: string;
