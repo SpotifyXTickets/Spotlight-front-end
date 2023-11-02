@@ -8,7 +8,12 @@
 }
 
 @font-face {
-  font-family: Gilroy-bold;
+  font-family: Gilroy-Semibold;
+  src: url("../../fonts/Gilroy-Semibold.ttf");
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
   src: url("../../fonts/Gilroy-Bold.ttf");
 }
 
@@ -18,7 +23,7 @@ body {
 }
 
 .recommendations-selection {
-  @apply mx-md min-h-full pb-3xl;
+  @apply mx-4 min-h-full pb-3xl;
 
   padding-top: 100px;
 

@@ -1,40 +1,32 @@
 import Image from "next/image";
-import EventPlaceholder from "../assets/event-placeholder.jpg";
 import "../styles/components/_event-card.scss";
-import Button from "@/components/Button";
+import HeartIcon from "../assets/heart.svg";
 
-export default function EventCard() {
+export default function EventCard(props: {
+  key: number;
+  data: {
+    id: number;
+    artist: string;
+    artistImage: any;
+    date: string;
+    location: string;
+  };
+}) {
   return (
-    <div className="event-card__wrapper">
+    <div className="event-card">
       <Image
         className="event-card__image"
-        src={EventPlaceholder}
-        alt="event image"
+        src={props.data.artistImage}
+        alt="Artist Image"
       />
-      <div className="event-card__content">
-        <div className="event-card__description">
-          <h2 className="text-h2 font-medium">Event Name</h2>
-          <p className="description-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-            ipsum corporis iste deleniti, pariatur amet itaque quibusdam
-            eligendi quam cumque odio neque molestiae, vel inventore aperiam
-            dolores reprehenderit! Saepe, quis.
-          </p>
+      <div className="event-card__info">
+        <div className="event-card__title">
+          <h3>{props.data.artist}</h3>
+          <Image src={HeartIcon} alt="Favourite Icon" />
         </div>
-        <div className="event-card__tags">
-          <div className="tag-wrapper">
-            <span className="tag">Tag</span>
-            <span className="tag">Tag</span>
-            <span className="tag">Tag</span>
-          </div>
-          <Button
-            text={"Button"}
-            onClick={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-            class={"event-card__button"}
-          />
-        </div>
+        <span className="event-card__span">{props.data.date}</span>
+        <span className="event-card__span">{props.data.location}</span>
+        <button className="event-card__button">Learn More {">"}</button>
       </div>
     </div>
   );

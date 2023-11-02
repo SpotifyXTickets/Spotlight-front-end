@@ -1,4 +1,5 @@
 import "../styles/components/_categories.scss";
+import { useState } from "react";
 
 const categoriesList = [
   { id: 1, title: "All Categories" },
@@ -16,11 +17,23 @@ const categoriesList = [
 ];
 
 export default function Categories() {
+  const [selectedCategory, setSelectedCategory] = useState(1);
+
+  const handleCategoryClick = (categoryId: number) => {
+    setSelectedCategory(categoryId);
+  };
+
   return (
     <section className="categories">
       <div className="categories__wrapper">
         {categoriesList.map((item) => (
-          <div className="categories__item" key={item.id}>
+          <div
+            className={`categories__item ${
+              selectedCategory === item.id ? "selected" : ""
+            }`}
+            key={item.id}
+            onClick={() => handleCategoryClick(item.id)}
+          >
             {item.title}
           </div>
         ))}
