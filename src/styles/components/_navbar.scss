@@ -1,0 +1,11 @@
+.navbar {
+  @apply py-def fixed top-0 w-full z-40 flex justify-between items-center px-5 bg-[#FBF9F9];
+
+  &__logo {
+    @apply max-h-md;
+  }
+
+  &__menu {
+    @apply mr-4;
+  }
+}

@@ -2,32 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url("../../fonts/Gilroy-Regular.ttf");
+}
+
+@font-face {
+  font-family: Gilroy-bold;
+  src: url("../../fonts/Gilroy-Bold.ttf");
+}
+
+body {
+  margin: 0;
+  background-color: #fbf9f9;
+}
+
 .recommendations-selection {
-  @apply mx-1-col min-h-full pb-3xl;
+  @apply mx-md min-h-full pb-3xl;
 
-  padding-top: 140px;
-
-  h1 {
-    @apply text-h1 mb-md;
-  }
+  padding-top: 100px;
 
   &__wrapper {
     @apply h-screen;
-  }
-
-  .search-header {
-    @apply flex flex-row justify-between mb-md;
-
-    &__dropdowns {
-      @apply flex flex-row gap-sm;
-    }
-  }
-
-  body {
-    margin: 0;
-  }
-
-  &__list {
-    @apply grid gap-12;
   }
 }

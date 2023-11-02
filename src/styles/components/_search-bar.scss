@@ -10,10 +10,11 @@
   }
 
   .search-bar__input {
-    @apply rounded-6 h-lg border-2 border-solid pr-xs;
+    @apply rounded-[4px] h-lg border border-solid pr-xs placeholder:text-[#888888] w-full;
 
+    font-family: "Gilroy-Regular";
+    font-weight: 200;
     padding-left: 40px;
-    width: 320px;
-    border-color: #cbd2e0;
+    border-color: #f2f0f0;
   }
 }
