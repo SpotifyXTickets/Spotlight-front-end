@@ -1,0 +1,14 @@
+# Ignore node_modules
+node_modules
+
+# Ignore build output
+.next
+
+# Ignore development environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore npm debug log
+npm-debug.log*
