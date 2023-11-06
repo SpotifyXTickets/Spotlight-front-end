@@ -1,5 +1,6 @@
 import "../styles/components/_categories.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const categoriesList = [
   { id: 1, title: "All Categories" },
@@ -18,16 +19,29 @@ const categoriesList = [
 
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState(1);
+  const [width, setWidth] = useState(0);
+  const dragSlider = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    if (dragSlider.current) {
+      setWidth(dragSlider.current.scrollWidth - dragSlider.current.offsetWidth);
+    }
+  }, []);
   const handleCategoryClick = (categoryId: number) => {
     setSelectedCategory(categoryId);
   };
 
   return (
     <section className="categories">
-      <div className="categories__wrapper">
+      <motion.div
+        ref={dragSlider}
+        drag="x"
+        dragConstraints={{ right: 0, left: -width - 75 }}
+        className="categories__wrapper"
+      >
         {categoriesList.map((item) => (
-          <div
+          <motion.div
+            ref={dragSlider}
             className={`categories__item ${
               selectedCategory === item.id ? "selected" : ""
             }`}
@@ -35,9 +49,9 @@ export default function Categories() {
             onClick={() => handleCategoryClick(item.id)}
           >
             {item.title}
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

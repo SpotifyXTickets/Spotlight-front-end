@@ -1,8 +1,8 @@
 .categories {
-  @apply mt-6;
+  @apply mt-6 overflow-x-hidden;
 
   &__wrapper {
-    @apply flex gap-3 w-full overflow-hidden cursor-grab;
+    @apply flex gap-3 w-full cursor-grab;
   }
 
   &__item {
