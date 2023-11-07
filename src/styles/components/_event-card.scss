@@ -1,5 +1,5 @@
 .event-card {
-  @apply flex rounded-xl h-52 shadow-md;
+  @apply flex rounded-xl h-52 shadow-md bg-white;
 
   &__image {
     @apply object-cover max-w-[10.85rem] rounded-l-lg;
@@ -17,6 +17,10 @@
     @apply flex justify-between text-lg;
 
     font-family: "Gilroy-Semibold";
+  }
+
+  &__heart {
+    @apply cursor-pointer;
   }
 
   &__button {

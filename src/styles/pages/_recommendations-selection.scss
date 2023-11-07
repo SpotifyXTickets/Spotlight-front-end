@@ -27,7 +27,9 @@ body {
 
   padding-top: 100px;
 
-  &__wrapper {
-    @apply h-screen;
+  &__title {
+    @apply text-3xl mb-5;
+
+    font-family: "Gilroy-Bold";
   }
 }

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Image from "next/image";
 import "../styles/components/_event-card.scss";
 import HeartIcon from "../assets/heart.svg";
+import FullHeartIcon from "../assets/heart-red.svg";
 
 export default function EventCard(props: {
   key: number;
@@ -12,6 +14,10 @@ export default function EventCard(props: {
     location: string;
   };
 }) {
+  const [isHeartFilled, setIsHeartFilled] = useState(false);
+
+  const toggleHeart = () => setIsHeartFilled(!isHeartFilled);
+
   return (
     <div className="event-card">
       <Image
@@ -22,7 +28,12 @@ export default function EventCard(props: {
       <div className="event-card__info">
         <div className="event-card__title">
           <h3>{props.data.artist}</h3>
-          <Image src={HeartIcon} alt="Favourite Icon" />
+          <Image
+            className="event-card__heart"
+            onClick={toggleHeart}
+            src={!isHeartFilled ? HeartIcon : FullHeartIcon}
+            alt="Favourite Icon"
+          />
         </div>
         <span className="event-card__span">{props.data.date}</span>
         <span className="event-card__span">{props.data.location}</span>

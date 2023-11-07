@@ -11,6 +11,7 @@ export default function Home() {
     <section>
       <NavBar />
       <main className="recommendations-selection">
+        <h1 className="recommendations-selection__title">Best For You</h1>
         <SearchBar />
         <Categories />
         <EventsSection title="Pop Music" />

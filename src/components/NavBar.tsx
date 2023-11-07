@@ -6,8 +6,9 @@ import HamburgerMenu from "@/components/HamburgerMenu";
 export default function NavBar() {
   return (
     <nav className="navbar">
-      <Image className="navbar__logo" src={MuseveLogo} alt="Museve Logo" />
-      {/* <Image className="navbar__menu" src={HamburgerMenu} alt="HamburgerMenu" /> */}
+      <a href="">
+        <Image className="navbar__logo" src={MuseveLogo} alt="Museve Logo" />
+      </a>
       <HamburgerMenu />
     </nav>
   );
