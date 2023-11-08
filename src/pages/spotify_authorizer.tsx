@@ -1,11 +1,11 @@
 import { SignJWT } from "jose";
 import { NextResponse, NextRequest } from "next/server";
-import { getJwtSecretKey } from "@/libs/auth";
 import { GetServerSideProps, NextPage } from "next";
 // import Cookies from "cookies";
 import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
 import { Page } from "@playwright/test";
+import { getJwtSecretKey } from "@/libs/auth";
 
 type PageProps = {
   success: boolean;

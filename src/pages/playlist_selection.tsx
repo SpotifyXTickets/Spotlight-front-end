@@ -1,6 +1,6 @@
 import "../styles/pages/_playlist-selection.scss";
 import SearchBar from "@/components/SearchBar";
-import Dropdown from "@/components/Dropdown";
+// import Dropdown from "@/components/Dropdown";
 import PlaylistCard from "@/components/PlaylistCard";
 import { useContext, useEffect, useState } from "react";
 import PlaylistCardSkeleton from "@/components/skeletons/PlaylistCardSkeleton";
@@ -11,6 +11,9 @@ import { JWTPayload } from "jose";
 import Cookies from "universal-cookie";
 import { useGetTokenOrRedirect } from "@/hooks/useGetTokenOrRedirect";
 import NavBar from "@/components/NavBar";
+import PlaylistSection from "@/components/PlaylistSection";
+import Button from "@/components/Button";
+import Footer from "@/components/Footer";
 
 type Playlist = {
   href: string;
@@ -227,9 +230,9 @@ function LoopSkeletons(Component: any, count: number) {
 export default function Page() {
   const { user } = useContext(UserContext);
   const testToken = useGetTokenOrRedirect();
-  const [playlists, setPlaylists] = useState<Playlist>();
+  const [playlist, setPlaylist] = useState<Playlist>();
   // const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
-  console.log(playlists);
+  console.log(playlist);
   useEffect(() => {
     if (!user) {
       return;
@@ -241,13 +244,12 @@ export default function Page() {
     const getPlaylists = async (token: Promise<JWTPayload | null>) => {
       const accessToken = ((await token) as { accessToken: string })
         .accessToken;
-      console.log(cookies.get("twix_access_token"));
       fetch("http://localhost:8000/playlist", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       }).then(async (res) => {
-        setPlaylists((await res.json()) as Playlist);
+        setPlaylist((await res.json()) as Playlist);
       });
     };
 
@@ -256,46 +258,35 @@ export default function Page() {
 
   console.log(user);
   return (
-    <section className="playlist-selection__wrapper">
+    <section>
       <NavBar />
-      <main className="playlist-selection">
-        <h1 className="h1">Header</h1>
-        <div className="search-header">
-          <SearchBar />
-          <div className="search-header__dropdowns">
-            <Dropdown dropdownTitle={"Sort by"} />
-            <Dropdown dropdownTitle={"Filters"} />
-          </div>
-        </div>
-        <div className="playlist-selection__item-list">
-          {playlists ? (
-            <>
-              {playlists.items.map((item) => (
-                <PlaylistCard
-                  key={item.id}
-                  data={{
-                    id: item.id,
-                    title: item.name,
-                    description: item.description,
-                    duration: "3:45",
-                    artist: item.owner.display_name,
-                    album: "Lorem Ipsum",
-                    year: 2021,
-                  }}
-                />
-              ))}
-            </>
-          ) : (
-            <>
-              <LoopSkeletons Component={PlaylistCardSkeleton} count={20} />
-            </>
-          )}
-          {/* <PlaylistCardSkeleton />
-          {PlaylistLoremIpsumData.map((item) => (
-            <PlaylistCard key={item.id} data={item} />
-          ))} */}
-        </div>
+      <main className="select-playlists">
+        <h2 className="select-playlists__header">Select Playlists</h2>
+        <p className="select-playlists__info">
+          Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+          vulputate libero et velit.
+        </p>
+        <SearchBar />
+        {playlist ? (
+          <PlaylistSection playlist={playlist} />
+        ) : (
+          LoopSkeletons(PlaylistCardSkeleton, 10)
+        )}
       </main>
+      <section className="select-playlists__buttons">
+        <Button
+          text="text-[#6e3aff]"
+          background="bg-[#fbf9f9]"
+          border="border"
+          borderColor="border-[#6e3aff]"
+        >
+          Skip This Step
+        </Button>
+        <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
+          Get Started
+        </Button>
+      </section>
+      <Footer />
     </section>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import IndieRock from "../assets/IndieRock.jpeg";
 import JazzEvening from "../assets/JazzEvening.jpeg";
 import Summer from "../assets/Summer.png";
+import { PlaylistType } from "@/types/types";
 
 const playlists = [
   {
@@ -50,24 +51,28 @@ const playlists = [
   },
 ];
 
-export default function PlaylistSection() {
+export default function PlaylistSection(props: { playlist: PlaylistType }) {
+  console.log(props.playlist);
   return (
     <section className="playlist-section">
-      {playlists.map((item) => (
+      {props.playlist.items.map((item) => (
         <div className="playlist-section__card" key={item.id}>
-          <Image
-            className="playlist-section__image"
-            src={item.playlistImage}
-            alt={item.title}
-          />
+          <div className="playlist-section__image_holder">
+            <Image
+              className="playlist-section__image"
+              src={item.images[0].url}
+              alt={item.name}
+              fill
+            />
+          </div>
 
           <div className="playlist-section__info">
             <div className="playlist-section__checkbox">
-              <input type="checkbox" value={item.title}></input>
-              <label>{item.title}</label>
+              <input type="checkbox" value={item.name}></input>
+              <label>{item.name}</label>
             </div>
-            <span>{item.songs}</span>
-            <span>{item.artists}</span>
+            <span>{item.tracks.total} songs</span>
+            {/* <span>{item}</span> */}
           </div>
         </div>
       ))}

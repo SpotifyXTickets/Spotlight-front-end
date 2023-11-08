@@ -1,8 +1,13 @@
 .playlist-section {
-  @apply mt-6 grid grid-cols-2 gap-6;
+  @media (max-width: 600px) {
+    @apply mt-6 grid grid-cols-2 gap-6;
+  }
+  @media (min-width: 600px) {
+    @apply mt-6 grid grid-cols-10 gap-6;
+  }
 
   &__card {
-    @apply h-[19.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
+    @apply h-[17.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
 
     font-family: "Gilroy-Regular";
   }
@@ -11,6 +16,9 @@
     @apply h-44 w-44 rounded-t-xl;
   }
 
+  &__image_holder {
+    @apply relative w-full h-[12rem];
+  }
   &__info {
     @apply flex flex-col gap-0.5 mt-2 px-3 text-[#3D3D3D];
   }
