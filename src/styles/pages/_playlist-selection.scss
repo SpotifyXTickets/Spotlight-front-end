@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.playlist-selection {
+  @apply mx-1-col min-h-full pb-3xl;
+
+  padding-top: 140px;
+
+  h1 {
+    @apply text-h1 mb-md;
+  }
+
+  &__wrapper {
+    @apply h-screen;
+  }
+
+  .search-header {
+    @apply flex flex-row justify-between mb-md;
+
+    &__dropdowns {
+      @apply flex flex-row gap-sm;
+    }
+  }
+
+  &__item-list {
+    @apply grid grid-cols-3 gap-def;
+    @apply lg:grid-cols-2;
+    @apply sm:grid-cols-1;
+  }
+
+  &__item {
+    @apply bg-purple-500;
+  }
+
+  body {
+    margin: 0;
+  }
+}

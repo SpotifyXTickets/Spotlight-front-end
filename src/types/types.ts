@@ -23,6 +23,7 @@ export type EventType = {
       localDate: string;
       noSpecificTime: boolean;
       timeTBA: boolean;
+      localTime: string;
     };
     status: {
       code: string;
@@ -67,4 +68,47 @@ export type EventType = {
   test: boolean;
   type: string;
   url: string;
+  _embedded: {
+    venues: Array<{
+      name: string;
+      type: string;
+      id: string;
+      test: boolean;
+      url: string;
+      locale: string;
+      images: Array<{
+        fallback: boolean;
+        height: number;
+        width: number;
+        ratio: string;
+        url: string;
+      }>;
+      postalCode: string;
+      timezone: string;
+      city: {
+        name: string;
+      };
+      country: {
+        name: string;
+        countryCode: string;
+      };
+      address: {
+        line1: string;
+      };
+      location: {
+        longitude: string;
+        latitude: string;
+      };
+      upcomingEvents: {
+        _total: number;
+        _filtered: number;
+        "mfx-nl": number;
+      };
+      _links: {
+        self: {
+          href: string;
+        };
+      };
+    }>;
+  };
 };

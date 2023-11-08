@@ -2,8 +2,6 @@ import "../styles/pages/_playlist-selection.scss";
 import SearchBar from "@/components/SearchBar";
 import Dropdown from "@/components/Dropdown";
 import PlaylistCard from "@/components/PlaylistCard";
-import StickyFooter from "@/components/StickyFooter";
-import Header from "@/components/Header";
 import { useContext, useEffect, useState } from "react";
 import PlaylistCardSkeleton from "@/components/skeletons/PlaylistCardSkeleton";
 import { UserContext } from "@/providers/UserProvider";
@@ -12,6 +10,7 @@ import { verifyJwtToken } from "@/libs/auth";
 import { JWTPayload } from "jose";
 import Cookies from "universal-cookie";
 import { useGetTokenOrRedirect } from "@/hooks/useGetTokenOrRedirect";
+import NavBar from "@/components/NavBar";
 
 type Playlist = {
   href: string;
@@ -258,7 +257,7 @@ export default function Page() {
   console.log(user);
   return (
     <section className="playlist-selection__wrapper">
-      <Header />
+      <NavBar />
       <main className="playlist-selection">
         <h1 className="h1">Header</h1>
         <div className="search-header">
@@ -297,7 +296,6 @@ export default function Page() {
           ))} */}
         </div>
       </main>
-      <StickyFooter />
     </section>
   );
 }
