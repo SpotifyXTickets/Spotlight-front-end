@@ -4,6 +4,58 @@ import Dropdown from "@/components/Dropdown";
 import PlaylistCard from "@/components/PlaylistCard";
 import StickyFooter from "@/components/StickyFooter";
 import Header from "@/components/Header";
+import { useContext, useEffect, useState } from "react";
+import PlaylistCardSkeleton from "@/components/skeletons/PlaylistCardSkeleton";
+import { UserContext } from "@/providers/UserProvider";
+import { useCookies } from "react-cookie";
+import { verifyJwtToken } from "@/libs/auth";
+import { JWTPayload } from "jose";
+import Cookies from "universal-cookie";
+import { useGetTokenOrRedirect } from "@/hooks/useGetTokenOrRedirect";
+
+type Playlist = {
+  href: string;
+  items: Array<PlaylistItem>;
+  limit: number;
+  next: string;
+  offset: number;
+  previous: string;
+  total: number;
+};
+type PlaylistItem = {
+  collaborative: boolean;
+  description: string;
+  external_urls: {
+    spotify: string;
+  };
+  href: string;
+  id: string;
+  images: {
+    height: number;
+    url: string;
+    width: number;
+  }[];
+  name: string;
+  owner: {
+    display_name: string;
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
+    type: string;
+    uri: string;
+  };
+  primary_color: string;
+  public: boolean;
+  snapshot_id: string;
+  tracks: {
+    href: string;
+    total: number;
+  };
+  type: string;
+  uri: string;
+};
 
 let PlaylistLoremIpsumData = [
   {
@@ -157,7 +209,53 @@ let PlaylistLoremIpsumData = [
   },
 ];
 
+function LoopSkeletons(Component: any, count: number) {
+  let i = 0;
+  const components = [];
+  while (i < count) {
+    components.push(Component);
+    i++;
+  }
+  return (
+    <>
+      {components.map((Component, index) => (
+        <Component key={index} />
+      ))}
+    </>
+  );
+}
+
 export default function Page() {
+  const { user } = useContext(UserContext);
+  const testToken = useGetTokenOrRedirect();
+  const [playlists, setPlaylists] = useState<Playlist>();
+  // const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
+  console.log(playlists);
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+    const cookies = new Cookies();
+    const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
+    // console.log(twix_access_token);
+    console.log(cookies);
+    const getPlaylists = async (token: Promise<JWTPayload | null>) => {
+      const accessToken = ((await token) as { accessToken: string })
+        .accessToken;
+      console.log(cookies.get("twix_access_token"));
+      fetch("http://localhost:8000/playlist", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }).then(async (res) => {
+        setPlaylists((await res.json()) as Playlist);
+      });
+    };
+
+    getPlaylists(twix_access_token);
+  }, [user]);
+
+  console.log(user);
   return (
     <section className="playlist-selection__wrapper">
       <Header />
@@ -171,9 +269,32 @@ export default function Page() {
           </div>
         </div>
         <div className="playlist-selection__item-list">
+          {playlists ? (
+            <>
+              {playlists.items.map((item) => (
+                <PlaylistCard
+                  key={item.id}
+                  data={{
+                    id: item.id,
+                    title: item.name,
+                    description: item.description,
+                    duration: "3:45",
+                    artist: item.owner.display_name,
+                    album: "Lorem Ipsum",
+                    year: 2021,
+                  }}
+                />
+              ))}
+            </>
+          ) : (
+            <>
+              <LoopSkeletons Component={PlaylistCardSkeleton} count={20} />
+            </>
+          )}
+          {/* <PlaylistCardSkeleton />
           {PlaylistLoremIpsumData.map((item) => (
             <PlaylistCard key={item.id} data={item} />
-          ))}
+          ))} */}
         </div>
       </main>
       <StickyFooter />

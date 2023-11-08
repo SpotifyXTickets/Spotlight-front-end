@@ -1,11 +1,34 @@
 import "../styles/pages/_recommendations-selection.scss";
 
 import EventCard from "@/components/EventCard";
+import { EventType } from "@/types/types";
+import { GetServerSideProps, NextPage } from "next";
+import { Page } from "@playwright/test";
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import Dropdown from "@/components/Dropdown";
 
-export default function Home() {
+type PageProps = {
+  events: EventType[];
+};
+
+export const getServerSideProps: GetServerSideProps<PageProps> = async (
+  context
+) => {
+  const props = { events: [] as EventType[] } as PageProps;
+  await fetch("http://localhost:8000/events")
+    .then(async (res) => {
+      const data = (await res.json()).events as EventType[];
+      props.events = data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  return { props };
+};
+
+export const Home: NextPage<PageProps> = (props) => {
   return (
     <section className="recommendations-selection__wrapper">
       <Header />
@@ -19,11 +42,13 @@ export default function Home() {
           </div>
         </div>
         <div className="recommendations-selection__list">
-          <EventCard />
-          <EventCard />
-          <EventCard />
+          {props.events.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
         </div>
       </main>
     </section>
   );
-}
+};
+
+export default Home;
