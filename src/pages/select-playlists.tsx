@@ -1,5 +1,7 @@
 import "../styles/pages/_select-playlists.scss";
 
+import Link from "next/link";
+
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import PlaylistSection from "@/components/PlaylistSection";
@@ -53,17 +55,21 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
         <PlaylistSection />
       </main>
       <section className="select-playlists__buttons">
-        <Button
-          text="text-[#6e3aff]"
-          background="bg-[#fbf9f9]"
-          border="border"
-          borderColor="border-[#6e3aff]"
-        >
-          Skip This Step
-        </Button>
-        <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
-          Get Started
-        </Button>
+        <Link className="select-playlists__link" href="/home-page">
+          <Button
+            text="text-[#6e3aff]"
+            background="bg-[#fbf9f9]"
+            border="border"
+            borderColor="border-[#6e3aff]"
+          >
+            Skip This Step
+          </Button>
+        </Link>
+        <Link className="select-playlists__link" href="/home-page">
+          <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
+            Get Started
+          </Button>
+        </Link>
       </section>
       <Footer />
     </section>
