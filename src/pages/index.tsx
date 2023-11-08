@@ -5,8 +5,11 @@ import { EventType } from "@/types/types";
 import { GetServerSideProps, NextPage } from "next";
 import { Page } from "@playwright/test";
 import Header from "@/components/Header";
+import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/SearchBar";
-import Dropdown from "@/components/Dropdown";
+import Categories from "@/components/Categories";
+import EventsSection from "@/components/EventsSection";
+import Footer from "@/components/Footer";
 
 type PageProps = {
   events: EventType[];
@@ -30,23 +33,16 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 
 export const Home: NextPage<PageProps> = (props) => {
   return (
-    <section className="recommendations-selection__wrapper">
-      <Header />
+    <section>
+      <NavBar />
       <main className="recommendations-selection">
-        <h1 className="h1">Header</h1>
-        <div className="search-header">
-          <SearchBar />
-          <div className="search-header__dropdowns">
-            <Dropdown dropdownTitle={"Sort by"} />
-            <Dropdown dropdownTitle={"Filters"} />
-          </div>
-        </div>
-        <div className="recommendations-selection__list">
-          {props.events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
+        <h1 className="recommendations-selection__title">Best For You</h1>
+        <SearchBar />
+        <Categories />
+        <EventsSection title="Pop Music" />
+        <EventsSection title="R&B Music" />
       </main>
+      <Footer />
     </section>
   );
 };

@@ -1,37 +1,33 @@
 .event-card {
-  &__wrapper {
-    @apply grid grid-cols-3 rounded-lg border border-black;
-  }
+  @apply flex rounded-xl h-52 shadow-md bg-white;
 
   &__image {
-    @apply rounded-l-md w-full border-r border-black;
+    @apply object-cover max-w-[10.85rem] rounded-l-lg;
   }
 
-  &__content {
-    @apply flex items-center justify-between col-span-2 px-12;
+  &__info {
+    @apply flex flex-col justify-between p-4 max-w-[16rem];
+  }
+
+  &__span {
+    @apply text-[#3D3D3D];
+  }
+
+  &__title {
+    @apply flex justify-between text-lg;
+
+    font-family: "Gilroy-Semibold";
+  }
+
+  &__heart {
+    @apply cursor-pointer;
   }
 
   &__button {
-    @apply font-medium text-white bg-slate-700 p-2 px-3 rounded-lg ml-32;
+    @apply text-[#6e3aff] text-left;
+
+    font-family: "Gilroy-Semibold";
   }
 
-  &__description {
-    @apply flex flex-col gap-8 max-h-44;
-
-    .description-text {
-      @apply max-w-md text-justify;
-    }
-  }
-
-  &__tags {
-    @apply flex flex-col items-center justify-between h-full max-h-44;
-
-    .tag-wrapper {
-      @apply flex items-center justify-between gap-3 w-full;
-    }
-
-    .tag {
-      @apply bg-slate-400 p-1 px-4 rounded-lg;
-    }
-  }
+  font-family: "Gilroy-Regular";
 }

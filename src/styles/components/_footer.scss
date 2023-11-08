@@ -1,0 +1,29 @@
+.footer {
+  @apply mb-6 pb-8 flex flex-col bottom-0 bg-[#6e3aff] mx-4 text-white rounded-xl;
+
+  &__items {
+    @apply flex flex-col justify-between gap-5 mx-7 -mt-10;
+  }
+
+  &__line {
+    @apply opacity-50;
+  }
+
+  &__company {
+    @apply opacity-80;
+  }
+
+  &__logo {
+    @apply w-44 h-36;
+  }
+
+  &__social {
+    @apply flex gap-4;
+
+    .icon {
+      @apply cursor-pointer;
+    }
+  }
+
+  font-family: "Gilroy-Regular";
+}

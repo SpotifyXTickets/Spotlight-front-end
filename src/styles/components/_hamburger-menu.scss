@@ -1,0 +1,17 @@
+.hamburger-menu {
+  @apply h-screen w-screen top-0 absolute bg-[#fbf9f9] flex flex-col gap-2 items-start z-10;
+
+  &__logo {
+    @apply mt-6 mb-20;
+  }
+
+  &__item {
+    @apply py-5 mx-4 w-full cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#E7E7E7];
+  }
+
+  &__button {
+    @apply fixed top-0 right-0 pt-7 pr-5 z-30;
+  }
+
+  font-family: "Gilroy-Semibold";
+}
