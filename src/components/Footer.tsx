@@ -1,5 +1,5 @@
 import "@/styles/components/_footer.scss";
-import Logo from "../assets/museve-white.svg";
+import Logo from "../assets/museve-logo-white.svg";
 import Image from "next/image";
 import FacebookIcon from "../assets/facebook.svg";
 import InstagramIcon from "../assets/instagram.svg";
@@ -15,6 +15,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <Image className="footer__logo" src={Logo} alt="Museve Logo" />
+
       <section className="footer__items">
         {footerItems.map((item) => (
           <span className="" key={item.id}>
