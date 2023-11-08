@@ -1,0 +1,33 @@
+.event-card-drag {
+  @apply flex flex-col rounded-xl h-[19rem] shadow-md bg-white whitespace-nowrap;
+
+  &__image {
+    @apply object-cover rounded-t-lg max-h-[15rem] pointer-events-none;
+  }
+
+  &__info {
+    @apply flex flex-col gap-1 justify-between p-4 max-w-[16rem];
+  }
+
+  &__span {
+    @apply text-[#3D3D3D];
+  }
+
+  &__title {
+    @apply flex justify-between text-lg;
+
+    font-family: "Gilroy-Semibold";
+  }
+
+  &__heart {
+    @apply cursor-pointer;
+  }
+
+  &__button {
+    @apply text-[#6e3aff] text-left;
+
+    font-family: "Gilroy-Semibold";
+  }
+
+  font-family: "Gilroy-Regular";
+}

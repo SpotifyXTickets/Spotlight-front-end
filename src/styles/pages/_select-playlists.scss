@@ -42,4 +42,8 @@ body {
   &__buttons {
     @apply fixed bottom-0 w-full bg-[#fbf9f9] px-4 flex gap-4;
   }
+
+  &__link {
+    @apply w-full;
+  }
 }

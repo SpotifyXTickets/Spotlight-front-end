@@ -24,7 +24,9 @@ export default function Categories() {
 
   useEffect(() => {
     if (dragSlider.current) {
-      setWidth(dragSlider.current.scrollWidth - dragSlider.current.offsetWidth);
+      const widthConstraint =
+        dragSlider.current.scrollWidth - dragSlider.current.offsetWidth;
+      setWidth(widthConstraint > 0 ? widthConstraint : 0);
     }
   }, []);
   const handleCategoryClick = (categoryId: number) => {
