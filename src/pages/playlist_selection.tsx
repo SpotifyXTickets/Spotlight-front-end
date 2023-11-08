@@ -9,6 +9,10 @@ import { useContext, useEffect, useState } from "react";
 import PlaylistCardSkeleton from "@/components/skeletons/PlaylistCardSkeleton";
 import { UserContext } from "@/providers/UserProvider";
 import { useCookies } from "react-cookie";
+import { verifyJwtToken } from "@/libs/auth";
+import { JWTPayload } from "jose";
+import Cookies from "universal-cookie";
+import { useGetTokenOrRedirect } from "@/hooks/useGetTokenOrRedirect";
 
 type Playlist = {
   href: string;
@@ -223,22 +227,36 @@ function LoopSkeletons(Component: any, count: number) {
 }
 
 export default function Page() {
-  const [cookies, setCookies, removeCookies] = useCookies();
   const { user } = useContext(UserContext);
+  const testToken = useGetTokenOrRedirect();
   const [playlists, setPlaylists] = useState<Playlist>();
+  // const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
   console.log(playlists);
   useEffect(() => {
     if (!user) {
       return;
     }
-    fetch("http://localhost:8000/playlist", {
-      headers: {
-        Authorization: `Bearer ${cookies.api_access_token}`,
-      },
-    }).then(async (res) => {
-      setPlaylists((await res.json()) as Playlist);
-    });
-  }, [user, cookies]);
+    const cookies = new Cookies();
+    const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
+    // console.log(twix_access_token);
+    console.log(cookies);
+    const getPlaylists = async (token: Promise<JWTPayload | null>) => {
+      const accessToken = ((await token) as { accessToken: string })
+        .accessToken;
+      console.log(cookies.get("twix_access_token"));
+      fetch("http://localhost:8000/playlist", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }).then(async (res) => {
+        setPlaylists((await res.json()) as Playlist);
+      });
+    };
+
+    getPlaylists(twix_access_token);
+  }, [user]);
+
+  console.log(user);
   return (
     <section className="playlist-selection__wrapper">
       <Header />

@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
 import { AppProps } from "next/app";
 import UserProvider from "@/providers/UserProvider";
+import Cookies from "cookies";
 import { CookiesProvider } from "react-cookie";
 import Layout from "@/components/Layout";
 
@@ -17,11 +18,15 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <Layout>
-      <CookiesProvider>
-        <UserProvider>
-          <Component {...pageProps} />
-        </UserProvider>
-      </CookiesProvider>
+      {Component.name === "SpotifyAuthorizer" ? (
+        <Component {...pageProps} />
+      ) : (
+        <CookiesProvider>
+          <UserProvider>
+            <Component {...pageProps} />
+          </UserProvider>
+        </CookiesProvider>
+      )}
     </Layout>
   );
 }
