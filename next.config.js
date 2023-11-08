@@ -14,6 +14,18 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "s1.ticketm.net",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.ticketmaster.eu",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

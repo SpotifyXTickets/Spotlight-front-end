@@ -3,10 +3,25 @@ import "@/styles/components/_header.scss";
 import Image from "next/image";
 import { useContext } from "react";
 import { useCookies } from "react-cookie";
+import TestIcon from "../app/favicon.ico";
+import SettingsIcon from "../assets/settings-icon.svg";
 
 export default function Header() {
   const { user } = useContext(UserContext);
-  console.log(user);
+
+  let userImageUrl = "";
+  if (user) {
+    try {
+      userImageUrl = user.images
+        ? user.images.sort((a, b) => {
+            return a.height < b.height ? -1 : 1;
+          })[0].url
+        : "https://picsum.photos/64";
+    } catch (e) {
+      userImageUrl = "https://picsum.photos/64";
+    }
+  }
+
   return (
     <header className="header">
       <div className="header__content">
@@ -24,23 +39,16 @@ export default function Header() {
           {user ? (
             <>
               <div className="header__user">
-                <Image
-                  src={
-                    user.images
-                      ? user.images.sort((a, b) => {
-                          return a.height < b.height ? -1 : 1;
-                        })[0].url
-                      : "https://picsum.photos/64"
-                  }
-                  height={45}
-                  width={45}
-                  alt=""
-                />
+                <Image src={userImageUrl} height={45} width={45} alt="" />
               </div>
               <div className="header__settings">{user.display_name}</div>
             </>
           ) : (
-            <>Authorize Spotify</>
+            <>
+              {" "}
+              <Image className="w-10" src={TestIcon} alt="profile picture" />
+              <Image className="w-6" src={SettingsIcon} alt="settings svg" />
+            </>
           )}
         </div>
       </div>

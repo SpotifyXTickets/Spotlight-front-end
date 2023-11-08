@@ -39,45 +39,55 @@ type PageProps = {
 
 export const UserContext = createContext<{
   user?: User;
-}>({ user: undefined });
+  refreshUser: () => Promise<void>;
+}>({ user: undefined, refreshUser: async () => {} });
 
 export const UserProvider: NextPage<{ children: React.ReactNode }> = (
   props
 ) => {
   console.log(props); //
   const [user, setUser] = useState<User>();
-  useEffect(() => {
+
+  const getUser = async () => {
     const cookies = new Cookies();
+    const twix_access_token = await verifyJwtToken(
+      cookies.get("twix_access_token")
+    );
+    const twix_token = (await twix_access_token) as { accessToken: string };
 
-    const getUser = async () => {
-      const twix_access_token = await verifyJwtToken(
-        cookies.get("twix_access_token")
-      );
-      const accessToken = ((await twix_access_token) as { accessToken: string })
-        .accessToken;
+    if (!twix_token) {
+      setUser(undefined);
+      return;
+    }
 
-      console.log(accessToken);
-      fetch("http://localhost:8000/user", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+    fetch("http://localhost:8000/user", {
+      headers: {
+        Authorization: `Bearer ${twix_token.accessToken}`,
+      },
+    })
+      .then(async (res) => {
+        console.log(res);
+        const data = (await res.json()) as User;
+        setUser(data);
       })
-        .then(async (res) => {
-          console.log(res);
-          const data = (await res.json()) as User;
-          setUser(data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
-    getUser();
+  useEffect(() => {
+    try {
+      getUser();
+    } catch (err) {
+      setUser(undefined);
+    }
   }, []);
+
   return (
     <UserContext.Provider
       value={{
         user: user,
+        refreshUser: getUser,
       }}
     >
       {props.children}
