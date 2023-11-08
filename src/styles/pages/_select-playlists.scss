@@ -22,14 +22,8 @@ body {
   background-color: #fbf9f9;
 }
 
-.recommendations-selection {
+.playlist-section {
   @apply mx-4 min-h-full pb-xl;
 
-  padding-top: 100px;
-
-  &__title {
-    @apply text-3xl mb-5 text-[#292929];
-
-    font-family: "Gilroy-Bold";
-  }
+  padding-top: 50px;
 }

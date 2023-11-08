@@ -1,0 +1,44 @@
+.playlist-section {
+  &__header {
+    color: #292929;
+    font-family: Gilroy;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+  }
+
+  &__p {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+  }
+
+  .playlists-block {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .playlist-card {
+    height: 13rem;
+    border-radius: 0.75rem;
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+      0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    font-family: "Gilroy-Regular";
+    background-color: #ffffff;
+    margin-right: 10px;
+  }
+
+  input[type="checkbox"] {
+    border: 1px solid #6e3aff;
+  }
+}

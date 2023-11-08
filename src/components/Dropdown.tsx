@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "@/styles/components/_dropdown.scss";
 
 export default function Dropdown(props: { dropdownTitle: string }) {
@@ -11,6 +12,7 @@ export default function Dropdown(props: { dropdownTitle: string }) {
           <option>option 1</option>
           <option>option 2</option>
         </select>
+        {/* <Image className="dropdown__arrow" src={} alt="arrow" /> */}
       </div>
     </section>
   );
