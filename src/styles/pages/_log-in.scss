@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Gilroy-Regular;
+    src: url("../../fonts/Gilroy-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: Gilroy-Semibold;
+    src: url("../../fonts/Gilroy-Semibold.ttf");
+  }
+  
+  @font-face {
+    font-family: Gilroy-Bold;
+    src: url("../../fonts/Gilroy-Bold.ttf");
+  }
+  
+  body {
+    margin: 0;
+    background-color: #fbf9f9;
+  }
+
+  .log-in-block {
+    @apply mx-4 min-h-full pb-xl;
+  
+    padding-top: 100px;
+  
+    &__wrapper {
+      @apply h-screen;
+    }
+  }
+
+  h1 {
+    color: #000;
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 37px; 
+    margin-bottom: 15px ;
+  }
+
+  p {
+    color: #0A0A0A;
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+  }
+
+  button {
+    display: flex;
+    padding: 15px 83px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--Purple, #6E3AFF);
+    color: #fbf9f9;
+    width: 100%;
+
+  }
+  
