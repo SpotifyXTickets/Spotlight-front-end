@@ -3,9 +3,9 @@ import { NextResponse, NextRequest } from "next/server";
 import { GetServerSideProps, NextPage } from "next";
 // import Cookies from "cookies";
 import Cookies from "universal-cookie";
-import { useRouter } from "next/router";
 import { Page } from "@playwright/test";
 import { getJwtSecretKey } from "@/libs/auth";
+import { useEffect } from "react";
 
 type PageProps = {
   success: boolean;
@@ -31,10 +31,34 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
         })
           .setProtectedHeader({ alg: "HS256" })
           .setIssuedAt()
-          .setExpirationTime("2m")
+          .setExpirationTime("7d")
           .sign(getJwtSecretKey());
 
         props = { success: true, twix_access_token: token };
+        const cookies = new Cookies();
+        cookies.set("twix_access_token", token, {
+          path: "/",
+          sameSite: "strict",
+        });
+
+        const twixRedirectUrl = cookies.get("twix_redirect_url");
+        if (twixRedirectUrl) {
+          return {
+            redirect: {
+              permanent: false,
+              destination: twixRedirectUrl,
+            },
+            props: { success: false, twix_access_token: undefined },
+          };
+        } else {
+          return {
+            redirect: {
+              permanent: false,
+              destination: "/playlist_selection",
+            },
+            props: { success: false, twix_access_token: undefined },
+          };
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -52,19 +76,24 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   };
 };
 export const SpotifyAuthorizer: NextPage<PageProps> = (props) => {
-  const router = useRouter();
-  if (props.success) {
-    const cookies = new Cookies();
-    cookies.set("twix_access_token", props.twix_access_token, {
-      path: "/",
-      sameSite: "strict",
-    });
+  useEffect(() => {
+    if (props.success) {
+      const cookies = new Cookies();
+      cookies.set("twix_access_token", props.twix_access_token, {
+        path: "/",
+        sameSite: "strict",
+      });
 
-    const twixRedirectUrl = cookies.get("twix_redirect_url");
-    if (twixRedirectUrl) {
-      cookies.remove("twix_redirect_url");
-      router.push(twixRedirectUrl);
+      const twixRedirectUrl = cookies.get("twix_redirect_url");
+      if (twixRedirectUrl) {
+        cookies.remove("twix_redirect_url");
+        window.location.href = twixRedirectUrl;
+      } else {
+        window.location.href = "/playlist_selection";
+      }
     }
+  }, [props]);
+  if (props.success) {
     return <></>;
   }
 
