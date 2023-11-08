@@ -19,7 +19,13 @@ export default function Login() {
         <p className="login__text">
           Welcome to the world of music events that was created for you
         </p>
-        <Button icon={SpotifyIcon}>Continue with Spotify</Button>
+        <Button
+          text="text-[#fbf9f9]"
+          background="bg-[#6e3aff]"
+          icon={SpotifyIcon}
+        >
+          Continue with Spotify
+        </Button>
       </main>
       <Footer />
     </section>
