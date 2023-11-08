@@ -52,7 +52,7 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
           vulputate libero et velit.
         </p>
         <SearchBar />
-        <PlaylistSection />
+        {props.playlist ? <PlaylistSection playlist={props.playlist} /> : <></>}
       </main>
       <section className="select-playlists__buttons">
         <Link className="select-playlists__link" href="/home-page">
