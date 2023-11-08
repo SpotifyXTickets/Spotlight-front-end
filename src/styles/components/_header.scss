@@ -18,7 +18,7 @@
   }
 
   &__navigation {
-    @apply flex flex-row gap-sm;
+    @apply flex flex-row gap-md;
 
     a {
       @apply hover:cursor-pointer;
@@ -26,6 +26,10 @@
   }
 
   &__settings {
-    @apply hover:cursor-pointer;
+    @apply hover:cursor-pointer ml-2;
+  }
+
+  &__icon {
+    @apply rounded-lg bg-black w-md;
   }
 }

@@ -2,7 +2,7 @@
   @apply relative;
 
   &__options {
-    @apply p-sm pr-def text-white rounded-md outline-none appearance-none;
+    @apply p-sm pr-def text-white rounded-md outline-none appearance-none cursor-pointer;
 
     background-color: #2d3648;
   }

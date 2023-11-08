@@ -1,12 +1,12 @@
-import Link from "next/link";
-import "../styles/pages/_home-page.scss";
+import "../styles/pages/_recommendations-selection.scss";
 
-import Navigation from "@/components/Navigation";
-import SearchFilters from "@/components/SearchFilters";
 import EventCard from "@/components/EventCard";
 import { EventType } from "@/types/types";
 import { GetServerSideProps, NextPage } from "next";
 import { Page } from "@playwright/test";
+import Header from "@/components/Header";
+import SearchBar from "@/components/SearchBar";
+import Dropdown from "@/components/Dropdown";
 
 type PageProps = {
   events: EventType[];
@@ -30,21 +30,24 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 
 export const Home: NextPage<PageProps> = (props) => {
   return (
-    <>
-      <Navigation />
-      <main className="home-page mt-32 px-28">
-        <h1 className="font-medium">Header</h1>
-
-        <section className="">
-          <SearchFilters />
-          {/* Repetition going to be replaced my mapping the actual events */}
+    <section className="recommendations-selection__wrapper">
+      <Header />
+      <main className="recommendations-selection">
+        <h1 className="h1">Header</h1>
+        <div className="search-header">
+          <SearchBar />
+          <div className="search-header__dropdowns">
+            <Dropdown dropdownTitle={"Sort by"} />
+            <Dropdown dropdownTitle={"Filters"} />
+          </div>
+        </div>
+        <div className="recommendations-selection__list">
           {props.events.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
-        </section>
-        {/* <Link href="/page">link showing route to different page</Link> */}
+        </div>
       </main>
-    </>
+    </section>
   );
 };
 

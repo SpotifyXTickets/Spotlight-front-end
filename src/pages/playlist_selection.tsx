@@ -3,7 +3,6 @@ import SearchBar from "@/components/SearchBar";
 import Dropdown from "@/components/Dropdown";
 import PlaylistCard from "@/components/PlaylistCard";
 import StickyFooter from "@/components/StickyFooter";
-import Navigation from "@/components/Navigation";
 import Header from "@/components/Header";
 import { useContext, useEffect, useState } from "react";
 import PlaylistCardSkeleton from "@/components/skeletons/PlaylistCardSkeleton";

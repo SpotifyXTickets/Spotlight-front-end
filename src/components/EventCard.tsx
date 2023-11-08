@@ -1,6 +1,8 @@
 import Image from "next/image";
 import EventPlaceholder from "../assets/event-placeholder.jpg";
 import { EventType } from "@/types/types";
+import "../styles/components/_event-card.scss";
+import Button from "@/components/Button";
 
 export default function EventCard(props: { event: EventType }) {
   const { event } = props;
@@ -53,9 +55,13 @@ export default function EventCard(props: { event: EventType }) {
               ));
             })}
           </div>
-          <button className="font-medium text-white bg-slate-700 p-2 px-3 rounded-lg ml-32">
-            Button
-          </button>
+          <Button
+            text={"Button"}
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+            class={"event-card__button"}
+          />
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ export default function Header() {
       <div className="header__content">
         <div className="header__left-wrapper">
           <a className="header__logo" href="" title="">
-            <img src="https://picsum.photos/36" alt="" />
+            <Image className="header__icon" src={TestIcon} alt="" />
           </a>
           <nav className="header__navigation">
             <a>Nav item 1</a>
