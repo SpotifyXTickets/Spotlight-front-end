@@ -31,10 +31,6 @@ body {
     @apply -mt-6;
   }
 
-  &__spotify-icon {
-    @apply h-5 w-5;
-  }
-
   &__header {
     @apply text-black text-center text-3xl mt-4;
 
@@ -45,11 +41,5 @@ body {
     @apply text-black text-center text-base mt-3;
 
     font-family: "Gilroy-Regular";
-  }
-
-  &__button {
-    @apply w-full flex justify-center p-4 text-[#fbf9f9] bg-[#6e3aff] rounded-xl mt-6 gap-2 mb-10;
-
-    font-family: "Gilroy-Semibold";
   }
 }

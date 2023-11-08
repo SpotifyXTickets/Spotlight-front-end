@@ -1,9 +1,9 @@
 .button {
-  @apply bg-lead text-white font-medium text-default py-xs px-sm border-2 border-lead;
+  @apply w-full flex justify-center p-4 rounded-xl gap-2 my-4;
 
-  border-radius: 6px;
-
-  &--clear {
-    @apply bg-transparent text-lead;
+  &__icon {
+    @apply h-5 w-5;
   }
+
+  font-family: "Gilroy-Semibold";
 }
