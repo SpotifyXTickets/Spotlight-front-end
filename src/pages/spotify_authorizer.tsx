@@ -1,11 +1,10 @@
 import { SignJWT } from "jose";
-import { NextResponse, NextRequest } from "next/server";
 import { GetServerSideProps, NextPage } from "next";
 // import Cookies from "cookies";
 import Cookies from "universal-cookie";
-import { Page } from "@playwright/test";
 import { getJwtSecretKey } from "@/libs/auth";
 import { useEffect } from "react";
+import { getApiHost } from "@/libs/getApiHost";
 
 type PageProps = {
   success: boolean;
@@ -16,13 +15,12 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   context
 ) => {
   const { code, state } = context.query;
+  const apiHost = getApiHost();
 
   let props = { success: false } as PageProps;
 
   if (code !== undefined && state !== undefined) {
-    await fetch(
-      `http://localhost:8000/authorize/spotify?state=${state}&code=${code}`
-    )
+    await fetch(`${apiHost}/authorize/spotify?state=${state}&code=${code}`)
       .then(async (res) => {
         const data = (await res.json()) as { accessToken: string };
         console.log(data);
@@ -70,7 +68,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   return {
     redirect: {
       permanent: false,
-      destination: "http://localhost:8000/authorize",
+      destination: `${apiHost}/authorize`,
     },
     props: { success: false, twix_access_token: undefined },
   };

@@ -1,18 +1,14 @@
-import "../styles/pages/_login.scss";
+import "../styles/pages/_recommendations-selection.scss";
 
 import { EventType } from "@/types/types";
 import { GetServerSideProps, NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
 
-import LoginImage from "../assets/login-image.png";
-import SpotifyIcon from "../assets/spotify-icon.svg";
-import Button from "@/components/Button";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import EventsSection from "@/components/EventsSection";
 import SearchBar from "@/components/SearchBar";
 import Categories from "@/components/Categories";
+import { getApiHost } from "@/libs/getApiHost";
 
 type PageProps = {
   events: EventType[];
@@ -36,8 +32,9 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     popEvents: [] as EventType[],
     rnbEvents: [] as EventType[],
   } as PageProps;
+  const apiHost = getApiHost();
 
-  const rockEvents = await fetch("http://localhost:8000/events/rock?size=3")
+  const rockEvents = await fetch(`${apiHost}/events/rock?size=3`)
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];
       // props.rockEvents = data;
@@ -48,7 +45,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     });
 
   const danceElectronicEvents = await fetch(
-    "http://localhost:8000/events/danceelectronic?size=3"
+    `${apiHost}/events/danceelectronic?size=3`
   )
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];
@@ -59,9 +56,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
       console.error(err);
     });
 
-  const hipHopRapEvents = await fetch(
-    "http://localhost:8000/events/hiphoprap?size=3"
-  )
+  const hipHopRapEvents = await fetch(`${apiHost}/events/hiphoprap?size=3`)
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];
       // props.hipHopRapEvents = data;
@@ -71,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
       console.error(err);
     });
 
-  const folkEvents = await fetch("http://localhost:8000/events/folk?size=3")
+  const folkEvents = await fetch(`${apiHost}/events/folk?size=3`)
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];
       // props.folkEvents = data;
@@ -81,7 +76,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
       console.error(err);
     });
 
-  const popEvents = await fetch("http://localhost:8000/events/pop?size=3")
+  const popEvents = await fetch(`${apiHost}/events/pop?size=3`)
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];
       // props.popEvents = data;
@@ -91,7 +86,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
       console.error(err);
     });
 
-  const rnbEvents = await fetch("http://localhost:8000/events/rnb?size=3")
+  const rnbEvents = await fetch(`${apiHost}/events/rnb?size=3`)
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];
       // props.rnbEvents = data;

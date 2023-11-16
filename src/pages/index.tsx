@@ -1,7 +1,5 @@
 import "../styles/pages/_login.scss";
 
-import { EventType } from "@/types/types";
-import { GetServerSideProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,7 +21,7 @@ export const Login = () => {
         <p className="login__text">
           Welcome to the world of music events that was created for you
         </p>
-        <Link href="/select-playlists">
+        <Link href="/playlist_selection">
           <Button
             text="text-[#fbf9f9]"
             background="bg-[#6e3aff]"

@@ -1,11 +1,8 @@
 import "../styles/pages/_playlist-selection.scss";
 import SearchBar from "@/components/SearchBar";
 // import Dropdown from "@/components/Dropdown";
-import PlaylistCard from "@/components/PlaylistCard";
 import { useContext, useEffect, useState } from "react";
-import PlaylistCardSkeleton from "@/components/skeletons/PlaylistCardSkeleton";
 import { UserContext } from "@/providers/UserProvider";
-import { useCookies } from "react-cookie";
 import { verifyJwtToken } from "@/libs/auth";
 import { JWTPayload } from "jose";
 import Cookies from "universal-cookie";
@@ -14,6 +11,8 @@ import NavBar from "@/components/NavBar";
 import PlaylistSection from "@/components/PlaylistSection";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
+import Link from "next/link";
+import { getApiHost } from "@/libs/getApiHost";
 
 type Playlist = {
   href: string;
@@ -231,6 +230,7 @@ export default function Page() {
   const { user } = useContext(UserContext);
   const testToken = useGetTokenOrRedirect();
   const [playlist, setPlaylist] = useState<Playlist>();
+  const apiHost = getApiHost();
   // const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
   console.log(playlist);
   useEffect(() => {
@@ -244,7 +244,7 @@ export default function Page() {
     const getPlaylists = async (token: Promise<JWTPayload | null>) => {
       const accessToken = ((await token) as { accessToken: string })
         .accessToken;
-      fetch("http://localhost:8000/playlist", {
+      fetch(`${apiHost}/playlist`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -262,29 +262,29 @@ export default function Page() {
       <NavBar />
       <main className="select-playlists">
         <h2 className="select-playlists__header">Select Playlists</h2>
-        <p className="select-playlists__info">
+        {/* <p className="select-playlists__info">
           Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
           vulputate libero et velit.
-        </p>
+        </p> */}
         <SearchBar />
-        {playlist ? (
-          <PlaylistSection playlist={playlist} />
-        ) : (
-          LoopSkeletons(PlaylistCardSkeleton, 10)
-        )}
+        {playlist ? <PlaylistSection playlist={playlist} /> : <></>}
       </main>
       <section className="select-playlists__buttons">
-        <Button
-          text="text-[#6e3aff]"
-          background="bg-[#fbf9f9]"
-          border="border"
-          borderColor="border-[#6e3aff]"
-        >
-          Skip This Step
-        </Button>
-        <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
-          Get Started
-        </Button>
+        <Link className="select-playlists__link" href="/home-page">
+          <Button
+            text="text-[#6e3aff]"
+            background="bg-[#fbf9f9]"
+            border="border"
+            borderColor="border-[#6e3aff]"
+          >
+            Skip This Step
+          </Button>
+        </Link>
+        <Link className="select-playlists__link" href="/home-page">
+          <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
+            Get Started
+          </Button>
+        </Link>
       </section>
       <Footer />
     </section>

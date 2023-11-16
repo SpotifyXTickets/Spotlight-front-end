@@ -56,7 +56,11 @@ export default function PlaylistSection(props: { playlist: PlaylistType }) {
   return (
     <section className="playlist-section">
       {props.playlist.items.map((item) => (
-        <div className="playlist-section__card" key={item.id}>
+        <label
+          className="playlist-section__card"
+          key={item.id}
+          htmlFor={"playlist-section__checkbox_" + item.id}
+        >
           <div className="playlist-section__image_holder">
             <Image
               className="playlist-section__image"
@@ -68,13 +72,17 @@ export default function PlaylistSection(props: { playlist: PlaylistType }) {
 
           <div className="playlist-section__info">
             <div className="playlist-section__checkbox">
-              <input type="checkbox" value={item.name}></input>
+              <input
+                type="checkbox"
+                value={item.name}
+                id={"playlist-section__checkbox_" + item.id}
+              ></input>
               <label>{item.name}</label>
             </div>
             <span>{item.tracks.total} songs</span>
             {/* <span>{item}</span> */}
           </div>
-        </div>
+        </label>
       ))}
     </section>
   );
