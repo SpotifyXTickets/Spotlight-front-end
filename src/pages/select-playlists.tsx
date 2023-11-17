@@ -17,7 +17,7 @@ type PageProps = {
 };
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
-  context
+  context,
 ) => {
   const cookies = new Cookies();
   console.log(cookies.getAll());

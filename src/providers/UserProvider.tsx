@@ -43,7 +43,7 @@ export const UserContext = createContext<{
 }>({ user: undefined, refreshUser: async () => {} });
 
 export const UserProvider: NextPage<{ children: React.ReactNode }> = (
-  props
+  props,
 ) => {
   console.log(props); //
   const [user, setUser] = useState<User>();
@@ -51,7 +51,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
   const getUser = async () => {
     const cookies = new Cookies();
     const twix_access_token = await verifyJwtToken(
-      cookies.get("twix_access_token")
+      cookies.get("twix_access_token"),
     );
     const twix_token = (await twix_access_token) as { accessToken: string };
 

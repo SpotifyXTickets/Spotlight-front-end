@@ -58,7 +58,7 @@ type PlaylistItem = {
   uri: string;
 };
 
-let PlaylistLoremIpsumData = [
+const PlaylistLoremIpsumData = [
   {
     id: 1,
     title: "Lorem Ipsum Dolor Sit Amet",
