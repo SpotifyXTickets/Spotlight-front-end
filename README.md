@@ -62,6 +62,13 @@ In order to use prettier run the following line:
 npx prettier --write .
 ```
 
+In order to check which files would be formatted without actually modifying them with prettier, run the following line:
+
+```bash
+npx prettier --check .
+
+```
+
 ## Learn More
 
 To learn more about the technologies we're using, take a look at the following resources:
