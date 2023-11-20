@@ -201,14 +201,14 @@ const config: Config = {
 
 // Take the fontList and return an object with the font sizes and line heights calculated using the fontClamp() function
 function loadFontSizes(fontList: FontSize[]) {
-  var response: { [key: string]: any } = {};
+  const response: { [key: string]: any } = {};
   fontList.forEach((element: FontSize) => {
     response[element.name] = fontClamp(
       element.fontSize,
       element.lineHeight,
       element.multiplier,
       element.fontSizeMob,
-      element.lineHeightMob
+      element.lineHeightMob,
     );
   });
 
@@ -223,14 +223,14 @@ function fontClamp(
   lineheight: number,
   multiplier = 0,
   fontsizeMob = 0,
-  lineheightMob = 0
+  lineheightMob = 0,
 ) {
-  var useMultiplier = multiplier != 0 ? multiplier : 1;
-  var useFontSize = fontsize;
-  var useFontSizeMob =
+  const useMultiplier = multiplier != 0 ? multiplier : 1;
+  const useFontSize = fontsize;
+  const useFontSizeMob =
     fontsizeMob > 0 ? fontsizeMob : useFontSize * useMultiplier;
-  var useLineHeight = lineheight;
-  var useLineHeightMob =
+  const useLineHeight = lineheight;
+  const useLineHeightMob =
     lineheightMob > 0 ? lineheightMob : useLineHeight * useMultiplier;
 
   return [

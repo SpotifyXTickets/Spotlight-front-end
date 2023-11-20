@@ -21,7 +21,7 @@ type PageProps = {
 };
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
-  context
+  context,
 ) => {
   const props = {
     events: [] as EventType[],
@@ -45,7 +45,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     });
 
   const danceElectronicEvents = await fetch(
-    `${apiHost}/events/danceelectronic?size=3`
+    `${apiHost}/events/danceelectronic?size=3`,
   )
     .then(async (res) => {
       const data = (await res.json()).events as EventType[];

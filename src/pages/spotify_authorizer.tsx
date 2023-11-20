@@ -12,7 +12,7 @@ type PageProps = {
 };
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
-  context
+  context,
 ) => {
   const { code, state } = context.query;
   const apiHost = getApiHost();

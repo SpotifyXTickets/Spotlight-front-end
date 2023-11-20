@@ -1,4 +1,5 @@
 # Front-end boilerplate
+
 Currently using branch: V2
 
 This is a front-end boilerplate for our team to easily create new poc's with the same configurations. This boilerplate should keep evolving during the span of the project so that whenever we use a new technology it will be included in the boilerplate. If anything is unclear or needs to be explained further please notify Raf Schapendonk.
@@ -39,6 +40,33 @@ In order to use playwright run the following line:
 
 ```bash
 npm run playwright
+```
+
+In order to use ESLint run the following line:
+
+```bash
+npm run lint
+```
+
+In order to automatic fix issues while using ESLint run the following line:
+
+```bash
+npm run lint -- --fix
+```
+
+## Code Formatting
+
+In order to use prettier run the following line:
+
+```bash
+npx prettier --write .
+```
+
+In order to check which files would be formatted without actually modifying them with prettier, run the following line:
+
+```bash
+npx prettier --check .
+
 ```
 
 ## Learn More
