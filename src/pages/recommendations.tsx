@@ -1,24 +1,24 @@
-import "../styles/pages/_recommendations-selection.scss";
+import '../styles/pages/_recommendations-selection.scss'
 
-import { EventType } from "@/types/types";
-import { GetServerSideProps, NextPage } from "next";
+import { EventType } from '@/types/types'
+import { GetServerSideProps, NextPage } from 'next'
 
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import EventsSection from "@/components/EventsSection";
-import SearchBar from "@/components/SearchBar";
-import Categories from "@/components/Categories";
-import { getApiHost } from "@/libs/getApiHost";
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
+import EventsSection from '@/components/EventsSection'
+import SearchBar from '@/components/SearchBar'
+import Categories from '@/components/Categories'
+import { getApiHost } from '@/libs/getApiHost'
 
 type PageProps = {
-  events: EventType[];
-  rockEvents: EventType[];
-  danceElectronicEvents: EventType[];
-  hipHopRapEvents: EventType[];
-  folkEvents: EventType[];
-  popEvents: EventType[];
-  rnbEvents: EventType[];
-};
+  events: EventType[]
+  rockEvents: EventType[]
+  danceElectronicEvents: EventType[]
+  hipHopRapEvents: EventType[]
+  folkEvents: EventType[]
+  popEvents: EventType[]
+  rnbEvents: EventType[]
+}
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   context,
@@ -31,84 +31,84 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     folkEvents: [] as EventType[],
     popEvents: [] as EventType[],
     rnbEvents: [] as EventType[],
-  } as PageProps;
-  const apiHost = getApiHost();
+  } as PageProps
+  const apiHost = getApiHost()
 
   const rockEvents = await fetch(`${apiHost}/events/rock?size=3`)
     .then(async (res) => {
-      const data = (await res.json()).events as EventType[];
+      const data = (await res.json()).events as EventType[]
       // props.rockEvents = data;
-      return data;
+      return data
     })
     .catch((err) => {
-      console.error(err);
-    });
+      console.error(err)
+    })
 
   const danceElectronicEvents = await fetch(
     `${apiHost}/events/danceelectronic?size=3`,
   )
     .then(async (res) => {
-      const data = (await res.json()).events as EventType[];
+      const data = (await res.json()).events as EventType[]
       // props.danceElectronicEvents = data;
-      return data;
+      return data
     })
     .catch((err) => {
-      console.error(err);
-    });
+      console.error(err)
+    })
 
   const hipHopRapEvents = await fetch(`${apiHost}/events/hiphoprap?size=3`)
     .then(async (res) => {
-      const data = (await res.json()).events as EventType[];
+      const data = (await res.json()).events as EventType[]
       // props.hipHopRapEvents = data;
-      return data;
+      return data
     })
     .catch((err) => {
-      console.error(err);
-    });
+      console.error(err)
+    })
 
   const folkEvents = await fetch(`${apiHost}/events/folk?size=3`)
     .then(async (res) => {
-      const data = (await res.json()).events as EventType[];
+      const data = (await res.json()).events as EventType[]
       // props.folkEvents = data;
-      return data;
+      return data
     })
     .catch((err) => {
-      console.error(err);
-    });
+      console.error(err)
+    })
 
   const popEvents = await fetch(`${apiHost}/events/pop?size=3`)
     .then(async (res) => {
-      const data = (await res.json()).events as EventType[];
+      const data = (await res.json()).events as EventType[]
       // props.popEvents = data;
-      return data;
+      return data
     })
     .catch((err) => {
-      console.error(err);
-    });
+      console.error(err)
+    })
 
   const rnbEvents = await fetch(`${apiHost}/events/rnb?size=3`)
     .then(async (res) => {
-      const data = (await res.json()).events as EventType[];
+      const data = (await res.json()).events as EventType[]
       // props.rnbEvents = data;
-      return data;
+      return data
     })
     .catch((err) => {
-      console.error(err);
-    });
+      console.error(err)
+    })
 
-  props.rockEvents = rockEvents as EventType[];
-  props.danceElectronicEvents = danceElectronicEvents as EventType[];
-  props.hipHopRapEvents = hipHopRapEvents as EventType[];
-  props.folkEvents = folkEvents as EventType[];
-  props.popEvents = popEvents as EventType[];
-  props.rnbEvents = rnbEvents as EventType[];
-  props.folkEvents = folkEvents as EventType[];
+  props.rockEvents = rockEvents as EventType[]
+  props.danceElectronicEvents = danceElectronicEvents as EventType[]
+  props.hipHopRapEvents = hipHopRapEvents as EventType[]
+  props.folkEvents = folkEvents as EventType[]
+  props.popEvents = popEvents as EventType[]
+  props.rnbEvents = rnbEvents as EventType[]
+  props.folkEvents = folkEvents as EventType[]
 
-  return { props };
-};
+  return { props }
+}
 
 export const Home: NextPage<PageProps> = (props) => {
-  console.log(props);
+  console.log(props)
   return (
     <section>
       <NavBar />
@@ -131,7 +131,7 @@ export const Home: NextPage<PageProps> = (props) => {
       </main>
       <Footer />
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

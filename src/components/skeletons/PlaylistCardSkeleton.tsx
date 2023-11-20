@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client'
+import React from 'react'
 
 export const PlaylistCardSkeleton: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ export const PlaylistCardSkeleton: React.FC = () => {
         </div>
       </div>
     </label>
-  );
-};
+  )
+}
 
-export default PlaylistCardSkeleton;
+export default PlaylistCardSkeleton

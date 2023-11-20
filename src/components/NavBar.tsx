@@ -1,7 +1,7 @@
-import "@/styles/components/_navbar.scss";
-import Image from "next/image";
-import MuseveLogo from "../assets/museve-logo.svg";
-import HamburgerMenu from "@/components/HamburgerMenu";
+import '@/styles/components/_navbar.scss'
+import Image from 'next/image'
+import MuseveLogo from '../assets/museve-logo.svg'
+import HamburgerMenu from '@/components/HamburgerMenu'
 
 export default function NavBar() {
   return (
@@ -11,5 +11,5 @@ export default function NavBar() {
       </a>
       <HamburgerMenu />
     </nav>
-  );
+  )
 }

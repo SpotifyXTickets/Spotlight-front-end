@@ -16,7 +16,7 @@
   &__title {
     @apply flex justify-between text-lg;
 
-    font-family: "Gilroy-Semibold";
+    font-family: 'Gilroy-Semibold';
   }
 
   &__heart {
@@ -26,8 +26,8 @@
   &__button {
     @apply text-[#6e3aff] text-left;
 
-    font-family: "Gilroy-Semibold";
+    font-family: 'Gilroy-Semibold';
   }
 
-  font-family: "Gilroy-Regular";
+  font-family: 'Gilroy-Regular';
 }

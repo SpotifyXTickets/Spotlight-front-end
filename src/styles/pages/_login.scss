@@ -4,17 +4,17 @@
 
 @font-face {
   font-family: Gilroy-Regular;
-  src: url("../../fonts/Gilroy-Regular.ttf");
+  src: url('../../fonts/Gilroy-Regular.ttf');
 }
 
 @font-face {
   font-family: Gilroy-Semibold;
-  src: url("../../fonts/Gilroy-Semibold.ttf");
+  src: url('../../fonts/Gilroy-Semibold.ttf');
 }
 
 @font-face {
   font-family: Gilroy-Bold;
-  src: url("../../fonts/Gilroy-Bold.ttf");
+  src: url('../../fonts/Gilroy-Bold.ttf');
 }
 
 body {
@@ -34,12 +34,12 @@ body {
   &__header {
     @apply text-black text-center text-3xl mt-4;
 
-    font-family: "Gilroy-Bold";
+    font-family: 'Gilroy-Bold';
   }
 
   &__text {
     @apply text-black text-center text-base mt-3;
 
-    font-family: "Gilroy-Regular";
+    font-family: 'Gilroy-Regular';
   }
 }

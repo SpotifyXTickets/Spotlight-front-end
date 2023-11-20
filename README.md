@@ -59,13 +59,13 @@ npm run lint -- --fix
 In order to use prettier run the following line:
 
 ```bash
-npx prettier --write .
+npm run format
 ```
 
 In order to check which files would be formatted without actually modifying them with prettier, run the following line:
 
 ```bash
-npx prettier --check .
+npm run check-format
 
 ```
 

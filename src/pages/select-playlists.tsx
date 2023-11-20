@@ -1,29 +1,29 @@
-import "../styles/pages/_select-playlists.scss";
+import '../styles/pages/_select-playlists.scss'
 
-import Link from "next/link";
+import Link from 'next/link'
 
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import PlaylistSection from "@/components/PlaylistSection";
-import SearchBar from "@/components/SearchBar";
-import Button from "@/components/Button";
-import { GetServerSideProps, NextPage } from "next";
-import { PlaylistType } from "@/types/types";
-import Cookies from "universal-cookie";
-import { verifyJwtToken } from "@/libs/auth";
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
+import PlaylistSection from '@/components/PlaylistSection'
+import SearchBar from '@/components/SearchBar'
+import Button from '@/components/Button'
+import { GetServerSideProps, NextPage } from 'next'
+import { PlaylistType } from '@/types/types'
+import Cookies from 'universal-cookie'
+import { verifyJwtToken } from '@/libs/auth'
 
 type PageProps = {
-  playlist: PlaylistType | null;
-};
+  playlist: PlaylistType | null
+}
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   context,
 ) => {
-  const cookies = new Cookies();
-  console.log(cookies.getAll());
-  const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
+  const cookies = new Cookies()
+  console.log(cookies.getAll())
+  const twix_access_token = verifyJwtToken(cookies.get('twix_access_token'))
 
-  console.log(await twix_access_token);
+  console.log(await twix_access_token)
   // const accessToken = ((await twix_access_token) as { accessToken: string })
   //   .accessToken;
 
@@ -39,8 +39,8 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     props: {
       playlist: null,
     },
-  };
-};
+  }
+}
 export const SelectPlaylists: NextPage<PageProps> = (props) => {
   return (
     <section>
@@ -73,7 +73,7 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
       </section>
       <Footer />
     </section>
-  );
-};
+  )
+}
 
-export default SelectPlaylists;
+export default SelectPlaylists

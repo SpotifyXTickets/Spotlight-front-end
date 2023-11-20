@@ -4,17 +4,17 @@
 
 @font-face {
   font-family: Gilroy-Regular;
-  src: url("../../fonts/Gilroy-Regular.ttf");
+  src: url('../../fonts/Gilroy-Regular.ttf');
 }
 
 @font-face {
   font-family: Gilroy-Semibold;
-  src: url("../../fonts/Gilroy-Semibold.ttf");
+  src: url('../../fonts/Gilroy-Semibold.ttf');
 }
 
 @font-face {
   font-family: Gilroy-Bold;
-  src: url("../../fonts/Gilroy-Bold.ttf");
+  src: url('../../fonts/Gilroy-Bold.ttf');
 }
 
 body {
@@ -30,13 +30,13 @@ body {
   &__header {
     @apply text-[#292929] text-3xl mb-4;
 
-    font-family: "Gilroy-Bold";
+    font-family: 'Gilroy-Bold';
   }
 
   &__info {
     @apply text-[#292929] text-base mb-4;
 
-    font-family: "Gilroy-Regular";
+    font-family: 'Gilroy-Regular';
   }
 
   &__buttons {
