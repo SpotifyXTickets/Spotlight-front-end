@@ -1,3 +1,4 @@
+import "../app/globals.scss";
 import "../styles/pages/_home-page.scss";
 
 import Link from "next/link";

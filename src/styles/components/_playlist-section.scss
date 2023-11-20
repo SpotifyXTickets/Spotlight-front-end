@@ -3,8 +3,6 @@
 
   &__card {
     @apply h-[19.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
-
-    font-family: "Gilroy-Regular";
   }
 
   &__image {
@@ -16,9 +14,7 @@
   }
 
   &__checkbox {
-    @apply flex items-center gap-2 mb-2 text-[#292929];
-
-    font-family: "Gilroy-Semibold";
+    @apply flex items-center gap-2 mb-2 text-[#292929] font-semibold;
   }
 
   input[type="checkbox"] {

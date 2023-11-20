@@ -1,3 +1,4 @@
+import "../app/globals.scss";
 import "../styles/pages/_recommendations-selection.scss";
 
 import NavBar from "@/components/NavBar";

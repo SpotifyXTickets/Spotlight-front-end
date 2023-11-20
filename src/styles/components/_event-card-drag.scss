@@ -1,5 +1,5 @@
 .event-card-drag {
-  @apply flex flex-col rounded-xl h-[19rem] shadow-md bg-white whitespace-nowrap;
+  @apply flex flex-col rounded-xl h-[19rem] shadow-md bg-white whitespace-nowrap font-poppins;
 
   &__image {
     @apply object-cover rounded-t-lg max-h-[15rem] pointer-events-none;
@@ -14,9 +14,7 @@
   }
 
   &__title {
-    @apply flex justify-between text-lg;
-
-    font-family: "Gilroy-Semibold";
+    @apply flex justify-between text-lg font-poppins font-semibold;
   }
 
   &__heart {
@@ -24,10 +22,6 @@
   }
 
   &__button {
-    @apply text-[#6e3aff] text-left;
-
-    font-family: "Gilroy-Semibold";
+    @apply text-[#6e3aff] text-left font-poppins font-semibold;
   }
-
-  font-family: "Gilroy-Regular";
 }

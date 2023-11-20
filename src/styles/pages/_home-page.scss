@@ -1,27 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-  font-family: Gilroy-Regular;
-  src: url("../../fonts/Gilroy-Regular.ttf");
-}
-
-@font-face {
-  font-family: Gilroy-Semibold;
-  src: url("../../fonts/Gilroy-Semibold.ttf");
-}
-
-@font-face {
-  font-family: Gilroy-Bold;
-  src: url("../../fonts/Gilroy-Bold.ttf");
-}
-
-body {
-  margin: 0;
-  background-color: #fbf9f9;
-}
-
 .home-page {
   @apply mx-4 min-h-full pb-xl overflow-x-hidden;
 
@@ -34,15 +10,11 @@ body {
   }
 
   &__all {
-    @apply text-xl text-[#6e3aff];
-
-    font-family: "Gilroy-Semibold";
+    @apply text-xl text-[#6e3aff] font-semibold;
   }
 
   &__title {
-    @apply text-3xl text-[#292929];
-
-    font-family: "Gilroy-Bold";
+    @apply text-3xl text-[#292929] font-bold;
   }
 
   &__line {

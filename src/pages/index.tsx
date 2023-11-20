@@ -1,3 +1,4 @@
+import "../app/globals.scss";
 import "../styles/pages/_login.scss";
 
 import Image from "next/image";

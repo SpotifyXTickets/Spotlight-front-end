@@ -1,5 +1,5 @@
 .footer {
-  @apply mb-6 pb-8 flex flex-col bottom-0 bg-[#6e3aff] mx-4 text-white rounded-xl;
+  @apply mb-6 pb-8 flex flex-col bottom-0 bg-[#6e3aff] mx-4 text-white rounded-xl font-poppins;
 
   &__items {
     @apply flex flex-col justify-between gap-5 mx-7 -mt-10;
@@ -24,6 +24,4 @@
       @apply cursor-pointer;
     }
   }
-
-  font-family: "Gilroy-Regular";
 }

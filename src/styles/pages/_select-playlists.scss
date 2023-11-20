@@ -1,42 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-  font-family: Gilroy-Regular;
-  src: url("../../fonts/Gilroy-Regular.ttf");
-}
-
-@font-face {
-  font-family: Gilroy-Semibold;
-  src: url("../../fonts/Gilroy-Semibold.ttf");
-}
-
-@font-face {
-  font-family: Gilroy-Bold;
-  src: url("../../fonts/Gilroy-Bold.ttf");
-}
-
-body {
-  margin: 0;
-  background-color: #fbf9f9;
-}
-
 .select-playlists {
   @apply mx-4 min-h-full pb-xl;
 
   padding-top: 100px;
 
   &__header {
-    @apply text-[#292929] text-3xl mb-4;
-
-    font-family: "Gilroy-Bold";
+    @apply text-[#292929] text-3xl mb-4 font-bold;
   }
 
   &__info {
     @apply text-[#292929] text-base mb-4;
-
-    font-family: "Gilroy-Regular";
   }
 
   &__buttons {

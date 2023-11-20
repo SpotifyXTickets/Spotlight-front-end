@@ -77,6 +77,10 @@ const config: Config = {
       xxs: { max: "360px" },
     },
 
+    fontFamily: {
+      poppins: ["Poppins"],
+    },
+
     extend: {
       colors: {
         lead: "#2D3648",

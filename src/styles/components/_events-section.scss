@@ -2,8 +2,6 @@
   @apply grid grid-cols-1 gap-8;
 
   &__title {
-    @apply mt-12 text-2xl text-[#292929];
-
-    font-family: "Gilroy-Bold";
+    @apply mt-12 text-2xl text-[#292929] font-poppins font-bold;
   }
 }
