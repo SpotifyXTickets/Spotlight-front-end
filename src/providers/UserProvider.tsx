@@ -53,6 +53,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
     const twix_access_token = await verifyJwtToken(
       cookies.get("twix_access_token")
     );
+    const apiHost = process.env.NEXT_PUBLIC_API_HOST || "http://localhost:8000";
     const twix_token = (await twix_access_token) as { accessToken: string };
 
     if (!twix_token) {
@@ -60,7 +61,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
       return;
     }
 
-    fetch("http://localhost:8000/user", {
+    fetch(`${apiHost}/user`, {
       headers: {
         Authorization: `Bearer ${twix_token.accessToken}`,
       },
