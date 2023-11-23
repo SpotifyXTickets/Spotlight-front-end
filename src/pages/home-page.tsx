@@ -34,14 +34,26 @@ export default function HomePage() {
                 Based on your music taste
               </p>
             </div>
-
             <EventsSectionDrag />
           </section>
           <section className="home-page__draggable-events">
-            <h2 className="home-page__title">Upcoming events</h2>
-            <EventsSection title="15 November 2023" />
-            <hr className="home-page__line" />
-            <EventsSection title="16 November 2023" />
+            <div className="home-page__section">
+              <div className="home-page__section-title-wrapper">
+                <h2 className="home-page__section-title">
+                  Events of favourite artists
+                </h2>
+                <Link
+                  className="home-page__section-see-all"
+                  href="/recommendations"
+                >
+                  See All
+                </Link>
+              </div>
+              <p className="home-page__section-subtitle">
+                Select artists to see all their concerts
+              </p>
+            </div>
+            <EventsSectionDrag />
           </section>
         </div>
       </main>

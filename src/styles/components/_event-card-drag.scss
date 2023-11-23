@@ -2,7 +2,7 @@
   @apply flex flex-col rounded-xl bg-dark_lighter whitespace-nowrap font-poppins;
 
   &__wrapper {
-    @apply flex flex-row gap-[15px] overflow-x-scroll -mx-4 px-4;
+    @apply flex flex-row gap-[15px] overflow-x-scroll -mx-4 px-4 mb-[42px];
 
     /* For Webkit-based browsers (Chrome, Safari and Opera) */
     &::-webkit-scrollbar {
@@ -32,5 +32,9 @@
 
   &__heart {
     @apply cursor-pointer;
+  }
+
+  &--small {
+    @apply max-w-[130px];
   }
 }
