@@ -1,7 +1,6 @@
 import "../styles/components/_events-section-drag.scss";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import EventCardDrag from "@/components/EventCardDrag";
 
 import BeyonceDrag from "../assets/BeyonceDrag.png";
@@ -45,17 +44,10 @@ export default function EventsSectionDrag() {
   }, []);
 
   return (
-    // <motion.section
-    //   className="events-section-drag"
-    //   ref={dragSlider}
-    //   drag="x"
-    //   dragConstraints={{ right: 0, left: -width - 90 }}
-    // >
     <div className="event-card-drag__wrapper">
       {data.map((item) => (
         <EventCardDrag key={item.id} data={item} />
       ))}
     </div>
-    // </motion.section>
   );
 }
