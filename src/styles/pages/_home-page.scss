@@ -1,20 +1,40 @@
 .home-page {
-  @apply mx-4 min-h-full pb-xl overflow-x-hidden;
+  @apply min-h-full pb-xl bg-dark;
 
-  &____draggable-events {
-    @apply overflow-x-hidden;
+  &__container {
+    @apply mx-4;
   }
 
-  &__best-for-you {
-    @apply flex justify-between items-center mt-6;
+  &__searchbar-wrapper {
+    @apply mb-md;
   }
 
-  &__all {
-    @apply text-xl text-[#6e3aff] font-semibold;
+  &__draggable-events {
+    // @apply overflow-x;
+  }
+
+  &__section-title-wrapper {
+    @apply flex flex-row justify-between mb-xs;
+  }
+
+  &__section {
+    @apply mb-mob;
+
+    &-title {
+      @apply text-xl text-white font-semibold;
+    }
+
+    &-see-all {
+      @apply text-xl text-lead font-medium;
+    }
+
+    &-subtitle {
+      @apply text-grey_medium;
+    }
   }
 
   &__title {
-    @apply text-3xl text-[#292929] font-bold;
+    @apply text-3xl text-white font-semibold mb-mob;
   }
 
   &__line {

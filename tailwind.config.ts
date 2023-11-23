@@ -83,7 +83,12 @@ const config: Config = {
 
     extend: {
       colors: {
-        lead: "#2D3648",
+        lead: "#6e3aff",
+        dark: "#121212",
+        dark_lighter: "#181818",
+        grey_dark: "#3A3939",
+        grey_medium: "#A7A7A7",
+        grey_light: "#F0F0F0",
       },
 
       spacing: {

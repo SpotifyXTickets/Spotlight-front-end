@@ -38,7 +38,6 @@ export default function EventCardDrag(props: {
         </div>
         <span className="event-card-drag__span">{props.data.date}</span>
         <span className="event-card-drag__span">{props.data.location}</span>
-        <button className="event-card-drag__button">Learn More {">"}</button>
       </div>
     </div>
   );

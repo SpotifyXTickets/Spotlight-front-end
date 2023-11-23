@@ -45,15 +45,17 @@ export default function EventsSectionDrag() {
   }, []);
 
   return (
-    <motion.section
-      className="events-section-drag"
-      ref={dragSlider}
-      drag="x"
-      dragConstraints={{ right: 0, left: -width - 90 }}
-    >
+    // <motion.section
+    //   className="events-section-drag"
+    //   ref={dragSlider}
+    //   drag="x"
+    //   dragConstraints={{ right: 0, left: -width - 90 }}
+    // >
+    <div className="event-card-drag__wrapper">
       {data.map((item) => (
         <EventCardDrag key={item.id} data={item} />
       ))}
-    </motion.section>
+    </div>
+    // </motion.section>
   );
 }
