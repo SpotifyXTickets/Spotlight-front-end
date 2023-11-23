@@ -1,7 +1,7 @@
 .button {
-  @apply w-full flex justify-center p-4 rounded-xl gap-2 my-4 font-poppins font-semibold;
+  @apply w-full flex justify-center p-4 rounded-xl gap-2 my-4 font-poppins font-medium;
 
   &__icon {
-    @apply h-5 w-5;
+    @apply h-5 w-5 mt-0.5;
   }
 }
