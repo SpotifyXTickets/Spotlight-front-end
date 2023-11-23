@@ -1,0 +1,37 @@
+.background {
+  @apply bg-black;
+}
+
+.artist-page {
+  @apply mx-4 min-h-full pb-xl;
+
+  padding-top: 100px;
+
+  &__info {
+    @apply mt-6 flex flex-col gap-3 text-white;
+  }
+
+  &__title {
+    @apply text-3xl mb-2 font-medium flex gap-4;
+  }
+
+  &__image-wrapper {
+    @apply -mx-4;
+  }
+
+  &__image {
+    @apply w-full max-h-72;
+  }
+
+  &__button {
+    @apply fixed bottom-0 w-full px-4 flex bg-[#181818] z-10;
+  }
+
+  &__draggable-events {
+    @apply overflow-x-hidden mt-4;
+  }
+
+  &__draggable-events-title {
+    @apply text-3xl text-white font-semibold;
+  }
+}
