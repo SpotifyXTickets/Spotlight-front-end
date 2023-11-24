@@ -1,17 +1,25 @@
 .login {
-  @apply mx-4 min-h-full pb-xl;
+  @apply bg-dark;
 
   padding-top: 100px;
 
-  &__image {
-    @apply -mt-6;
+  &__background {
+    @apply h-screen;
+
+    background-image: url("../../assets/login.png");
+    background-size: cover;
+    border-image: fill 0 linear-gradient(#0001, #121212);
+  }
+
+  &__wrapper {
+    @apply mx-4 pt-32 min-h-full pb-xl h-screen;
   }
 
   &__header {
-    @apply text-black text-center text-3xl mt-4 font-poppins font-bold;
+    @apply text-white text-6xl  font-poppins font-medium;
   }
 
   &__text {
-    @apply text-black text-center text-base mt-3;
+    @apply text-white text-lg mt-6 mb-6;
   }
 }

@@ -1,7 +1,7 @@
 import "@/styles/components/_hamburger-menu.scss";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import MuseveLogo from "../assets/museve-logo.svg";
+import MuseveLogo from "../assets/museve-logo-white.svg";
 import Image from "next/image";
 
 const path01Variants = {
@@ -66,13 +66,13 @@ export default function HamburgerMenu() {
         <svg width="24" height="24" viewBox="0 0 24 24">
           <motion.path
             strokeWidth="1.75"
-            stroke="#1A1313"
+            stroke="#FFFFFF"
             animate={animation}
             variants={path01Variants}
           />
           <motion.path
             strokeWidth="1.75"
-            stroke="#1A1313"
+            stroke="#FFFFFF"
             animate={animation}
             variants={path02Variants}
           />

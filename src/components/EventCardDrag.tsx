@@ -2,8 +2,9 @@ import "../styles/components/_event-card-drag.scss";
 
 import { useState } from "react";
 import Image from "next/image";
-import HeartIcon from "../assets/heart.svg";
-import FullHeartIcon from "../assets/heart-red.svg";
+
+import HeartIcon from "../assets/icons/heart.svg";
+import FullHeartIcon from "../assets/icons/heart-red.svg";
 
 export default function EventCardDrag(props: {
   key: number;

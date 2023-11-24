@@ -1,12 +1,12 @@
 .hamburger-menu {
-  @apply h-screen w-screen top-0 absolute bg-[#fbf9f9] flex flex-col gap-2 items-start z-10 font-poppins font-semibold;
+  @apply h-screen w-screen top-0 absolute bg-dark flex flex-col gap-2 z-10 font-poppins font-semibold;
 
   &__logo {
     @apply mt-6 mb-20 pl-4;
   }
 
   &__item {
-    @apply py-5 mx-4 w-full cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#E7E7E7] text-[#292929];
+    @apply py-5 mx-4 cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#E7E7E7] text-white last:border-none;
   }
 
   &__button {

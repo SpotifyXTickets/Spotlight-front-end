@@ -4,9 +4,9 @@ import "../styles/pages/_home-page.scss";
 import Link from "next/link";
 import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/SearchBar";
-import Categories from "@/components/Categories";
+// import Categories from "@/components/Categories";
+// import EventsSection from "@/components/EventsSection";
 import Footer from "@/components/Footer";
-import EventsSection from "@/components/EventsSection";
 import EventsSectionDrag from "@/components/EventsSectionDrag";
 
 export default function HomePage() {
@@ -56,8 +56,8 @@ export default function HomePage() {
             <EventsSectionDrag concertCards={true} />
           </section>
         </div>
+        <Footer />
       </main>
-      <Footer />
     </section>
   );
 }

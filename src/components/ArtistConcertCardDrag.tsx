@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import HeartIcon from "../assets/heart.svg";
 import FullHeartIcon from "../assets/heart-red.svg";
+import Link from "next/link";
 
 export default function EventCardDrag(props: {
   key: number;
@@ -18,17 +19,21 @@ export default function EventCardDrag(props: {
 }) {
   return (
     <div className="artist-concert-card-drag">
-      <Image
-        className="artist-concert-card-drag__image"
-        src={props.data.artistImage}
-        alt="Artist Image"
-      />
-      <div className="artist-concert-card-drag__info">
-        <div className="artist-concert-card-drag__title">
-          <h3>{props.data.artist}</h3>
+      <Link href="/artist-page">
+        <Image
+          className="artist-concert-card-drag__image"
+          src={props.data.artistImage}
+          alt="Artist Image"
+        />
+        <div className="artist-concert-card-drag__info">
+          <div className="artist-concert-card-drag__title">
+            <h3>{props.data.artist}</h3>
+          </div>
+          <span className="artist-concert-card-drag__span">
+            10 concerts soon
+          </span>
         </div>
-        <span className="artist-concert-card-drag__span">10 concerts soon</span>
-      </div>
+      </Link>
     </div>
   );
 }
