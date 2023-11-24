@@ -33,8 +33,4 @@
   &__heart {
     @apply cursor-pointer;
   }
-
-  &--small {
-    @apply max-w-[130px];
-  }
 }

@@ -53,7 +53,7 @@ export default function HomePage() {
                 Select artists to see all their concerts
               </p>
             </div>
-            <EventsSectionDrag />
+            <EventsSectionDrag concertCards={true} />
           </section>
         </div>
       </main>

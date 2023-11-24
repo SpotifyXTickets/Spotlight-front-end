@@ -20,7 +20,7 @@ export default function EventCardDrag(props: {
   const toggleHeart = () => setIsHeartFilled(!isHeartFilled);
 
   return (
-    <div className="event-card-drag">
+    <div className="event-card-drag ">
       <Image
         className="event-card-drag__image"
         src={props.data.artistImage}
