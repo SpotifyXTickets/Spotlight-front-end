@@ -9,10 +9,6 @@
     @apply mb-md;
   }
 
-  &__draggable-events {
-    // @apply overflow-x;
-  }
-
   &__section-title-wrapper {
     @apply flex flex-row justify-between mb-xs;
   }
@@ -31,6 +27,10 @@
     &-subtitle {
       @apply text-grey_medium;
     }
+
+    &-title-description {
+      @apply text-grey_medium font-normal text-center mb-[25px];
+    }
   }
 
   &__title {
@@ -39,6 +39,22 @@
 
   &__line {
     @apply w-full mt-12;
+  }
+
+  &__stacked-image-row {
+    @apply mb-[25px];
+  }
+
+  &__flow {
+    @apply mb-[44px];
+  }
+
+  &__button-grid {
+    @apply grid grid-cols-2 gap-4 pt-[22px];
+
+    button {
+      @apply m-0;
+    }
   }
 
   padding-top: 100px;
