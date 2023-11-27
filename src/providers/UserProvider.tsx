@@ -50,20 +50,18 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
 
   const getUser = async () => {
     const cookies = new Cookies();
-    const twix_access_token = await verifyJwtToken(
-      cookies.get("twix_access_token"),
-    );
-    const apiHost = process.env.NEXT_PUBLIC_API_HOST || "http://localhost:8000";
-    const twix_token = (await twix_access_token) as { accessToken: string };
+    const accessToken = cookies.get("twix_access_token");
 
-    if (!twix_token) {
+    const apiHost = process.env.NEXT_PUBLIC_API_HOST || "http://localhost:8000";
+
+    if (!accessToken) {
       setUser(undefined);
       return;
     }
 
     fetch(`${apiHost}/user`, {
       headers: {
-        Authorization: `Bearer ${twix_token.accessToken}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     })
       .then(async (res) => {

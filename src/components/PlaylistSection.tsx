@@ -64,7 +64,7 @@ export default function PlaylistSection(props: { playlist: PlaylistType }) {
           <div className="playlist-section__image_holder">
             <Image
               className="playlist-section__image"
-              src={item.images[0].url}
+              src={item.images[0] ? item.images[0].url : ""}
               alt={item.name}
               fill
             />

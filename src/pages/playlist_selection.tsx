@@ -232,28 +232,31 @@ export default function Page() {
   const [playlist, setPlaylist] = useState<Playlist>();
   const apiHost = getApiHost();
   // const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
-  console.log(playlist);
   useEffect(() => {
     if (!user) {
       return;
     }
     const cookies = new Cookies();
-    const twix_access_token = verifyJwtToken(cookies.get("twix_access_token"));
-    // console.log(twix_access_token);
-    console.log(cookies);
-    const getPlaylists = async (token: Promise<JWTPayload | null>) => {
-      const accessToken = ((await token) as { accessToken: string })
-        .accessToken;
+    const accessToken = cookies.get("twix_access_token");
+    const getPlaylists = async (token: string) => {
+      
       fetch(`${apiHost}/playlist`, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
       }).then(async (res) => {
+        if (res.status === 401) {
+          window.location.href = `/spotify_authorizer`;
+          return;
+        }
         setPlaylist((await res.json()) as Playlist);
+      }).catch((err) => {
+        console.error(err);
       });
     };
 
-    getPlaylists(twix_access_token);
+    getPlaylists(accessToken);
+
   }, [user]);
 
   console.log(user);

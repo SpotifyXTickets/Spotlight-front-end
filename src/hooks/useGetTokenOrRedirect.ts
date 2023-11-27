@@ -11,9 +11,7 @@ export const useGetTokenOrRedirect = (): string => {
 
   useEffect(() => {
     (async () => {
-      const verifiedToken = await verifyJwtToken(token ?? "");
-
-      if (!verifiedToken) {
+      if (!token) {
         cookies.set("twix_redirect_url", router.pathname, {
           path: "/",
         });
