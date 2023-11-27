@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <section>
+    <section className="recommendations-section">
       <NavBar />
       <main className="recommendations-selection">
         <h1 className="recommendations-selection__title">Best For You</h1>

@@ -1,9 +1,13 @@
+.recommendations-section {
+  @apply bg-dark;
+}
+
 .recommendations-selection {
   @apply mx-4 min-h-full pb-xl;
 
   padding-top: 100px;
 
   &__title {
-    @apply text-3xl mb-5 text-[#292929] font-bold;
+    @apply text-3xl mb-5 text-white font-bold;
   }
 }

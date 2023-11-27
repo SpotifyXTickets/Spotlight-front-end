@@ -11,22 +11,23 @@ import Button from "@/components/Button";
 
 export default function SelectPlaylists() {
   return (
-    <section>
+    <section className="select-playlists__section">
       <NavBar />
       <main className="select-playlists">
-        <h2 className="select-playlists__header">Select Playlists</h2>
+        <h2 className="select-playlists__header">Let’s Start</h2>
         <p className="select-playlists__info">
-          Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit.
+          Choose playlists for more personalised recommendations for music
+          events.
         </p>
         <SearchBar />
+        <button>Select All Playlists</button>
         <PlaylistSection />
       </main>
       <section className="select-playlists__buttons">
         <Link className="select-playlists__link" href="/home-page">
           <Button
             text="text-[#6e3aff]"
-            background="bg-[#fbf9f9]"
+            background="bg-dark"
             border="border"
             borderColor="border-[#6e3aff]"
           >
@@ -35,7 +36,7 @@ export default function SelectPlaylists() {
         </Link>
         <Link className="select-playlists__link" href="/home-page">
           <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
-            Get Started
+            Confirm Playlists
           </Button>
         </Link>
       </section>

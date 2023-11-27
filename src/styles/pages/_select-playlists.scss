@@ -1,18 +1,22 @@
+.select-playlists__section {
+  @apply bg-dark;
+}
+
 .select-playlists {
   @apply mx-4 min-h-full pb-xl;
 
   padding-top: 100px;
 
   &__header {
-    @apply text-[#292929] text-3xl mb-4 font-bold;
+    @apply text-white text-3xl mb-4 font-semibold;
   }
 
   &__info {
-    @apply text-[#292929] text-base mb-4;
+    @apply text-white text-base mb-4;
   }
 
   &__buttons {
-    @apply fixed bottom-0 w-full bg-[#fbf9f9] px-4 flex gap-4;
+    @apply fixed bottom-0 w-full bg-dark px-4 flex gap-4;
   }
 
   &__link {

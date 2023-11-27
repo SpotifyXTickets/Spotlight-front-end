@@ -2,7 +2,7 @@
   @apply mt-6 grid grid-cols-2 gap-6;
 
   &__card {
-    @apply h-[19.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
+    @apply h-[19.5rem] flex flex-col gap-2 rounded-xl bg-dark_lighter w-full shadow-md;
   }
 
   &__image {
@@ -10,11 +10,11 @@
   }
 
   &__info {
-    @apply flex flex-col gap-0.5 mt-2 px-3 text-[#3D3D3D];
+    @apply flex flex-col gap-0.5 mt-2 px-3 text-white;
   }
 
   &__checkbox {
-    @apply flex items-center gap-2 mb-2 text-[#292929] font-semibold;
+    @apply flex items-center gap-2 mb-2 text-white font-semibold;
   }
 
   input[type="checkbox"] {
