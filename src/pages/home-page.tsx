@@ -123,8 +123,8 @@ export default function HomePage() {
             </div>
           </section>
         </div>
+        <Footer />
       </main>
-      <Footer />
     </section>
   );
 }

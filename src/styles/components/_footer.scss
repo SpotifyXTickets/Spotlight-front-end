@@ -1,5 +1,9 @@
 .footer {
-  @apply mb-6 pb-8 flex flex-col bottom-0 bg-[#6e3aff] mx-4 text-white rounded-xl font-poppins;
+  @apply bg-dark py-6;
+
+  &__wrapper {
+    @apply flex flex-col bg-[#6e3aff] mx-4 text-white rounded-xl font-poppins;
+  }
 
   &__items {
     @apply flex flex-col justify-between gap-5 mx-7 -mt-10;
@@ -18,7 +22,7 @@
   }
 
   &__social {
-    @apply flex gap-4;
+    @apply flex gap-4 pb-8;
 
     .icon {
       @apply cursor-pointer;

@@ -1,17 +1,53 @@
 .login {
-  @apply mx-4 min-h-full pb-xl;
+  @apply bg-dark;
 
   padding-top: 100px;
 
-  &__image {
-    @apply -mt-6;
+  &__wrapper {
+    @apply mx-4 pt-16 min-h-full pb-xl h-screen;
+  }
+
+  &__background {
+    @apply h-screen;
+
+    background-image: url("../../assets/login.png");
+    background-size: cover;
+    border-image: fill 0 linear-gradient(#0001, #121212);
   }
 
   &__header {
-    @apply text-black text-center text-3xl mt-4 font-poppins font-bold;
+    @apply text-white text-6xl  font-poppins font-medium;
   }
 
   &__text {
-    @apply text-black text-center text-base mt-3;
+    @apply text-white text-lg mt-6 mb-6;
+  }
+
+  &__explore-more {
+    @apply absolute m-auto bottom-6 left-0 right-0 flex justify-center gap-3 text-white transition-all duration-300;
+
+    &-icon {
+      @apply mb-1;
+    }
+  }
+
+  &__process {
+    @apply py-10 flex flex-col items-center gap-5;
+
+    &-header {
+      @apply text-3xl pb-2 text-center leading-normal font-medium text-white;
+    }
+
+    &-icon-wrapper {
+      @apply mt-6 p-6 rounded-xl bg-[#6e3aff];
+    }
+
+    &-step-title {
+      @apply text-xl text-white font-medium;
+    }
+
+    &-step-text {
+      @apply text-white text-center max-w-sm;
+    }
   }
 }
