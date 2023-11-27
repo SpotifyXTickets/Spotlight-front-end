@@ -16,11 +16,10 @@ const path02Variants = {
 };
 
 const navItems = [
-  { id: 1, title: "Best For You" },
-  { id: 2, title: "Friends Community" },
-  { id: 3, title: "Explore Events" },
-  { id: 4, title: "Settings" },
-  { id: 5, title: "Help" },
+  { id: 1, title: "Home" },
+  { id: 2, title: "Recommended events" },
+  { id: 3, title: "Settings" },
+  { id: 4, title: "Help" },
 ];
 
 export default function HamburgerMenu() {

@@ -63,7 +63,6 @@ export default function PlaylistSection() {
               type="checkbox"
               value={item.title}
             />
-
             <label>{item.title}</label>
           </div>
         </div>

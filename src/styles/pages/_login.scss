@@ -16,10 +16,10 @@
   }
 
   &__header {
-    @apply text-white text-6xl  font-poppins font-medium;
+    @apply text-white text-[3.7rem] leading-tight font-poppins font-medium;
   }
 
-  &__text {
+  &__description {
     @apply text-white text-lg mt-6 mb-6;
   }
 
@@ -32,7 +32,7 @@
   }
 
   &__process {
-    @apply py-10 flex flex-col items-center gap-5;
+    @apply py-16 flex flex-col items-center gap-5;
 
     &-header {
       @apply text-3xl pb-2 text-center leading-normal font-medium text-white;
@@ -46,8 +46,100 @@
       @apply text-xl text-white font-medium;
     }
 
-    &-step-text {
-      @apply text-white text-center max-w-sm;
+    &-step-description {
+      @apply text-white text-center max-w-xs;
+    }
+  }
+
+  &__users {
+    @apply py-16 flex flex-col items-center gap-5;
+
+    &-wrapper {
+      @apply bg-[#242424] rounded-md py-8 px-4 flex flex-col items-center gap-8;
+    }
+
+    &-quotes {
+      @apply w-5 h-5;
+    }
+
+    &-header {
+      @apply text-3xl pb-2 text-center leading-normal font-medium text-white;
+    }
+
+    &-description {
+      @apply text-white text-center max-w-xs;
+    }
+
+    &-user-image {
+      @apply rounded-full;
+    }
+  }
+
+  &__community {
+    @apply py-16 flex flex-col items-center gap-6;
+
+    &-header {
+      @apply text-3xl text-center leading-normal font-medium text-white;
+    }
+
+    &-description {
+      @apply text-white text-center max-w-xs;
+    }
+
+    &-image {
+      @apply w-full h-full rounded-md;
+    }
+
+    &-grid {
+      @apply w-full px-4 grid gap-2 bg-dark grid-cols-5 grid-rows-4;
+
+      #item-1 {
+        grid-row-start: 1;
+        grid-column-start: 1;
+
+        grid-row-end: 2;
+        grid-column-end: 4;
+      }
+
+      #item-2 {
+        grid-row-start: 1;
+        grid-column-start: 4;
+
+        grid-row-end: 2;
+        grid-column-end: 6;
+      }
+
+      #item-3 {
+        grid-row-start: 2;
+        grid-column-start: 1;
+
+        grid-row-end: 4;
+        grid-column-end: 3;
+      }
+
+      #item-4 {
+        grid-row-start: 2;
+        grid-column-start: 3;
+
+        grid-row-end: 3;
+        grid-column-end: 6;
+      }
+
+      #item-5 {
+        grid-row-start: 3;
+        grid-column-start: 3;
+
+        grid-row-end: 5;
+        grid-column-end: 6;
+      }
+
+      #item-6 {
+        grid-row-start: 4;
+        grid-column-start: 1;
+
+        grid-row-end: 5;
+        grid-column-end: 3;
+      }
     }
   }
 }

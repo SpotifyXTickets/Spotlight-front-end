@@ -2,7 +2,7 @@
   @apply grid grid-cols-2 gap-6;
 
   &__card {
-    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md py-3;
+    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md p-2;
   }
 
   &__image {
@@ -14,6 +14,6 @@
   }
 
   &__input {
-    @apply bg-dark_lighter focus:accent-[#6e3aff];
+    @apply bg-dark_lighter focus:accent-[#6e3aff] mt-0.5;
   }
 }

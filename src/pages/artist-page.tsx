@@ -33,7 +33,7 @@ export default function ArtistPage() {
   const toggleHeart = () => setIsHeartFilled(!isHeartFilled);
 
   return (
-    <section>
+    <section className="bg-dark">
       <NavBar />
       <main className="artist-page">
         <div className="artist-page__container">
@@ -95,7 +95,6 @@ export default function ArtistPage() {
               width="100%"
               height="352"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
             ></iframe>
           </section>
 

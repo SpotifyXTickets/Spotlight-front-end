@@ -43,7 +43,9 @@ export default function SelectPlaylists() {
           </Button>
         </Link>
       </section>
-      <Footer />
+      <div className="pb-20">
+        <Footer />
+      </div>
     </section>
   );
 }
