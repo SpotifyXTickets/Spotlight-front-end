@@ -82,11 +82,10 @@ export default function ArtistPage() {
               About Event
             </h4>
             <p>
-              Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Curabitur tempus urna at turpis condimentum
-              lobortis.
+              Get ready for an unforgettable night of music. This electrifying
+              performance is sure to be one for the ages, featuring all your
+              favorite hits and brand-new songs. Tickets are selling fast, so do
+              not miss out on this once-in-a-lifetime opportunity.
             </p>
 
             <iframe
