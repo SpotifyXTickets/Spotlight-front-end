@@ -10,7 +10,7 @@
   }
 
   .search-bar__input {
-    @apply rounded-[4px] h-lg pr-xs placeholder:text-[#888888] w-full bg-grey_dark;
+    @apply rounded-md h-lg pr-xs placeholder:text-[#888888] w-full bg-grey_dark;
     padding-left: 40px;
   }
 }

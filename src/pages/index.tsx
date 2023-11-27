@@ -20,24 +20,21 @@ const processData = [
     id: 1,
     icon: PhoneIcon,
     title: "Sync Your Spotify Account",
-    description:
-      "Horem ipsum dolor sit fon gid namet,consectetur adipiscing elit.",
+    description: "Share your Spotify listening habits.",
   },
 
   {
     id: 2,
     icon: NoteIcon,
     title: "Explore Recommended Events",
-    description:
-      "Horem ipsum dolor sit fon gid namet,consectetur adipiscing elit.",
+    description: "Explore events that are perfectly matched to your taste!",
   },
 
   {
     id: 2,
     icon: TicketIcon,
     title: "Buy Tickets Through Our Partner",
-    description:
-      "Horem ipsum dolor sit fon gid namet,consectetur adipiscing elit.",
+    description: "With one click, buy tickets to that perfect event.",
   },
 ];
 
@@ -61,12 +58,10 @@ export default function Login() {
       <NavBar />
       <main className="login__background">
         <div className="login__wrapper">
-          <h1 className="login__header">
-            Welcome <br /> to Museve
-          </h1>
+          <h1 className="login__header">Ideal Events Every Time</h1>
           <p className="login__text">
-            Welcome to the world of music events that was created personally for
-            you
+            Sign in for an exclusive musical journey with events crafted just
+            for you.
           </p>
           <Link href="/select-playlists">
             <Button
@@ -74,7 +69,7 @@ export default function Login() {
               background="bg-[#6e3aff]"
               icon={SpotifyIcon}
             >
-              Start with Spotify
+              Sign in with Spotify
             </Button>
           </Link>
 
@@ -94,8 +89,7 @@ export default function Login() {
 
         <section className="login__process">
           <h2 className="login__process-header">
-            Music Events Only
-            <br /> For You
+            Music Events <br /> matched to you
           </h2>
 
           {processData.map((item) => (

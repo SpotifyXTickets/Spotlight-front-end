@@ -14,13 +14,16 @@ export default function SelectPlaylists() {
     <section className="select-playlists__section">
       <NavBar />
       <main className="select-playlists">
-        <h2 className="select-playlists__header">Let’s Start</h2>
+        <h2 className="select-playlists__header">Let’s get started</h2>
         <p className="select-playlists__info">
-          Choose playlists for more personalised recommendations for music
-          events.
+          Select playlists for more personalised event recommendations.
         </p>
-        <SearchBar />
-        <button>Select All Playlists</button>
+        <SearchBar placeholder="Search for playlists" />
+
+        <button className="select-playlists__all-button">
+          Select All Playlists
+        </button>
+
         <PlaylistSection />
       </main>
       <section className="select-playlists__buttons">

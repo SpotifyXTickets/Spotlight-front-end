@@ -1,23 +1,19 @@
 .playlist-section {
-  @apply mt-6 grid grid-cols-2 gap-6;
+  @apply grid grid-cols-2 gap-6;
 
   &__card {
-    @apply h-[19.5rem] flex flex-col gap-2 rounded-xl bg-dark_lighter w-full shadow-md;
+    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md py-3;
   }
 
   &__image {
-    @apply h-44 w-44 rounded-t-xl;
-  }
-
-  &__info {
-    @apply flex flex-col gap-0.5 mt-2 px-3 text-white;
+    @apply h-40 w-40 rounded-md;
   }
 
   &__checkbox {
-    @apply flex items-center gap-2 mb-2 text-white font-semibold;
+    @apply flex gap-2 text-white font-medium;
   }
 
-  input[type="checkbox"] {
-    border: 1px solid #6e3aff;
+  &__input {
+    @apply bg-dark_lighter focus:accent-[#6e3aff];
   }
 }

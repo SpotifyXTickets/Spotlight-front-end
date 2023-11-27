@@ -13,7 +13,7 @@ export default function Home() {
       <NavBar />
       <main className="recommendations-selection">
         <h1 className="recommendations-selection__title">Best For You</h1>
-        <SearchBar />
+        <SearchBar placeholder="Search for playlists" />
         <Categories />
         <EventsSection title="Pop Music" />
         <EventsSection title="R&B Music" />

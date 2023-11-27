@@ -1,6 +1,6 @@
 import "../styles/components/_search-bar.scss";
 
-export default function SearchBar() {
+export default function SearchBar(props: { placeholder: string }) {
   return (
     <div className="search-bar">
       <i className="search-bar__icon">
@@ -23,7 +23,7 @@ export default function SearchBar() {
       <input
         className="search-bar__input"
         type="text"
-        placeholder="Search by keywords"
+        placeholder={props.placeholder}
       ></input>
     </div>
   );

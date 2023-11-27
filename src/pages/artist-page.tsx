@@ -82,11 +82,11 @@ export default function ArtistPage() {
               About Event
             </h4>
             <p>
-              Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis. Class
-              aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Curabitur tempus urna at turpis condimentum
-              lobortis.
+              Embark on Beyoncé&apos;s Renaissance Tour—a unique blend of
+              timeless elegance and modern artistry. Witness a cultural revival
+              through opulent costumes and groundbreaking performances. Secure
+              your tickets for a night of musical mastery that bridges the past
+              and present in true Beyoncé style!
             </p>
 
             <iframe

@@ -4,8 +4,6 @@ import "../styles/pages/_home-page.scss";
 import Link from "next/link";
 import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/SearchBar";
-// import Categories from "@/components/Categories";
-// import EventsSection from "@/components/EventsSection";
 import Footer from "@/components/Footer";
 import EventsSectionDrag from "@/components/EventsSectionDrag";
 
@@ -17,7 +15,7 @@ export default function HomePage() {
         <div className="home-page__container">
           <h1 className="home-page__title">Home</h1>
           <div className="home-page__searchbar-wrapper">
-            <SearchBar />
+            <SearchBar placeholder="Search for playlists" />
           </div>
           <section className="home-page__draggable-events">
             <div className="home-page__section">
