@@ -1,11 +1,11 @@
-import "../styles/components/_events-section.scss";
+import '../styles/components/_events-section.scss'
 
-import EventCard from "@/components/EventCard";
-import { EventType } from "@/types/types";
+import EventCard from '@/components/EventCard'
+import { EventType } from '@/types/types'
 
 export default function EventsSection(props: {
-  title: string;
-  events?: EventType[];
+  title: string
+  events?: EventType[]
 }) {
   return (
     <>
@@ -18,5 +18,5 @@ export default function EventsSection(props: {
         )}
       </section>
     </>
-  );
+  )
 }

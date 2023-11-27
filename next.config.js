@@ -3,28 +3,28 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "i.scdn.co",
-        port: "",
-        pathname: "/image/**",
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+        port: '',
+        pathname: '/image/**',
       },
       {
-        protocol: "https",
-        hostname: "picsum.photos",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
       },
       {
-        protocol: "https",
-        hostname: "s1.ticketm.net",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 's1.ticketm.net',
+        port: '',
+        pathname: '/**',
       },
       {
-        protocol: "https",
-        hostname: "media.ticketmaster.eu",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'media.ticketmaster.eu',
+        port: '',
+        pathname: '/**',
       },
       {
         protocol: "https",
@@ -40,6 +40,6 @@ const nextConfig = {
       }
     ],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

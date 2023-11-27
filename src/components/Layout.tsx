@@ -1,11 +1,11 @@
-import Head from "next/head";
-import React from "react";
-import { Inter } from "next/font/google";
+import Head from 'next/head'
+import React from 'react'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const Layout: React.FC<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }> = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
@@ -14,7 +14,7 @@ export const Layout: React.FC<{
       </Head>
       {children}
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

@@ -1,12 +1,12 @@
-import "../styles/pages/_home-page.scss";
+import '../styles/pages/_home-page.scss'
 
-import Link from "next/link";
-import NavBar from "@/components/NavBar";
-import SearchBar from "@/components/SearchBar";
-import Categories from "@/components/Categories";
-import Footer from "@/components/Footer";
-import EventsSection from "@/components/EventsSection";
-import EventsSectionDrag from "@/components/EventsSectionDrag";
+import Link from 'next/link'
+import NavBar from '@/components/NavBar'
+import SearchBar from '@/components/SearchBar'
+import Categories from '@/components/Categories'
+import Footer from '@/components/Footer'
+import EventsSection from '@/components/EventsSection'
+import EventsSectionDrag from '@/components/EventsSectionDrag'
 
 export default function HomePage() {
   return (
@@ -38,5 +38,5 @@ export default function HomePage() {
       </main>
       <Footer />
     </section>
-  );
+  )
 }

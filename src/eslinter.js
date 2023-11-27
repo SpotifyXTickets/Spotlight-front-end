@@ -1,4 +1,4 @@
-const { ESLint } = require("eslint");
+const { ESLint } = require('eslint')
 
 // Create an instance of ESLint with the configuration passed to the function
 async function lintAndFix(filePaths) {
@@ -13,19 +13,19 @@ async function lintAndFix(filePaths) {
         ecmaVersion: 2018,
       },
       rules: {
-        "no-console": "error",
-        "no-unused-vars": "warn",
+        'no-console': 'error',
+        'no-unused-vars': 'warn',
       },
     },
     fix: true,
-  });
+  })
 
-  const results = await eslint.lintFiles(filePaths);
+  const results = await eslint.lintFiles(filePaths)
 
   // Apply automatic fixes and output fixed code
-  await ESLint.outputFixes(results);
+  await ESLint.outputFixes(results)
 
-  return results;
+  return results
 }
 
 // Log results to console if there are any problems
@@ -34,22 +34,22 @@ function outputLintingResults(results) {
   const problems = results.reduce(
     (acc, result) => acc + result.errorCount + result.warningCount,
     0,
-  );
+  )
 
   if (problems > 0) {
-    console.log("Linting errors found!");
-    console.log(results);
+    console.log('Linting errors found!')
+    console.log(results)
   } else {
-    console.log("No linting errors found.");
+    console.log('No linting errors found.')
   }
-  return results;
+  return results
 }
 
 // Assuming lintFiles is called with an array of file paths
 async function lintFiles(filePaths) {
-  const results = await lintAndFix(filePaths);
-  return outputLintingResults(results);
+  const results = await lintAndFix(filePaths)
+  return outputLintingResults(results)
 }
 
 // Export integration
-module.exports = { lintFiles };
+module.exports = { lintFiles }

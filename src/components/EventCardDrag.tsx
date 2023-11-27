@@ -1,23 +1,23 @@
-import "../styles/components/_event-card-drag.scss";
+import '../styles/components/_event-card-drag.scss'
 
-import { useState } from "react";
-import Image from "next/image";
-import HeartIcon from "../assets/heart.svg";
-import FullHeartIcon from "../assets/heart-red.svg";
+import { useState } from 'react'
+import Image from 'next/image'
+import HeartIcon from '../assets/heart.svg'
+import FullHeartIcon from '../assets/heart-red.svg'
 
 export default function EventCardDrag(props: {
-  key: number;
+  key: number
   data: {
-    id: number;
-    artist: string;
-    artistImage: any;
-    date: string;
-    location: string;
-  };
+    id: number
+    artist: string
+    artistImage: any
+    date: string
+    location: string
+  }
 }) {
-  const [isHeartFilled, setIsHeartFilled] = useState(false);
+  const [isHeartFilled, setIsHeartFilled] = useState(false)
 
-  const toggleHeart = () => setIsHeartFilled(!isHeartFilled);
+  const toggleHeart = () => setIsHeartFilled(!isHeartFilled)
 
   return (
     <div className="event-card-drag">
@@ -38,8 +38,8 @@ export default function EventCardDrag(props: {
         </div>
         <span className="event-card-drag__span">{props.data.date}</span>
         <span className="event-card-drag__span">{props.data.location}</span>
-        <button className="event-card-drag__button">Learn More {">"}</button>
+        <button className="event-card-drag__button">Learn More {'>'}</button>
       </div>
     </div>
-  );
+  )
 }

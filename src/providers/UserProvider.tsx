@@ -1,52 +1,52 @@
-import { createContext, useEffect, useState } from "react";
-import Cookies from "universal-cookie";
-import { useAuth } from "@/hooks/useAuth";
-import { GetServerSideProps, NextPage } from "next";
-import { useCookies } from "react-cookie";
-import { verifyJwtToken } from "@/libs/auth";
-import { JWTPayload } from "jose";
+import { createContext, useEffect, useState } from 'react'
+import Cookies from 'universal-cookie'
+import { useAuth } from '@/hooks/useAuth'
+import { GetServerSideProps, NextPage } from 'next'
+import { useCookies } from 'react-cookie'
+import { verifyJwtToken } from '@/libs/auth'
+import { JWTPayload } from 'jose'
 
 type User = {
-  country: string;
-  display_name: string;
-  email: string;
+  country: string
+  display_name: string
+  email: string
   explicit_content: {
-    filter_enabled: boolean;
-    filter_locked: boolean;
-  };
+    filter_enabled: boolean
+    filter_locked: boolean
+  }
   external_urls: {
-    spotify: string;
-  };
+    spotify: string
+  }
   followers: {
-    href: string | null;
-    total: number;
-  };
-  href: string;
-  id: string;
+    href: string | null
+    total: number
+  }
+  href: string
+  id: string
   images: {
-    url: string;
-    height: number;
-    width: number;
-  }[];
-  product: string;
-  type: string;
-  uri: string;
-};
+    url: string
+    height: number
+    width: number
+  }[]
+  product: string
+  type: string
+  uri: string
+}
 
 type PageProps = {
-  api_access_token: string;
-};
+  api_access_token: string
+}
 
 export const UserContext = createContext<{
-  user?: User;
-  refreshUser: () => Promise<void>;
-}>({ user: undefined, refreshUser: async () => {} });
+  user?: User
+  refreshUser: () => Promise<void>
+}>({ user: undefined, refreshUser: async () => {} })
 
 export const UserProvider: NextPage<{ children: React.ReactNode }> = (
   props,
 ) => {
-  console.log(props); //
-  const [user, setUser] = useState<User>();
+  console.log(props) //
+  const [user, setUser] = useState<User>()
 
   const getUser = async () => {
     const cookies = new Cookies();
@@ -59,28 +59,28 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
       return;
     }
 
-    fetch(`${apiHost}/user`, {
+    fetch('http://localhost:8000/user', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     })
       .then(async (res) => {
-        console.log(res);
-        const data = (await res.json()) as User;
-        setUser(data);
+        console.log(res)
+        const data = (await res.json()) as User
+        setUser(data)
       })
       .catch((err) => {
-        console.error(err);
-      });
-  };
+        console.error(err)
+      })
+  }
 
   useEffect(() => {
     try {
-      getUser();
+      getUser()
     } catch (err) {
-      setUser(undefined);
+      setUser(undefined)
     }
-  }, []);
+  }, [])
 
   return (
     <UserContext.Provider
@@ -91,7 +91,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
     >
       {props.children}
     </UserContext.Provider>
-  );
-};
+  )
+}
 
-export default UserProvider;
+export default UserProvider

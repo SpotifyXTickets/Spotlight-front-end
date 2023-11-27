@@ -1,13 +1,13 @@
-"use client";
-import Cookies from "universal-cookie";
-import { useRouter } from "next/router";
-import { verifyJwtToken } from "@/libs/auth";
-import { useEffect, useMemo } from "react";
+'use client'
+import Cookies from 'universal-cookie'
+import { useRouter } from 'next/router'
+import { verifyJwtToken } from '@/libs/auth'
+import { useEffect, useMemo } from 'react'
 
 export const useGetTokenOrRedirect = (): string => {
-  const cookies = useMemo(() => new Cookies(), []);
-  const token = cookies.get("twix_access_token") ?? null;
-  const router = useRouter();
+  const cookies = useMemo(() => new Cookies(), [])
+  const token = cookies.get('twix_access_token') ?? null
+  const router = useRouter()
 
   useEffect(() => {
     (async () => {
@@ -17,8 +17,8 @@ export const useGetTokenOrRedirect = (): string => {
         });
         router.push("/spotify_authorizer");
       }
-    })();
-  }, [router, token, cookies]);
+    })()
+  }, [router, token, cookies])
 
-  return token;
-};
+  return token
+}

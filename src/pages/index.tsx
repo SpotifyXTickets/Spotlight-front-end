@@ -1,13 +1,13 @@
-import "../styles/pages/_login.scss";
+import '../styles/pages/_login.scss'
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import LoginImage from "../assets/login-image.png";
-import SpotifyIcon from "../assets/spotify-icon.svg";
-import Button from "@/components/Button";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import LoginImage from '../assets/login-image.png'
+import SpotifyIcon from '../assets/spotify-icon.svg'
+import Button from '@/components/Button'
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
 export const Login = () => {
   return (
@@ -16,7 +16,7 @@ export const Login = () => {
       <main className="login">
         <Image className="login__image" src={LoginImage} alt="Login Image" />
         <h1 className="login__header">
-          Best way to find the perfect music event{" "}
+          Best way to find the perfect music event{' '}
         </h1>
         <p className="login__text">
           Welcome to the world of music events that was created for you
@@ -33,7 +33,7 @@ export const Login = () => {
       </main>
       <Footer />
     </section>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

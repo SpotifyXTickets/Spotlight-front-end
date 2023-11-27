@@ -9,7 +9,7 @@
   &__card {
     @apply h-[17.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
 
-    font-family: "Gilroy-Regular";
+    font-family: 'Gilroy-Regular';
   }
 
   &__image {
@@ -26,10 +26,10 @@
   &__checkbox {
     @apply flex items-center gap-2 mb-2 text-[#292929];
 
-    font-family: "Gilroy-Semibold";
+    font-family: 'Gilroy-Semibold';
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     border: 1px solid #6e3aff;
   }
 }

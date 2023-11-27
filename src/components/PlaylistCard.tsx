@@ -1,16 +1,16 @@
-import "@/styles/components/_playlist-card.scss";
+import '@/styles/components/_playlist-card.scss'
 
 export default function PlaylistCard(props: {
-  key: string;
+  key: string
   data: {
-    id: string;
-    title: string;
-    description: string;
-    duration: string;
-    artist: string;
-    album: string;
-    year: number;
-  };
+    id: string
+    title: string
+    description: string
+    duration: string
+    artist: string
+    album: string
+    year: number
+  }
 }) {
   return (
     <label
@@ -31,5 +31,5 @@ export default function PlaylistCard(props: {
         </div>
       </div>
     </label>
-  );
+  )
 }

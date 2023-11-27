@@ -1,14 +1,14 @@
-import "@/styles/components/_button.scss";
+import '@/styles/components/_button.scss'
 
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function Button(props: {
-  icon?: any;
-  children: string;
-  background: string;
-  text: string;
-  border?: string;
-  borderColor?: string;
+  icon?: any
+  children: string
+  background: string
+  text: string
+  border?: string
+  borderColor?: string
 }) {
   return (
     <button
@@ -19,5 +19,5 @@ export default function Button(props: {
       )}
       {props.children}
     </button>
-  );
+  )
 }

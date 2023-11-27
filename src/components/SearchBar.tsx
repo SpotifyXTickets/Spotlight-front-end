@@ -1,4 +1,4 @@
-import "../styles/components/_search-bar.scss";
+import '../styles/components/_search-bar.scss'
 
 export default function SearchBar() {
   return (
@@ -26,5 +26,5 @@ export default function SearchBar() {
         placeholder="Search by keywords"
       ></input>
     </div>
-  );
+  )
 }
