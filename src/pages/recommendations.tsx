@@ -7,7 +7,22 @@ import Categories from "@/components/Categories";
 import EventsSection from "@/components/EventsSection";
 import Footer from "@/components/Footer";
 
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [recommendations, setRecommendations] = useState(null);
+
+  useEffect(() => {
+    const fetchRecommendations = async () => {
+      const response = await fetch("http://localhost:8000/recommendations");
+      const data = await response.json();
+      console.log(data);
+      setRecommendations(data);
+    };
+
+    fetchRecommendations();
+  }, []);
+
   return (
     <section>
       <NavBar />
