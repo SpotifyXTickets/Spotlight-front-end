@@ -3,8 +3,6 @@ import SearchBar from '@/components/SearchBar'
 // import Dropdown from "@/components/Dropdown";
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '@/providers/UserProvider'
-import { verifyJwtToken } from '@/libs/auth'
-import { JWTPayload } from 'jose'
 import Cookies from 'universal-cookie'
 import { useGetTokenOrRedirect } from '@/hooks/useGetTokenOrRedirect'
 import NavBar from '@/components/NavBar'
@@ -57,158 +55,6 @@ type PlaylistItem = {
   type: string
   uri: string
 }
-
-const PlaylistLoremIpsumData = [
-  {
-    id: 1,
-    title: 'Lorem Ipsum Dolor Sit Amet',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    duration: '3:45',
-    artist: 'John Doe',
-    album: 'Lorem Ipsum',
-    year: 2021,
-  },
-  {
-    id: 2,
-    title: 'Sed Do Eiusmod Tempor',
-    description:
-      'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    duration: '4:20',
-    artist: 'Jane Smith',
-    album: 'Dolor Sit Amet',
-    year: 2020,
-  },
-  {
-    id: 3,
-    title: 'Consectetur Adipiscing Elit',
-    description:
-      'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    duration: '2:30',
-    artist: 'Bob Johnson',
-    album: 'Adipiscing Elit',
-    year: 2019,
-  },
-  {
-    id: 4,
-    title: 'Ut Enim Ad Minim Veniam',
-    description:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    duration: '5:15',
-    artist: 'Alice Lee',
-    album: 'Minim Veniam',
-    year: 2018,
-  },
-  {
-    id: 5,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 6,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 7,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 8,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 9,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 10,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 11,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 12,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 13,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 14,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-  {
-    id: 15,
-    title: 'Duis Aute Irure Dolor',
-    description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    duration: '3:00',
-    artist: 'David Kim',
-    album: 'Irure Dolor',
-    year: 2017,
-  },
-]
 
 function LoopSkeletons(Component: any, count: number) {
   let i = 0
@@ -265,10 +111,6 @@ export default function Page() {
       <NavBar />
       <main className="select-playlists">
         <h2 className="select-playlists__header">Select Playlists</h2>
-        {/* <p className="select-playlists__info">
-          Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit.
-        </p> */}
         <SearchBar />
         {playlist ? <PlaylistSection playlist={playlist} /> : <></>}
       </main>
