@@ -1,7 +1,7 @@
 import "@/styles/components/_hamburger-menu.scss";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import MuseveLogo from "../assets/museve-logo-white.svg";
+import Logo from "../assets/spotlight-logo.svg";
 import Image from "next/image";
 
 const path01Variants = {
@@ -48,7 +48,7 @@ export default function HamburgerMenu() {
           >
             <Image
               className="hamburger-menu__logo"
-              src={MuseveLogo}
+              src={Logo}
               alt="Museve Logo"
             />
 

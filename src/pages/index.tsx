@@ -76,10 +76,9 @@ export default function Login() {
       <NavBar />
       <main className="login__background">
         <div className="login__wrapper">
-          <h1 className="login__header">Ideal Events Every Time</h1>
+          <h1 className="login__header">Discover Perfect Events For You</h1>
           <p className="login__description">
-            Sign in for an exclusive musical journey with events crafted just
-            for you.
+            Sign in with Spotify for personalised event recommendations!
           </p>
           <Link href="/select-playlists">
             <Button
@@ -150,7 +149,7 @@ export default function Login() {
 
         <section className="login__community">
           <h2 className="login__community-header">
-            Join our community #Museve&Me
+            Join our community #Spotlighted
           </h2>
           <p className="login__community-description">
             Join our online communities for personalised fun and connections.

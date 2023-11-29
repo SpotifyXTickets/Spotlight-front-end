@@ -2,15 +2,16 @@ import "@/styles/components/_footer.scss";
 
 import Image from "next/image";
 
-import Logo from "../assets/museve-logo-white.svg";
+import Logo from "../assets/spotlight-logo.svg";
 import FacebookIcon from "../assets/icons/facebook.svg";
 import InstagramIcon from "../assets/icons/instagram.svg";
 import BehanceIcon from "../assets/icons/behance.svg";
 
 const footerItems = [
-  { id: 1, title: "Recommendations" },
-  { id: 2, title: "Friends Community" },
-  { id: 3, title: "Explore New Events" },
+  { id: 1, title: "Home" },
+  { id: 2, title: "Recommended events" },
+  { id: 3, title: "Settings" },
+  { id: 4, title: "Help" },
 ];
 
 export default function Footer() {
