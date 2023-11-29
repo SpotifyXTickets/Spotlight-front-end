@@ -4,7 +4,7 @@
   padding-top: 100px;
 
   &__wrapper {
-    @apply mx-4 pt-16 min-h-full pb-xl h-screen;
+    @apply mx-4 pt-20 min-h-full pb-xl h-screen;
   }
 
   &__background {
@@ -16,7 +16,7 @@
   }
 
   &__header {
-    @apply text-white text-[3.7rem] leading-tight font-poppins font-medium;
+    @apply text-white text-[3.6rem] leading-[1.10] font-poppins font-semibold;
   }
 
   &__description {

@@ -15,8 +15,8 @@ export default function Home() {
         <h1 className="recommendations-selection__title">Best For You</h1>
         <SearchBar placeholder="Search for playlists" />
         <Categories />
-        <EventsSection title="Pop Music" />
-        <EventsSection title="R&B Music" />
+        <EventsSection title="" />
+        <EventsSection title="" />
       </main>
       <Footer />
     </section>

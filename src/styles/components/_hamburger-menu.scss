@@ -6,7 +6,7 @@
   }
 
   &__item {
-    @apply py-5 mx-4 cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#E7E7E7] text-white last:border-none;
+    @apply py-5 mx-4 cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#222222] text-white last:border-none;
   }
 
   &__button {

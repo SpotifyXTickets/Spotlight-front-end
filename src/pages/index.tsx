@@ -21,8 +21,8 @@ import test1 from "@/assets/community-1.png";
 import test2 from "@/assets/community-2.png";
 import test3 from "@/assets/community-3.png";
 import test4 from "@/assets/community-4.png";
-import test5 from "@/assets/community-6.png";
-import test6 from "@/assets/community-5.png";
+import test5 from "@/assets/community-5.png";
+import test6 from "@/assets/community-6.png";
 
 const processData = [
   {
@@ -180,7 +180,7 @@ export default function Login() {
           </Link>
         </div>
       </main>
-      <div className="pt-[150rem] pb-0.5">
+      <div className="pt-[154rem] pb-0.5">
         <Footer />
       </div>
     </section>
