@@ -12,7 +12,7 @@ export default function Home() {
     <section className="recommendations-section">
       <NavBar />
       <main className="recommendations-selection">
-        <h1 className="recommendations-selection__title">Best For You</h1>
+        <h1 className="recommendations-selection__title">Recommended events</h1>
         <SearchBar placeholder="Search for playlists" />
         <Categories />
         <EventsSection title="" />

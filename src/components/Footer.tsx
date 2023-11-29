@@ -1,6 +1,7 @@
 import "@/styles/components/_footer.scss";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import Logo from "../assets/spotlight-logo.svg";
 import FacebookIcon from "../assets/icons/facebook.svg";
@@ -8,8 +9,8 @@ import InstagramIcon from "../assets/icons/instagram.svg";
 import BehanceIcon from "../assets/icons/behance.svg";
 
 const footerItems = [
-  { id: 1, title: "Home" },
-  { id: 2, title: "Recommended events" },
+  { id: 1, title: "Home", link: "/home-page" },
+  { id: 2, title: "Recommended events", link: "/recommendations" },
   { id: 3, title: "Settings" },
   { id: 4, title: "Help" },
 ];
@@ -22,9 +23,9 @@ export default function Footer() {
 
         <section className="footer__items">
           {footerItems.map((item) => (
-            <span className="" key={item.id}>
-              {item.title}
-            </span>
+            <Link href={`${item.link}`} key={item.id}>
+              <span>{item.title}</span>
+            </Link>
           ))}
           <hr className="footer__line" />
           <span className="footer__company">2023, Citric Labs</span>

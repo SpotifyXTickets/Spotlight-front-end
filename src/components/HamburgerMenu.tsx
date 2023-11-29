@@ -1,8 +1,11 @@
 import "@/styles/components/_hamburger-menu.scss";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "../assets/spotlight-logo.svg";
 import Image from "next/image";
+import Link from "next/link";
+
+import Logo from "../assets/spotlight-logo.svg";
 
 const path01Variants = {
   open: { d: "M3.06061 2.99999L21.0606 21" },
@@ -16,8 +19,8 @@ const path02Variants = {
 };
 
 const navItems = [
-  { id: 1, title: "Home" },
-  { id: 2, title: "Recommended events" },
+  { id: 1, title: "Home", link: "/home-page" },
+  { id: 2, title: "Recommended events", link: "/recommendations" },
   { id: 3, title: "Settings" },
   { id: 4, title: "Help" },
 ];
@@ -53,9 +56,13 @@ export default function HamburgerMenu() {
             />
 
             {navItems.map((item) => (
-              <a key={item.id} className="hamburger-menu__item">
+              <Link
+                href={`${item.link}`}
+                key={item.id}
+                className="hamburger-menu__item"
+              >
                 {item.title}
-              </a>
+              </Link>
             ))}
           </motion.nav>
         )}
