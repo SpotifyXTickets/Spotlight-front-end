@@ -20,7 +20,7 @@
   }
 
   &__buttons {
-    @apply fixed bottom-0 w-full bg-dark px-4 flex gap-4;
+    @apply fixed bottom-0 w-full bg-dark px-4 flex gap-4 z-10;
   }
 
   &__link {
