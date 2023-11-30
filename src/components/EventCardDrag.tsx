@@ -2,8 +2,9 @@ import '../styles/components/_event-card-drag.scss'
 
 import { useState } from 'react'
 import Image from 'next/image'
-import HeartIcon from '../assets/heart.svg'
-import FullHeartIcon from '../assets/heart-red.svg'
+
+import HeartIcon from '../assets/icons/heart.svg'
+import FullHeartIcon from '../assets/icons/heart-red.svg'
 
 export default function EventCardDrag(props: {
   key: number
@@ -20,7 +21,7 @@ export default function EventCardDrag(props: {
   const toggleHeart = () => setIsHeartFilled(!isHeartFilled)
 
   return (
-    <div className="event-card-drag">
+    <div className="event-card-drag ">
       <Image
         className="event-card-drag__image"
         src={props.data.artistImage}
@@ -38,7 +39,6 @@ export default function EventCardDrag(props: {
         </div>
         <span className="event-card-drag__span">{props.data.date}</span>
         <span className="event-card-drag__span">{props.data.location}</span>
-        <button className="event-card-drag__button">Learn More {'>'}</button>
       </div>
     </div>
   )

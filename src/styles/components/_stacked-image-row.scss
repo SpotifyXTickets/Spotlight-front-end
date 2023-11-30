@@ -1,0 +1,35 @@
+.stacked-image-row {
+  @apply flex flex-row flex-nowrap justify-between items-center max-w-full;
+
+  &__item {
+    @apply object-cover rounded-[4px] relative;
+  }
+
+  &__outside {
+    @apply h-[65px] w-[65px] object-cover z-1;
+
+    &--left {
+      @apply -mr-[4%];
+    }
+
+    &--right {
+      @apply -ml-[4%];
+    }
+  }
+
+  &__inside {
+    @apply h-[85px] w-[85px] object-cover z-2;
+
+    &--left {
+      @apply -mr-[10%];
+    }
+
+    &--right {
+      @apply -ml-[10%];
+    }
+  }
+
+  &__middle {
+    @apply h-[110px] w-[110px] object-cover z-3;
+  }
+}

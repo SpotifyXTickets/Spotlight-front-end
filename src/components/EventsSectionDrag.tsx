@@ -1,8 +1,9 @@
 import '../styles/components/_events-section-drag.scss'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 import EventCardDrag from '@/components/EventCardDrag'
+
+import ArtistConcertCardDrag from '@/components/ArtistConcertCardDrag'
 
 import BeyonceDrag from '../assets/BeyonceDrag.png'
 import TheWeekndDrag from '../assets/TheweekndDrag.png'
@@ -32,9 +33,22 @@ const data = [
   },
 ]
 
-export default function EventsSectionDrag() {
+export default function EventsSectionDrag(props: { concertCards?: boolean }) {
   const [width, setWidth] = useState(0)
   const dragSlider = useRef<HTMLDivElement | null>(null)
+
+  let content: JSX.Element[] | null
+
+  switch (true) {
+    case props.concertCards:
+      content = data.map((item) => (
+        <ArtistConcertCardDrag key={item.id} data={item} />
+      ))
+      break
+
+    default:
+      content = data.map((item) => <EventCardDrag key={item.id} data={item} />)
+  }
 
   useEffect(() => {
     if (dragSlider.current) {
@@ -44,16 +58,5 @@ export default function EventsSectionDrag() {
     }
   }, [])
 
-  return (
-    <motion.section
-      className="events-section-drag"
-      ref={dragSlider}
-      drag="x"
-      dragConstraints={{ right: 0, left: -width - 90 }}
-    >
-      {data.map((item) => (
-        <EventCardDrag key={item.id} data={item} />
-      ))}
-    </motion.section>
-  )
+  return <div className="event-card-drag__wrapper">{content}</div>
 }

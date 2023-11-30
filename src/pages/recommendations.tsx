@@ -1,3 +1,4 @@
+import '../app/globals.scss'
 import '../styles/pages/_recommendations-selection.scss'
 
 import { EventType } from '@/types/types'
@@ -110,24 +111,14 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 export const Home: NextPage<PageProps> = (props) => {
   console.log(props)
   return (
-    <section>
+    <section className="recommendations-section">
       <NavBar />
       <main className="recommendations-selection">
-        <h1 className="recommendations-selection__title">Best For You</h1>
-        <SearchBar />
+        <h1 className="recommendations-selection__title">Recommended events</h1>
+        <SearchBar placeholder="Search for playlists" />
         <Categories />
-        <EventsSection title="Pop Music" events={props.popEvents} />
-        <EventsSection title="R&B Music" events={props.rnbEvents} />
-        <EventsSection title="Rock Music" events={props.rockEvents} />
-        <EventsSection
-          title="Dance & Electronic Music"
-          events={props.danceElectronicEvents}
-        />
-        <EventsSection title="Folk Music" events={props.folkEvents} />
-        <EventsSection
-          title="Hip Hop & Rap Music"
-          events={props.hipHopRapEvents}
-        />
+        <EventsSection title="" />
+        <EventsSection title="" />
       </main>
       <Footer />
     </section>

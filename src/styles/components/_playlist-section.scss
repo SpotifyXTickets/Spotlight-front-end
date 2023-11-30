@@ -1,35 +1,19 @@
 .playlist-section {
-  @media (max-width: 600px) {
-    @apply mt-6 grid grid-cols-2 gap-6;
-  }
-  @media (min-width: 600px) {
-    @apply mt-6 grid grid-cols-10 gap-6;
-  }
+  @apply grid grid-cols-2 gap-6;
 
   &__card {
-    @apply h-[17.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
-
-    font-family: 'Gilroy-Regular';
+    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md p-2;
   }
 
   &__image {
-    @apply h-44 w-44 rounded-t-xl;
-  }
-
-  &__image_holder {
-    @apply relative w-full h-[12rem];
-  }
-  &__info {
-    @apply flex flex-col gap-0.5 mt-2 px-3 text-[#3D3D3D];
+    @apply h-40 w-40 rounded-md;
   }
 
   &__checkbox {
-    @apply flex items-center gap-2 mb-2 text-[#292929];
-
-    font-family: 'Gilroy-Semibold';
+    @apply flex gap-2 text-white font-medium;
   }
 
-  input[type='checkbox'] {
-    border: 1px solid #6e3aff;
+  &__input {
+    @apply bg-dark_lighter focus:accent-[#6e3aff] mt-0.5;
   }
 }

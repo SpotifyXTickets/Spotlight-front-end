@@ -1,45 +1,145 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-  font-family: Gilroy-Regular;
-  src: url('../../fonts/Gilroy-Regular.ttf');
-}
-
-@font-face {
-  font-family: Gilroy-Semibold;
-  src: url('../../fonts/Gilroy-Semibold.ttf');
-}
-
-@font-face {
-  font-family: Gilroy-Bold;
-  src: url('../../fonts/Gilroy-Bold.ttf');
-}
-
-body {
-  margin: 0;
-  background-color: #fbf9f9;
-}
-
 .login {
-  @apply mx-4 min-h-full pb-xl;
+  @apply bg-dark;
 
   padding-top: 100px;
 
-  &__image {
-    @apply -mt-6;
+  &__wrapper {
+    @apply mx-4 pt-24 min-h-full pb-xl h-screen;
+  }
+
+  &__background {
+    @apply h-screen;
+
+    background-image: url('../../assets/login.png');
+    background-size: cover;
+    border-image: fill 0 linear-gradient(#0001, #121212);
   }
 
   &__header {
-    @apply text-black text-center text-3xl mt-4;
-
-    font-family: 'Gilroy-Bold';
+    @apply text-white text-[2.74rem] leading-[1.20] font-poppins font-semibold;
   }
 
-  &__text {
-    @apply text-black text-center text-base mt-3;
+  &__description {
+    @apply text-white text-lg mt-6 mb-6;
+  }
 
-    font-family: 'Gilroy-Regular';
+  &__explore-more {
+    @apply absolute m-auto bottom-6 left-0 right-0 flex justify-center gap-3 text-white transition-all duration-300;
+
+    &-icon {
+      @apply mb-1;
+    }
+  }
+
+  &__process {
+    @apply py-16 flex flex-col items-center gap-5;
+
+    &-header {
+      @apply text-3xl pb-2 text-center leading-normal font-medium text-white;
+    }
+
+    &-icon-wrapper {
+      @apply mt-6 p-6 rounded-md bg-[#6e3aff];
+    }
+
+    &-step-title {
+      @apply text-xl text-white font-medium;
+    }
+
+    &-step-description {
+      @apply text-white text-center max-w-xs;
+    }
+  }
+
+  &__users {
+    @apply py-16 flex flex-col items-center gap-5;
+
+    &-wrapper {
+      @apply bg-[#242424] rounded-md py-8 px-4 flex flex-col items-center gap-8;
+    }
+
+    &-quotes {
+      @apply w-5 h-5;
+    }
+
+    &-header {
+      @apply text-3xl pb-2 text-center leading-normal font-medium text-white;
+    }
+
+    &-description {
+      @apply text-white text-center max-w-xs;
+    }
+
+    &-user-image {
+      @apply rounded-full;
+    }
+  }
+
+  &__community {
+    @apply py-16 flex flex-col items-center gap-6;
+
+    &-header {
+      @apply text-3xl text-center leading-normal font-medium text-white;
+    }
+
+    &-description {
+      @apply text-white text-center max-w-xs;
+    }
+
+    &-image {
+      @apply w-full h-full rounded-md;
+    }
+
+    &-grid {
+      @apply w-full px-4 grid gap-2 bg-dark grid-cols-5 grid-rows-4 max-h-[28rem];
+
+      #item-1 {
+        grid-row-start: 1;
+        grid-column-start: 1;
+
+        grid-row-end: 2;
+        grid-column-end: 4;
+      }
+
+      #item-2 {
+        grid-row-start: 1;
+        grid-column-start: 4;
+
+        grid-row-end: 2;
+        grid-column-end: 6;
+      }
+
+      #item-3 {
+        grid-row-start: 2;
+        grid-column-start: 1;
+
+        grid-row-end: 4;
+        grid-column-end: 3;
+      }
+
+      #item-4 {
+        grid-row-start: 2;
+        grid-column-start: 3;
+
+        grid-row-end: 3;
+        grid-column-end: 6;
+      }
+
+      #item-5 {
+        grid-row-start: 3;
+        grid-column-start: 3;
+
+        grid-row-end: 5;
+        grid-column-end: 6;
+      }
+
+      #item-6 {
+        grid-row-start: 4;
+        grid-column-start: 1;
+
+        grid-row-end: 5;
+        grid-column-end: 3;
+      }
+    }
   }
 }

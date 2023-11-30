@@ -1,52 +1,64 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-  font-family: Gilroy-Regular;
-  src: url('../../fonts/Gilroy-Regular.ttf');
-}
-
-@font-face {
-  font-family: Gilroy-Semibold;
-  src: url('../../fonts/Gilroy-Semibold.ttf');
-}
-
-@font-face {
-  font-family: Gilroy-Bold;
-  src: url('../../fonts/Gilroy-Bold.ttf');
-}
-
-body {
-  margin: 0;
-  background-color: #fbf9f9;
-}
-
 .home-page {
-  @apply mx-4 min-h-full pb-xl overflow-x-hidden;
+  @apply min-h-full bg-dark;
 
-  &____draggable-events {
-    @apply overflow-x-hidden;
+  &__container {
+    @apply mx-4;
   }
 
-  &__best-for-you {
-    @apply flex justify-between items-center mt-6;
+  &__searchbar-wrapper {
+    @apply mb-md;
   }
 
-  &__all {
-    @apply text-xl text-[#6e3aff];
+  &__section-title-wrapper {
+    @apply flex flex-row justify-between mb-xs;
+  }
 
-    font-family: 'Gilroy-Semibold';
+  &__draggable-events {
+    @apply pb-4;
+  }
+
+  &__section {
+    @apply mb-mob;
+
+    &-title {
+      @apply text-xl text-white font-semibold;
+    }
+
+    &-see-all {
+      @apply text-lg text-lead font-medium;
+    }
+
+    &-subtitle {
+      @apply text-grey_medium;
+    }
+
+    &-title-description {
+      @apply text-grey_medium font-normal text-center mb-[25px];
+    }
   }
 
   &__title {
-    @apply text-3xl text-[#292929];
-
-    font-family: 'Gilroy-Bold';
+    @apply text-3xl text-white font-semibold mb-mob;
   }
 
   &__line {
     @apply w-full mt-12;
+  }
+
+  &__stacked-image-row {
+    @apply mb-[25px];
+  }
+
+  &__flow {
+    @apply mb-[54px];
+  }
+
+  &__button-grid {
+    @apply grid grid-cols-2 gap-4 pt-[22px];
+
+    button {
+      @apply m-0;
+    }
   }
 
   padding-top: 100px;

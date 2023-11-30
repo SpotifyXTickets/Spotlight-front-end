@@ -1,3 +1,4 @@
+import '../app/globals.scss'
 import '../styles/pages/_select-playlists.scss'
 
 import Link from 'next/link'
@@ -43,22 +44,26 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 }
 export const SelectPlaylists: NextPage<PageProps> = (props) => {
   return (
-    <section>
+    <section className="select-playlists__section">
       <NavBar />
       <main className="select-playlists">
-        <h2 className="select-playlists__header">Select Playlists</h2>
+        <h2 className="select-playlists__header">Let’s get started</h2>
         <p className="select-playlists__info">
-          Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit.
+          Select playlists for more personalised event recommendations.
         </p>
-        <SearchBar />
-        {props.playlist ? <PlaylistSection playlist={props.playlist} /> : <></>}
+        <SearchBar placeholder="Search for playlists" />
+
+        <button className="select-playlists__all-button">
+          Select All Playlists
+        </button>
+
+        <PlaylistSection />
       </main>
       <section className="select-playlists__buttons">
         <Link className="select-playlists__link" href="/home-page">
           <Button
             text="text-[#6e3aff]"
-            background="bg-[#fbf9f9]"
+            background="bg-dark"
             border="border"
             borderColor="border-[#6e3aff]"
           >
@@ -67,11 +72,13 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
         </Link>
         <Link className="select-playlists__link" href="/home-page">
           <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
-            Get Started
+            Confirm Playlists
           </Button>
         </Link>
       </section>
-      <Footer />
+      <div className="pb-20">
+        <Footer />
+      </div>
     </section>
   )
 }

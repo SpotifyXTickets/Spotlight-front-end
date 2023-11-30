@@ -1,5 +1,7 @@
 import '../styles/components/_playlist-section.scss'
 
+import { useState } from 'react'
+
 import Image from 'next/image'
 import IndieRock from '../assets/IndieRock.jpeg'
 import JazzEvening from '../assets/JazzEvening.jpeg'
@@ -27,17 +29,13 @@ export default function PlaylistSection(props: {
             />
           </div>
 
-          <div className="playlist-section__info">
-            <div className="playlist-section__checkbox">
-              <input
-                type="checkbox"
-                value={item.name}
-                id={'playlist-section__checkbox_' + item.id}
-              ></input>
-              <label>{item.name}</label>
-            </div>
-            <span>{item.tracks.total} songs</span>
-            {/* <span>{item}</span> */}
+          <div className="playlist-section__checkbox">
+            <input
+              className="playlist-section__input"
+              type="checkbox"
+              value={item.name}
+            />
+            <label>{item.name}</label>
           </div>
         </label>
       ))}

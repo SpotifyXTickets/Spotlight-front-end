@@ -1,0 +1,19 @@
+.artist-concert-card-drag {
+  @apply max-w-[130px] bg-transparent;
+
+  &__info {
+    @apply p-0;
+  }
+
+  &__title {
+    @apply text-white font-medium;
+  }
+
+  &__image {
+    @apply min-h-[130px] min-w-[130px] object-cover rounded-6 mb-sm;
+  }
+
+  &__span {
+    @apply text-grey_medium font-medium text-sm;
+  }
+}

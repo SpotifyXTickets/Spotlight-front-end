@@ -1,5 +1,5 @@
 .event-card {
-  @apply flex rounded-xl h-52 shadow-md bg-white;
+  @apply flex rounded-xl h-52 shadow-md bg-dark_lighter font-poppins;
 
   &__image {
     @apply object-cover max-w-[10.85rem] rounded-l-lg;
@@ -10,13 +10,11 @@
   }
 
   &__span {
-    @apply text-[#3D3D3D];
+    @apply text-white;
   }
 
   &__title {
-    @apply flex justify-between text-lg;
-
-    font-family: 'Gilroy-Semibold';
+    @apply flex justify-between text-lg font-poppins font-semibold text-white;
   }
 
   &__heart {
@@ -24,10 +22,6 @@
   }
 
   &__button {
-    @apply text-[#6e3aff] text-left;
-
-    font-family: 'Gilroy-Semibold';
+    @apply text-[#6e3aff] text-left font-poppins font-semibold;
   }
-
-  font-family: 'Gilroy-Regular';
 }

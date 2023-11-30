@@ -1,5 +1,18 @@
 .event-card-drag {
-  @apply flex flex-col rounded-xl h-[19rem] shadow-md bg-white whitespace-nowrap;
+  @apply flex flex-col rounded-xl bg-dark_lighter whitespace-nowrap font-poppins;
+
+  &__wrapper {
+    @apply flex flex-row gap-[15px] overflow-x-scroll -mx-4 px-4 mb-[42px];
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 
   &__image {
     @apply object-cover rounded-t-lg max-h-[15rem] pointer-events-none;
@@ -10,24 +23,14 @@
   }
 
   &__span {
-    @apply text-[#3D3D3D];
+    @apply text-grey_medium truncate;
   }
 
   &__title {
-    @apply flex justify-between text-lg;
-
-    font-family: 'Gilroy-Semibold';
+    @apply flex justify-between text-lg font-poppins text-white font-medium;
   }
 
   &__heart {
     @apply cursor-pointer;
   }
-
-  &__button {
-    @apply text-[#6e3aff] text-left;
-
-    font-family: 'Gilroy-Semibold';
-  }
-
-  font-family: 'Gilroy-Regular';
 }

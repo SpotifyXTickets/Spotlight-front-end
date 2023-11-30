@@ -1,8 +1,11 @@
 import '@/styles/components/_hamburger-menu.scss'
+
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import MuseveLogo from '../assets/museve-logo.svg'
 import Image from 'next/image'
+import Link from 'next/link'
+
+import Logo from '../assets/spotlight-logo.svg'
 
 const path01Variants = {
   open: { d: 'M3.06061 2.99999L21.0606 21' },
@@ -16,11 +19,10 @@ const path02Variants = {
 }
 
 const navItems = [
-  { id: 1, title: 'Best For You' },
-  { id: 2, title: 'Friends Community' },
-  { id: 3, title: 'Explore Events' },
-  { id: 4, title: 'Settings' },
-  { id: 5, title: 'Help' },
+  { id: 1, title: 'Home', link: '/home-page' },
+  { id: 2, title: 'Recommended events', link: '/recommendations' },
+  { id: 3, title: 'Settings' },
+  { id: 4, title: 'Help' },
 ]
 
 export default function HamburgerMenu() {
@@ -49,14 +51,18 @@ export default function HamburgerMenu() {
           >
             <Image
               className="hamburger-menu__logo"
-              src={MuseveLogo}
+              src={Logo}
               alt="Museve Logo"
             />
 
             {navItems.map((item) => (
-              <a key={item.id} className="hamburger-menu__item">
+              <Link
+                href={`${item.link}`}
+                key={item.id}
+                className="hamburger-menu__item"
+              >
                 {item.title}
-              </a>
+              </Link>
             ))}
           </motion.nav>
         )}
@@ -66,13 +72,13 @@ export default function HamburgerMenu() {
         <svg width="24" height="24" viewBox="0 0 24 24">
           <motion.path
             strokeWidth="1.75"
-            stroke="#1A1313"
+            stroke="#FFFFFF"
             animate={animation}
             variants={path01Variants}
           />
           <motion.path
             strokeWidth="1.75"
-            stroke="#1A1313"
+            stroke="#FFFFFF"
             animate={animation}
             variants={path02Variants}
           />

@@ -1,9 +1,10 @@
+import '../styles/components/_event-card.scss'
+
 import { useState } from 'react'
 import Image from 'next/image'
-import '../styles/components/_event-card.scss'
-import HeartIcon from '../assets/heart.svg'
-import FullHeartIcon from '../assets/heart-red.svg'
-import { EventType } from '@/types/types'
+
+import HeartIcon from '../assets/icons/heart.svg'
+import FullHeartIcon from '../assets/icons/heart-red.svg'
 
 export default function EventCard(props: { key: number; event: EventType }) {
   const [isHeartFilled, setIsHeartFilled] = useState(false)
