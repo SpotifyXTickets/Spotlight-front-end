@@ -17,25 +17,17 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   const { code, state } = context.query
   const apiHost = getApiHost()
 
-  let props = { success: false } as PageProps;
-  const cookies = new Cookies();
+  let props = { success: false } as PageProps
+  const cookies = new Cookies()
 
   if (code !== undefined && state !== undefined) {
     await fetch(`${apiHost}/authorize/spotify?state=${state}&code=${code}`)
       .then(async (res) => {
         const data = (await res.json()) as { accessToken: string }
-        console.log(data)
-        const token = await new SignJWT({
-          accessToken: data.accessToken,
-        })
-          .setProtectedHeader({ alg: 'HS256' })
-          .setIssuedAt()
-          .setExpirationTime('7d')
-          .sign(getJwtSecretKey())
 
-        props = { success: true, twix_access_token: token }
+        props = { success: true, twix_access_token: data.accessToken }
         const cookies = new Cookies()
-        cookies.set('twix_access_token', token, {
+        cookies.set('twix_access_token', data.accessToken, {
           path: '/',
           sameSite: 'strict',
         })

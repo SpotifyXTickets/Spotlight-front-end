@@ -6,56 +6,13 @@ import JazzEvening from '../assets/JazzEvening.jpeg'
 import Summer from '../assets/Summer.png'
 import { PlaylistType } from '@/types/types'
 
-const playlists = [
-  {
-    id: 1,
-    title: 'Indie Rock',
-    playlistImage: IndieRock,
-    songs: '50 songs',
-    artists: 'The Weeknd, Lana Del Rey...',
-  },
-  {
-    id: 2,
-    title: 'Jazz Evening',
-    playlistImage: JazzEvening,
-    songs: '32 songs',
-    artists: 'The Weeknd, Lana Del Rey...',
-  },
-  {
-    id: 3,
-    title: 'Summer 2021',
-    playlistImage: Summer,
-    songs: '41 songs',
-    artists: 'The Weeknd, Lana Del Rey...',
-  },
-  {
-    id: 4,
-    title: 'Indie Rock',
-    playlistImage: IndieRock,
-    songs: '50 songs',
-    artists: 'The Weeknd, Lana Del Rey...',
-  },
-  {
-    id: 5,
-    title: 'Jazz Evening',
-    playlistImage: JazzEvening,
-    songs: '32 songs',
-    artists: 'The Weeknd, Lana Del Rey...',
-  },
-  {
-    id: 6,
-    title: 'Summer 2021',
-    playlistImage: Summer,
-    songs: '41 songs',
-    artists: 'The Weeknd, Lana Del Rey...',
-  },
-]
-
-export default function PlaylistSection(props: { playlist: PlaylistType }) {
+export default function PlaylistSection(props: {
+  playlist: PlaylistType['items']
+}) {
   console.log(props.playlist)
   return (
     <section className="playlist-section">
-      {props.playlist.items.map((item) => (
+      {props.playlist.map((item) => (
         <label
           className="playlist-section__card"
           key={item.id}
@@ -64,7 +21,7 @@ export default function PlaylistSection(props: { playlist: PlaylistType }) {
           <div className="playlist-section__image_holder">
             <Image
               className="playlist-section__image"
-              src={item.images[0] ? item.images[0].url : ""}
+              src={item.images[0] ? item.images[0].url : ''}
               alt={item.name}
               fill
             />
