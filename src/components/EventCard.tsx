@@ -5,8 +5,12 @@ import Image from 'next/image'
 
 import HeartIcon from '../assets/icons/heart.svg'
 import FullHeartIcon from '../assets/icons/heart-red.svg'
+import { RecommendationEventType } from '@/types/types'
 
-export default function EventCard(props: { key: number; event: EventType }) {
+export default function EventCard(props: {
+  key: number
+  data: RecommendationEventType
+}) {
   const [isHeartFilled, setIsHeartFilled] = useState(false)
 
   const toggleHeart = () => setIsHeartFilled(!isHeartFilled)
@@ -16,21 +20,22 @@ export default function EventCard(props: { key: number; event: EventType }) {
     month: 'long',
   })
 
-  const image = props.event.images.sort((a, b) => {
-    return a.height < b.height ? 1 : -1
-  })[0]
   return (
     <div className="event-card">
       <Image
         className="event-card__image"
-        src={image.url ? image.url : ''}
-        alt="event image"
-        width={image.width}
-        height={image.height}
+        src={props.data.imageUrl}
+        alt="Artist Image"
+        width={300}
+        height={300}
       />
       <div className="event-card__info">
         <div className="event-card__title">
-          <h3>{props.event.name}</h3>
+          <h3>
+            {props.data.name.length > 22
+              ? props.data.name.substring(0, 20) + '..'
+              : props.data.name}
+          </h3>
           <Image
             className="event-card__heart"
             onClick={toggleHeart}
@@ -39,16 +44,20 @@ export default function EventCard(props: { key: number; event: EventType }) {
           />
         </div>
         <span className="event-card__span">
-          {formatter.format(new Date(props.event.dates.start.localDate)) +
-            ' ' +
-            props.event.dates.start.localTime}
+          {formatter.format(new Date(props.data.startDate))}
         </span>
         <span className="event-card__span">
-          {props.event._embedded.venues[0].name +
-            ', ' +
-            props.event._embedded.venues[0].city.name}
+          {props.data.address}, {props.data.city}
         </span>
-        <button className="event-card__button">Learn More {'>'}</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            window.location.href = `/event/${props.data.ticketMasterId}`
+          }}
+          className="event-card__button"
+        >
+          Learn More {'>'}
+        </button>
       </div>
     </div>
   )

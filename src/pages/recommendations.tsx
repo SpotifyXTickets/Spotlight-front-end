@@ -1,115 +1,49 @@
 import '../app/globals.scss'
 import '../styles/pages/_recommendations-selection.scss'
 
-import { EventType } from '@/types/types'
-import { GetServerSideProps, NextPage } from 'next'
-
 import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
-import EventsSection from '@/components/EventsSection'
 import SearchBar from '@/components/SearchBar'
 import Categories from '@/components/Categories'
+import EventsSection from '@/components/EventsSection'
+import Footer from '@/components/Footer'
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from '@/providers/UserProvider'
+import { useGetTokenOrRedirect } from '@/hooks/useGetTokenOrRedirect'
+import { PlaylistItemType } from '@/types/types'
 import { getApiHost } from '@/libs/getApiHost'
+import Cookies from 'universal-cookie'
+import { useSetRedirctUrl } from '@/hooks/useSetRedirectUrl'
 
-type PageProps = {
-  events: EventType[]
-  rockEvents: EventType[]
-  danceElectronicEvents: EventType[]
-  hipHopRapEvents: EventType[]
-  folkEvents: EventType[]
-  popEvents: EventType[]
-  rnbEvents: EventType[]
-}
-
-export const getServerSideProps: GetServerSideProps<PageProps> = async (
-  context,
-) => {
-  const props = {
-    events: [] as EventType[],
-    rockEvents: [] as EventType[],
-    danceElectronicEvents: [] as EventType[],
-    hipHopRapEvents: [] as EventType[],
-    folkEvents: [] as EventType[],
-    popEvents: [] as EventType[],
-    rnbEvents: [] as EventType[],
-  } as PageProps
+export default function Home() {
+  const { user } = useContext(UserContext)
+  useSetRedirctUrl()
+  const [playlist, setPlaylist] = useState<Array<PlaylistItemType>>()
   const apiHost = getApiHost()
 
-  const rockEvents = await fetch(`${apiHost}/events/rock?size=3`)
-    .then(async (res) => {
-      const data = (await res.json()).events as EventType[]
-      // props.rockEvents = data;
-      return data
+  const [events, setEvents] = useState([])
+  useEffect(() => {
+    if (!user) {
+      return
+    }
+    const cookies = new Cookies()
+    const accessToken = cookies.get('twix_access_token')
+    fetch(`${apiHost}/recommendations`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  const danceElectronicEvents = await fetch(
-    `${apiHost}/events/danceelectronic?size=3`,
-  )
-    .then(async (res) => {
-      const data = (await res.json()).events as EventType[]
-      // props.danceElectronicEvents = data;
-      return data
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  const hipHopRapEvents = await fetch(`${apiHost}/events/hiphoprap?size=3`)
-    .then(async (res) => {
-      const data = (await res.json()).events as EventType[]
-      // props.hipHopRapEvents = data;
-      return data
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  const folkEvents = await fetch(`${apiHost}/events/folk?size=3`)
-    .then(async (res) => {
-      const data = (await res.json()).events as EventType[]
-      // props.folkEvents = data;
-      return data
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  const popEvents = await fetch(`${apiHost}/events/pop?size=3`)
-    .then(async (res) => {
-      const data = (await res.json()).events as EventType[]
-      // props.popEvents = data;
-      return data
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  const rnbEvents = await fetch(`${apiHost}/events/rnb?size=3`)
-    .then(async (res) => {
-      const data = (await res.json()).events as EventType[]
-      // props.rnbEvents = data;
-      return data
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  props.rockEvents = rockEvents as EventType[]
-  props.danceElectronicEvents = danceElectronicEvents as EventType[]
-  props.hipHopRapEvents = hipHopRapEvents as EventType[]
-  props.folkEvents = folkEvents as EventType[]
-  props.popEvents = popEvents as EventType[]
-  props.rnbEvents = rnbEvents as EventType[]
-  props.folkEvents = folkEvents as EventType[]
-
-  return { props }
-}
-
-export const Home: NextPage<PageProps> = (props) => {
-  console.log(props)
+      .then((res) => {
+        if (res.status === 401) {
+          window.location.href = `/spotify_authorizer`
+          return
+        }
+        return res.json()
+      })
+      .then((data) => {
+        console.log(data)
+        setEvents(data)
+      })
+  }, [user])
   return (
     <section className="recommendations-section">
       <NavBar />
@@ -117,12 +51,13 @@ export const Home: NextPage<PageProps> = (props) => {
         <h1 className="recommendations-selection__title">Recommended events</h1>
         <SearchBar placeholder="Search for playlists" />
         <Categories />
-        <EventsSection title="" />
-        <EventsSection title="" />
+        {events ? (
+          <EventsSection title="Recommendations" events={events} />
+        ) : (
+          <></>
+        )}
       </main>
       <Footer />
     </section>
   )
 }
-
-export default Home

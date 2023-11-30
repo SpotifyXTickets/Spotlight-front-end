@@ -1,13 +1,13 @@
-import "../styles/components/_stacked-image-row.scss";
+import '../styles/components/_stacked-image-row.scss'
 
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
 
-import IndieRock from "../assets/IndieRock.jpeg";
-import JazzEvening from "../assets/JazzEvening.jpeg";
-import Summer from "../assets/Summer.png";
+import IndieRock from '../assets/IndieRock.jpeg'
+import JazzEvening from '../assets/JazzEvening.jpeg'
+import Summer from '../assets/Summer.png'
 
-export default function StackedImageRow(props: {}) {
+export default function StackedImageRow() {
   return (
     <div className="stacked-image-row">
       <Image
@@ -40,5 +40,5 @@ export default function StackedImageRow(props: {}) {
         alt=""
       />
     </div>
-  );
+  )
 }

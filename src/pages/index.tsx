@@ -185,5 +185,3 @@ export default function Login() {
     </section>
   )
 }
-
-export default Login

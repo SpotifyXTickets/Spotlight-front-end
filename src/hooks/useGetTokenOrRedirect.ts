@@ -10,12 +10,12 @@ export const useGetTokenOrRedirect = (): string => {
   const router = useRouter()
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       if (!token) {
-        cookies.set("twix_redirect_url", router.pathname, {
-          path: "/",
-        });
-        router.push("/spotify_authorizer");
+        cookies.set('twix_redirect_url', router.pathname, {
+          path: '/',
+        })
+        router.push('/spotify_authorizer')
       }
     })()
   }, [router, token, cookies])

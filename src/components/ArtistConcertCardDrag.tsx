@@ -1,33 +1,27 @@
-import "../styles/components/_artist-concert-card-drag.scss";
+import { RecommendationEventType } from '@/types/types'
+import '../styles/components/_artist-concert-card-drag.scss'
 
-import { useState } from "react";
-import Image from "next/image";
-import HeartIcon from "../assets/heart.svg";
-import FullHeartIcon from "../assets/heart-red.svg";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function EventCardDrag(props: {
-  key: number;
-  smallClass?: boolean;
-  data: {
-    id: number;
-    artist: string;
-    artistImage: any;
-    date: string;
-    location: string;
-  };
+  key: number
+  smallClass?: boolean
+  data: RecommendationEventType
 }) {
   return (
     <div className="artist-concert-card-drag">
       <Link href="/artist-page">
         <Image
           className="artist-concert-card-drag__image"
-          src={props.data.artistImage}
+          src={props.data.imageUrl}
           alt="Artist Image"
+          width={300}
+          height={300}
         />
         <div className="artist-concert-card-drag__info">
           <div className="artist-concert-card-drag__title">
-            <h3>{props.data.artist}</h3>
+            <h3>{props.data.name}</h3>
           </div>
           <span className="artist-concert-card-drag__span">
             10 concerts soon
@@ -35,5 +29,5 @@ export default function EventCardDrag(props: {
         </div>
       </Link>
     </div>
-  );
+  )
 }

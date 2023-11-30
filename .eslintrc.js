@@ -17,6 +17,8 @@ module.exports = {
   rules: {
     // Use Prettier for code formatting, raise an error if formatting is not compliant
     'prettier/prettier': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
   },
 
   // Configure parser options

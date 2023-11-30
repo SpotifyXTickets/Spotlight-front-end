@@ -7,7 +7,7 @@ import Cookies from 'cookies'
 import { CookiesProvider } from 'react-cookie'
 import Layout from '@/components/Layout'
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 

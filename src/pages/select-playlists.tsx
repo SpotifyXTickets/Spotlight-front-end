@@ -9,9 +9,13 @@ import PlaylistSection from '@/components/PlaylistSection'
 import SearchBar from '@/components/SearchBar'
 import Button from '@/components/Button'
 import { GetServerSideProps, NextPage } from 'next'
-import { PlaylistType } from '@/types/types'
+import { Playlist, PlaylistItemType, PlaylistType } from '@/types/types'
 import Cookies from 'universal-cookie'
 import { verifyJwtToken } from '@/libs/auth'
+import { useContext, useEffect, useState } from 'react'
+import { useGetTokenOrRedirect } from '@/hooks/useGetTokenOrRedirect'
+import { getApiHost } from '@/libs/getApiHost'
+import { UserContext } from '@/providers/UserProvider'
 
 type PageProps = {
   playlist: PlaylistType | null
@@ -24,18 +28,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   console.log(cookies.getAll())
   const twix_access_token = verifyJwtToken(cookies.get('twix_access_token'))
 
-  console.log(await twix_access_token)
-  // const accessToken = ((await twix_access_token) as { accessToken: string })
-  //   .accessToken;
-
-  // await fetch("http://localhost:8000/playlist", {
-  //   headers: {
-  //     Authorization: `Bearer ${accessToken}`,
-  //   },
-  // }).then(async (res) => {
-  //   return { props: { playlist: (await res.json()) as PlaylistType } };
-  // });
-
   return {
     props: {
       playlist: null,
@@ -43,6 +35,49 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   }
 }
 export const SelectPlaylists: NextPage<PageProps> = (props) => {
+  const { user } = useContext(UserContext)
+  const testToken = useGetTokenOrRedirect()
+  const [playlist, setPlaylist] = useState<Array<PlaylistItemType>>()
+  const apiHost = getApiHost()
+  const [selectedPlaylists, setSelectedPlaylists] = useState<Array<string>>([])
+
+  useEffect(() => {
+    if (!user) {
+      return
+    }
+    const cookies = new Cookies()
+    const accessToken = cookies.get('twix_access_token')
+    const getPlaylists = async (token: string) => {
+      fetch(`${apiHost}/playlist`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then(async (res) => {
+          if (res.status === 401) {
+            window.location.href = `/spotify_authorizer`
+            return
+          }
+          setPlaylist((await res.json()) as Array<PlaylistItemType>)
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    }
+
+    getPlaylists(accessToken)
+  }, [user])
+
+  const selectPlaylist = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setSelectedPlaylists([...selectedPlaylists, e.target.value])
+    } else {
+      setSelectedPlaylists(
+        selectedPlaylists.filter((item) => item !== e.target.value),
+      )
+    }
+  }
+
   return (
     <section className="select-playlists__section">
       <NavBar />
@@ -57,7 +92,14 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
           Select All Playlists
         </button>
 
-        <PlaylistSection />
+        {playlist ? (
+          <PlaylistSection
+            onSelectPlaylist={selectPlaylist}
+            playlist={playlist}
+          />
+        ) : (
+          <></>
+        )}
       </main>
       <section className="select-playlists__buttons">
         <Link className="select-playlists__link" href="/home-page">
@@ -70,7 +112,15 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
             Skip This Step
           </Button>
         </Link>
-        <Link className="select-playlists__link" href="/home-page">
+        <Link
+          className="select-playlists__link"
+          href="/home-page"
+          onClick={(e) => {
+            e.preventDefault()
+            window.location.href =
+              '/home-page?selected_playlists=' + selectedPlaylists.toString()
+          }}
+        >
           <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
             Confirm Playlists
           </Button>

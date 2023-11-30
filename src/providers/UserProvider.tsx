@@ -1,10 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import Cookies from 'universal-cookie'
-import { useAuth } from '@/hooks/useAuth'
-import { GetServerSideProps, NextPage } from 'next'
-import { useCookies } from 'react-cookie'
-import { verifyJwtToken } from '@/libs/auth'
-import { JWTPayload } from 'jose'
+import { NextPage } from 'next'
+import { useSetRedirctUrl } from '@/hooks/useSetRedirectUrl'
 
 type User = {
   country: string
@@ -45,26 +42,30 @@ export const UserContext = createContext<{
 export const UserProvider: NextPage<{ children: React.ReactNode }> = (
   props,
 ) => {
-  console.log(props) //
   const [user, setUser] = useState<User>()
+  useSetRedirctUrl()
 
   const getUser = async () => {
-    const cookies = new Cookies();
-    const accessToken = cookies.get("twix_access_token");
+    const cookies = new Cookies()
+    const accessToken = cookies.get('twix_access_token')
 
-    const apiHost = process.env.NEXT_PUBLIC_API_HOST || "http://localhost:8000";
+    const apiHost = process.env.NEXT_PUBLIC_API_HOST || 'http://localhost:8000'
 
     if (!accessToken) {
-      setUser(undefined);
-      return;
+      setUser(undefined)
+      return
     }
 
-    fetch('http://localhost:8000/user', {
+    fetch(`${apiHost}/user`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     })
       .then(async (res) => {
+        if (res.status === 401) {
+          window.location.href = `/spotify_authorizer`
+          return
+        }
         console.log(res)
         const data = (await res.json()) as User
         setUser(data)

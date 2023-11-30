@@ -10,6 +10,7 @@ import { PlaylistType } from '@/types/types'
 
 export default function PlaylistSection(props: {
   playlist: PlaylistType['items']
+  onSelectPlaylist: (e: React.ChangeEvent<HTMLInputElement>) => void
 }) {
   console.log(props.playlist)
   return (
@@ -20,20 +21,21 @@ export default function PlaylistSection(props: {
           key={item.id}
           htmlFor={'playlist-section__checkbox_' + item.id}
         >
-          <div className="playlist-section__image_holder">
-            <Image
-              className="playlist-section__image"
-              src={item.images[0] ? item.images[0].url : ''}
-              alt={item.name}
-              fill
-            />
-          </div>
+          <Image
+            className="playlist-section__image"
+            src={item.images[0] ? item.images[0].url : ''}
+            alt={item.name}
+            width={300}
+            height={300}
+          />
 
           <div className="playlist-section__checkbox">
             <input
               className="playlist-section__input"
+              id={'playlist-section__checkbox_' + item.id}
               type="checkbox"
-              value={item.name}
+              value={item.id}
+              onChange={props.onSelectPlaylist}
             />
             <label>{item.name}</label>
           </div>
