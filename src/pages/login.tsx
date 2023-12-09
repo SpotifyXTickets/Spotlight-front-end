@@ -13,9 +13,6 @@ export default function Login() {
         <h1>Best way to find the perfect music event </h1>
         <p>Welcome to the world of music events that was created for you </p>
         <button>Continue with Spotify</button>
-   
-
-        
       </main>
       <Footer />
     </section>
