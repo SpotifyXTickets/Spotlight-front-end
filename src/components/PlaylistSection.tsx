@@ -1,26 +1,76 @@
-import "../styles/components/_select-playlists.scss"
+import "../styles/components/_playlist-section.scss";
 
-export default function PlaylistSection(){
-    return (
-        <div className="playlist-section">
-            <h2 className="playlist-section__header">Select Playlists</h2>
-            <p>Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit.</p>
-            <div className="playlists-block">
-                <div className="playlist-card"> 
-                    <img src="album.png" alt="album"></img>
-                    <input type="checkbox"  value="Indie Rock"></input>
-                    <label for="vehicle1"> Indie Rock</label><br></br>
-                    <p>50 Songs </p>
-                    <p>Arctic Monkeys, Lana...</p>
-                </div>
-                <div className="playlist-card"> 
-                    <input type="checkbox"  value="Indie Rock"></input>
-                    <label for="vehicle1"> Indie Rock</label><br></br>
-                    <p>50 Songs </p>
-                    <p>Arctic Monkeys, Lana...</p>
-                </div>
+import Image from "next/image";
+import IndieRock from "../assets/IndieRock.jpeg";
+import JazzEvening from "../assets/JazzEvening.jpeg";
+import Summer from "../assets/Summer.png";
+
+const playlists = [
+  {
+    id: 1,
+    title: "Indie Rock",
+    playlistImage: IndieRock,
+    songs: "50 songs",
+    artists: "The Weeknd, Lana Del Rey...",
+  },
+  {
+    id: 2,
+    title: "Jazz Evening",
+    playlistImage: JazzEvening,
+    songs: "32 songs",
+    artists: "The Weeknd, Lana Del Rey...",
+  },
+  {
+    id: 3,
+    title: "Summer 2021",
+    playlistImage: Summer,
+    songs: "41 songs",
+    artists: "The Weeknd, Lana Del Rey...",
+  },
+  {
+    id: 4,
+    title: "Indie Rock",
+    playlistImage: IndieRock,
+    songs: "50 songs",
+    artists: "The Weeknd, Lana Del Rey...",
+  },
+  {
+    id: 5,
+    title: "Jazz Evening",
+    playlistImage: JazzEvening,
+    songs: "32 songs",
+    artists: "The Weeknd, Lana Del Rey...",
+  },
+  {
+    id: 6,
+    title: "Summer 2021",
+    playlistImage: Summer,
+    songs: "41 songs",
+    artists: "The Weeknd, Lana Del Rey...",
+  },
+];
+
+export default function PlaylistSection() {
+  return (
+    <section className="playlist-section">
+      {playlists.map((item) => (
+        <div className="playlist-section__card" key={item.id}>
+          <Image
+            className="playlist-section__image"
+            src={item.playlistImage}
+            alt={item.title}
+          />
+
+          <div className="playlist-section__info">
+            <div className="playlist-section__checkbox">
+              <input type="checkbox" value={item.title}></input>
+              <label>{item.title}</label>
             </div>
-
+            <span>{item.songs}</span>
+            <span>{item.artists}</span>
+          </div>
         </div>
-    )
+      ))}
+    </section>
+  );
 }

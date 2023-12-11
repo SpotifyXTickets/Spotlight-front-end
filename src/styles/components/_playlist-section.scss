@@ -1,0 +1,23 @@
+.playlist-section {
+  @apply mt-6 grid grid-cols-2 gap-6;
+
+  &__card {
+    @apply h-[19.5rem] flex flex-col gap-2 rounded-xl bg-white w-full shadow-md;
+  }
+
+  &__image {
+    @apply h-44 w-44 rounded-t-xl;
+  }
+
+  &__info {
+    @apply flex flex-col gap-0.5 mt-2 px-3 text-[#3D3D3D];
+  }
+
+  &__checkbox {
+    @apply flex items-center gap-2 mb-2 text-[#292929] font-semibold;
+  }
+
+  input[type="checkbox"] {
+    border: 1px solid #6e3aff;
+  }
+}
