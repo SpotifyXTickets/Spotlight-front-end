@@ -10,7 +10,7 @@ import Summer from "../assets/Summer.png";
 const playlists = [
   {
     id: 1,
-    title: "Indie Rock",
+    title: "Testing a longer title in order not to break",
     playlistImage: IndieRock,
     isChecked: false,
   },
@@ -63,7 +63,9 @@ export default function PlaylistSection() {
               type="checkbox"
               value={item.title}
             />
-            <label>{item.title}</label>
+            <label className="playlist-section__playlist-title">
+              {item.title}
+            </label>
           </div>
         </div>
       ))}

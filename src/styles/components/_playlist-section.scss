@@ -16,4 +16,8 @@
   &__input {
     @apply bg-dark_lighter focus:accent-[#6e3aff] mt-0.5;
   }
+
+  &__playlist-title {
+    @apply truncate w-[8.5rem];
+  }
 }

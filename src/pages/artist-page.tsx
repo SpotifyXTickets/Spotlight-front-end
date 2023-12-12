@@ -20,8 +20,10 @@ import EventsSectionDrag from "@/components/EventsSectionDrag";
 const data = [
   {
     id: 1,
-    date: "15 November 2023, Wed",
-    time: "19:00",
+    startDate: "15 November 2023, Wed",
+    startTime: "19:00",
+    endDate: "15 November 2023, Thu",
+    endTime: "00:00",
     location: "Johan Cruijff ArenA, Amsterdam",
     price: "From €200",
   },
@@ -59,11 +61,18 @@ export default function ArtistPage() {
 
             {data.map((item) => (
               <>
-                <div className="artist-page__info-section-event-info">
+                <div className="flex items-start gap-3">
                   <Image src={DateIcon} alt="Date icon" />
-                  <span>
-                    {item.date} {item.time}
-                  </span>
+                  <div className="artist-page__info-section-event-info flex-col -mt-0.5">
+                    <span>
+                      <span className="font-medium">Start:</span>{" "}
+                      {item.startDate} {item.startTime}
+                    </span>
+                    <span>
+                      <span className="font-medium">End:</span> {item.endDate}{" "}
+                      {item.endTime}
+                    </span>
+                  </div>
                 </div>
                 <div className="artist-page__info-section-event-info">
                   <Image src={LocationIcon} alt="Location icon" />
@@ -102,18 +111,18 @@ export default function ArtistPage() {
             <div className="artist-page__section">
               <div className="artist-page__section-title-wrapper">
                 <h2 className="artist-page__section-title">
-                  Recommended events
+                  You might also like
                 </h2>
-                <Link
+                {/* <Link
                   className="artist-page__section-see-all"
                   href="/recommendations"
                 >
                   See All
-                </Link>
+                </Link> */}
               </div>
-              <p className="artist-page__section-subtitle">
+              {/* <p className="artist-page__section-subtitle">
                 Based on your music taste
-              </p>
+              </p> */}
             </div>
             <EventsSectionDrag />
           </section>

@@ -11,8 +11,9 @@ import BehanceIcon from "../assets/icons/behance.svg";
 const footerItems = [
   { id: 1, title: "Home", link: "/home-page" },
   { id: 2, title: "Recommended events", link: "/recommendations" },
-  { id: 3, title: "Settings" },
-  { id: 4, title: "Help" },
+  { id: 3, title: "Favourite events" },
+  { id: 4, title: "Settings" },
+  { id: 5, title: "Help" },
 ];
 
 export default function Footer() {

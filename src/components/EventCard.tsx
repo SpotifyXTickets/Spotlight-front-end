@@ -12,6 +12,7 @@ export default function EventCard(props: {
     id: number;
     artist: string;
     artistImage: any;
+    percentage: number;
     date: string;
     location: string;
   };
@@ -22,11 +23,20 @@ export default function EventCard(props: {
 
   return (
     <div className="event-card">
-      <Image
-        className="event-card__image"
-        src={props.data.artistImage}
-        alt="Artist Image"
-      />
+      <div>
+        <div
+          className={`event-card__percentage ${
+            props.data.percentage > 60 ? "bg-percentage_green" : "bg-blue-700"
+          }`}
+        >
+          {props.data.percentage}%
+        </div>
+        <Image
+          className="event-card__image"
+          src={props.data.artistImage}
+          alt="Artist Image"
+        />
+      </div>
       <div className="event-card__info">
         <div className="event-card__title">
           <h3>{props.data.artist}</h3>
