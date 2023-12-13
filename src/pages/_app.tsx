@@ -1,9 +1,7 @@
 import { NextPage } from 'next'
-// import Layout from "../app/layout";
 import { ReactElement, ReactNode } from 'react'
 import { AppProps } from 'next/app'
 import UserProvider from '@/providers/UserProvider'
-import Cookies from 'cookies'
 import { CookiesProvider } from 'react-cookie'
 import Layout from '@/components/Layout'
 

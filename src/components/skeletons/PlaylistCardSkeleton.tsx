@@ -13,10 +13,7 @@ export const PlaylistCardSkeleton: React.FC = () => {
             <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-2 max-w-[100%]"></div>
             <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-20 mb-4 max-w-[100%]"></div>
           </h2>
-          <p className="playlist-card__description">
-            {/* <div className="h-2 bg-gray-200 rounded-full w-50 dark:bg-gray-700 max-w-[100%] mb-2.5"></div> */}
-            {/* <div className="h-2 bg-gray-200 rounded-full w-40 dark:bg-gray-700 max-w-[100%] mb-2.5"></div> */}
-          </p>
+          <p className="playlist-card__description"></p>
         </div>
         <div className="playlist-card__checkbox-area">
           <input

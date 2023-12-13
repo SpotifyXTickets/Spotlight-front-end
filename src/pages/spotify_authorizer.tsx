@@ -1,8 +1,5 @@
-import { SignJWT } from 'jose'
 import { GetServerSideProps, NextPage } from 'next'
-// import Cookies from "cookies";
 import Cookies from 'universal-cookie'
-import { getJwtSecretKey } from '@/libs/auth'
 import { useEffect } from 'react'
 import { getApiHost } from '@/libs/getApiHost'
 
@@ -18,7 +15,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   const apiHost = getApiHost()
 
   let props = { success: false } as PageProps
-  const cookies = new Cookies()
 
   if (code !== undefined && state !== undefined) {
     await fetch(
@@ -39,19 +35,14 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
           (data as { status?: number }).status !== 200
         ) {
           throw new Error((data as { status: number; message: string }).message)
-          return { props }
         }
         data = data as { accessToken: string }
-
-        console.log(data)
         props = { success: true, twix_access_token: data.accessToken ?? '' }
         const cookies = new Cookies()
         cookies.set('twix_access_token', data.accessToken, {
           path: '/',
           sameSite: 'strict',
         })
-
-        console.log(props)
 
         const twixRedirectUrl = cookies.get('twix_redirect_url')
         if (twixRedirectUrl) {

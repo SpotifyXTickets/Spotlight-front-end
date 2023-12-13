@@ -30,10 +30,6 @@ type User = {
   uri: string
 }
 
-type PageProps = {
-  api_access_token: string
-}
-
 export const UserContext = createContext<{
   user?: User
   errorStatus?: number
@@ -73,7 +69,6 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
           setErrorStatus(403)
           return
         }
-        console.log(res)
         const data = (await res.json()) as User
         setUser(data)
         setErrorStatus(undefined)
