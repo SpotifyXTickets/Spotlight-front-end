@@ -36,6 +36,7 @@ type PageProps = {
 
 export const UserContext = createContext<{
   user?: User
+  errorStatus?: number
   refreshUser: () => Promise<void>
 }>({ user: undefined, refreshUser: async () => {} })
 
@@ -43,6 +44,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
   props,
 ) => {
   const [user, setUser] = useState<User>()
+  const [errorStatus, setErrorStatus] = useState<number | undefined>(undefined)
   useSetRedirctUrl()
 
   const getUser = async () => {
@@ -66,9 +68,15 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
           window.location.href = `/spotify_authorizer`
           return
         }
+        if (res.status === 403) {
+          setUser(undefined)
+          setErrorStatus(403)
+          return
+        }
         console.log(res)
         const data = (await res.json()) as User
         setUser(data)
+        setErrorStatus(undefined)
       })
       .catch((err) => {
         console.error(err)
@@ -80,6 +88,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
       getUser()
     } catch (err) {
       setUser(undefined)
+      setErrorStatus(500)
     }
   }, [])
 
@@ -87,6 +96,7 @@ export const UserProvider: NextPage<{ children: React.ReactNode }> = (
     <UserContext.Provider
       value={{
         user: user,
+        errorStatus: errorStatus,
         refreshUser: getUser,
       }}
     >
