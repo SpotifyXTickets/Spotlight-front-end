@@ -36,7 +36,11 @@ export default function EventsSection(props: { title: string }) {
   return (
     <>
       <section className="events-section">
-        <h2 className="events-section__title">{props.title}</h2>
+        {props.title ? (
+          <h2 className="events-section__title">{props.title}</h2>
+        ) : (
+          ""
+        )}
         {data.map((item) => (
           <EventCard key={item.id} data={item} />
         ))}

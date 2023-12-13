@@ -1,0 +1,29 @@
+.settings {
+  @apply min-h-full bg-dark pb-xs;
+
+  padding-top: 100px;
+
+  &__list {
+    @apply mx-12 lg:mx-4 flex flex-col gap-4 mb-6;
+  }
+
+  &__title {
+    @apply text-white font-semibold text-3xl mx-12 lg:mx-4 mb-6;
+  }
+
+  &-item {
+    @apply flex border-b border-[#222222] text-white last:border-none py-5 justify-between;
+
+    &__wrapper {
+      @apply flex gap-3;
+    }
+
+    &__title {
+      @apply text-white text-[1.1rem];
+    }
+
+    &__button {
+      @apply float-right;
+    }
+  }
+}

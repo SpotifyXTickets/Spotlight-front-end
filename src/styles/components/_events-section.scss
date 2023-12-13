@@ -1,5 +1,5 @@
 .events-section {
-  @apply grid grid-cols-1 gap-8;
+  @apply grid grid-cols-3 lg:grid-cols-1 gap-8 mb-6;
 
   &__title {
     @apply text-2xl text-white font-poppins font-semibold;

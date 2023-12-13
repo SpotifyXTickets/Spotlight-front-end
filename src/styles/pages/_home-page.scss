@@ -2,7 +2,7 @@
   @apply min-h-full bg-dark;
 
   &__container {
-    @apply mx-4;
+    @apply mx-12 lg:mx-4;
   }
 
   &__searchbar-wrapper {
@@ -29,7 +29,7 @@
     }
 
     &-subtitle {
-      @apply text-grey_medium;
+      @apply text-grey_medium mb-4;
     }
 
     &-title-description {

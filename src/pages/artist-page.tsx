@@ -1,7 +1,7 @@
 import "../app/globals.scss";
 import "../styles/pages/_artist-page.scss";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -60,7 +60,7 @@ export default function ArtistPage() {
             {/* Can be optimised to avoid code repetition, but would first consultate to know how the data is going to be fetched  */}
 
             {data.map((item) => (
-              <>
+              <Fragment key={item.id}>
                 <div className="flex items-start gap-3">
                   <Image src={DateIcon} alt="Date icon" />
                   <div className="artist-page__info-section-event-info flex-col -mt-0.5">
@@ -82,7 +82,7 @@ export default function ArtistPage() {
                   <Image src={TicketIcon} alt="Ticket icon" />
                   <span>{item.price}</span>
                 </div>
-              </>
+              </Fragment>
             ))}
 
             <hr className="artist-page__info-section-line" />

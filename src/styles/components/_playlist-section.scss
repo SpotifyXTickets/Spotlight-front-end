@@ -1,8 +1,8 @@
 .playlist-section {
-  @apply grid grid-cols-2 gap-6;
+  @apply grid grid-cols-5 gap-6 lg:grid-cols-2;
 
   &__card {
-    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md p-2;
+    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md p-2 max-w-[15rem];
   }
 
   &__image {
@@ -14,7 +14,7 @@
   }
 
   &__input {
-    @apply bg-dark_lighter focus:accent-[#6e3aff] mt-0.5;
+    @apply bg-dark_lighter focus:accent-[#6e3aff];
   }
 
   &__playlist-title {

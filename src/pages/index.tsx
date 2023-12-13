@@ -167,7 +167,7 @@ export default function Login() {
           </div>
         </section>
 
-        <div className="mx-4 -mt-14">
+        <div className="px-12 lg:px-4 -mt-14">
           <Link href="/select-playlists">
             <Button
               text="text-[#fbf9f9]"

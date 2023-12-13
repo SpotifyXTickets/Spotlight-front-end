@@ -2,7 +2,7 @@
   @apply bg-dark py-6;
 
   &__wrapper {
-    @apply flex flex-col bg-[#6e3aff] mx-4 text-white rounded-xl font-poppins;
+    @apply flex flex-col bg-[#6e3aff] mx-12 lg:mx-4 text-white rounded-xl font-poppins;
   }
 
   &__items {

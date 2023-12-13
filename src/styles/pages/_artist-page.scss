@@ -4,7 +4,7 @@
   padding-top: 100px;
 
   &__container {
-    @apply mx-4;
+    @apply mx-12 lg:mx-4;
   }
 
   &__image-wrapper {
@@ -12,14 +12,14 @@
   }
 
   &__image {
-    @apply w-full max-h-72;
+    @apply w-full max-h-72 object-contain;
   }
 
   &__info-section {
     @apply mt-6 flex flex-col gap-3 text-white;
 
     &-title {
-      @apply text-3xl mb-2 font-medium flex gap-4;
+      @apply text-3xl mb-2 font-semibold flex gap-4;
     }
 
     &-icon {
@@ -60,6 +60,6 @@
   }
 
   &__button {
-    @apply fixed bottom-0 w-full px-4 flex bg-dark z-10;
+    @apply fixed bottom-0 w-full px-12 lg:px-4 flex bg-dark z-10;
   }
 }

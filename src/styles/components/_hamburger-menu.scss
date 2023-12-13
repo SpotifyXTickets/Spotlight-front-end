@@ -2,14 +2,14 @@
   @apply h-screen w-screen top-0 absolute bg-dark flex flex-col gap-2 z-10 font-poppins font-semibold;
 
   &__logo {
-    @apply mt-6 mb-28 pl-4;
+    @apply mt-7 mb-16;
   }
 
   &__item {
-    @apply py-5 mx-4 cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#222222] text-white last:border-none;
+    @apply py-5 cursor-pointer text-2xl font-normal tracking-tight focus:text-[#6e3aff] hover:text-[#6e3aff] transition-all duration-300 border-b border-[#222222] text-white last:border-none;
   }
 
   &__button {
-    @apply fixed top-0 right-0 pt-6 pr-5 z-30;
+    @apply fixed top-0 right-0 pt-6 pr-12 lg:pr-5 z-30;
   }
 }
