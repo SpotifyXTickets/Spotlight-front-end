@@ -21,16 +21,37 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   const cookies = new Cookies()
 
   if (code !== undefined && state !== undefined) {
-    await fetch(`${apiHost}/authorize/spotify?state=${state}&code=${code}`)
-      .then(async (res) => {
-        const data = (await res.json()) as { accessToken: string }
+    await fetch(
+      `${apiHost}/authorize/spotify?state=${state}&code=${code}`,
 
-        props = { success: true, twix_access_token: data.accessToken }
+      {
+        referrerPolicy: 'strict-origin',
+        referrer: 'http://localhost:3000',
+      },
+    )
+      .then(async (res) => {
+        let data = (await res.json()) as
+          | { accessToken: string }
+          | { status?: number; message: string }
+
+        if (
+          (data as { status?: number }).status !== undefined &&
+          (data as { status?: number }).status !== 200
+        ) {
+          throw new Error((data as { status: number; message: string }).message)
+          return { props }
+        }
+        data = data as { accessToken: string }
+
+        console.log(data)
+        props = { success: true, twix_access_token: data.accessToken ?? '' }
         const cookies = new Cookies()
         cookies.set('twix_access_token', data.accessToken, {
           path: '/',
           sameSite: 'strict',
         })
+
+        console.log(props)
 
         const twixRedirectUrl = cookies.get('twix_redirect_url')
         if (twixRedirectUrl) {
@@ -45,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
           return {
             redirect: {
               permanent: false,
-              destination: '/playlist_selection',
+              destination: '/select-playlist',
             },
             props: { success: false, twix_access_token: undefined },
           }
@@ -53,6 +74,8 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
       })
       .catch((err) => {
         console.error(err)
+        console.log(err.message)
+        return { props }
       })
 
     return { props }
@@ -80,7 +103,7 @@ export const SpotifyAuthorizer: NextPage<PageProps> = (props) => {
         cookies.remove('twix_redirect_url')
         window.location.href = twixRedirectUrl
       } else {
-        window.location.href = '/playlist_selection'
+        window.location.href = '/select-playlist'
       }
     }
   }, [props])

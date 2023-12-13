@@ -27,17 +27,21 @@ const nextConfig = {
         pathname: '/**',
       },
       {
-        protocol: "https",
-        hostname: "mosaic.scdn.co",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'mosaic.scdn.co',
+        port: '',
+        pathname: '/**',
       },
       {
-        protocol: "https",
-        hostname: "image-cdn-ak.spotifycdn.com",
-        port: "",
-        pathname: "/**",
-      }
+        protocol: 'https',
+        hostname: 'image-cdn-ak.spotifycdn.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
   },
 }

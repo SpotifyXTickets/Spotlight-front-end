@@ -10,7 +10,7 @@ export const Layout: React.FC<{
   return (
     <>
       <Head>
-        <title>{`Twix web app`}</title>
+        <title>{`Spotlight.`}</title>
       </Head>
       {children}
     </>
