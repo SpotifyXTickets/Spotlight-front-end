@@ -1,7 +1,7 @@
 import "../app/globals.scss";
 import "../styles/pages/_login.scss";
 
-import { useState, useEffect, Fragment } from "react";
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +10,8 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 import SpotifyIcon from "@/assets/icons/spotify-icon.svg";
-import ArrowDown from "@/assets/icons/login-arrow.svg";
+import ArrowLeft from "@/assets/login-arrow-left.png";
+import ArrowRight from "@/assets/login-arrow-right.png";
 import PhoneIcon from "@/assets/icons/phone.svg";
 import NoteIcon from "@/assets/icons/note.svg";
 import TicketIcon from "@/assets/icons/ticket-login.svg";
@@ -57,20 +58,6 @@ const communityData = [
 ];
 
 export default function Login() {
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      window.scrollY > 0 ? setIsVisible(false) : setIsVisible(true);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <section className="login">
       <NavBar />
@@ -89,19 +76,6 @@ export default function Login() {
               Sign in with Spotify
             </Button>
           </Link>
-
-          <div
-            className={`login__explore-more ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <h4>Explore more</h4>
-            <Image
-              className="login__explore-more-icon"
-              src={ArrowDown}
-              alt="Arrow down"
-            />
-          </div>
         </div>
 
         <section className="login__process">
@@ -120,6 +94,16 @@ export default function Login() {
               </p>
             </Fragment>
           ))}
+          <Image
+            className="login__process-arrow-left"
+            src={ArrowLeft}
+            alt="arrow left"
+          />
+          <Image
+            className="login__process-arrow-right"
+            src={ArrowRight}
+            alt="arrow right"
+          />
         </section>
 
         <section className="login__users">
@@ -179,7 +163,7 @@ export default function Login() {
           </Link>
         </div>
       </main>
-      <div className="pt-[154rem] pb-0.5">
+      <div className="pt-[132rem] pb-0.5">
         <Footer />
       </div>
     </section>

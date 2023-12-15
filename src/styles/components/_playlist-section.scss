@@ -1,23 +1,15 @@
 .playlist-section {
-  @apply grid grid-cols-5 gap-6 lg:grid-cols-2;
+  @apply grid grid-cols-5 gap-5 lg:grid-cols-2;
 
   &__card {
-    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md p-2 max-w-[15rem];
+    @apply flex flex-col items-center gap-3 rounded-md bg-dark_lighter w-full shadow-md p-2 max-w-[15rem] border;
   }
 
   &__image {
     @apply h-40 w-40 rounded-md;
   }
 
-  &__checkbox {
-    @apply flex gap-2 text-white font-medium;
-  }
-
-  &__input {
-    @apply bg-dark_lighter focus:accent-[#6e3aff];
-  }
-
-  &__playlist-title {
-    @apply truncate w-[8.5rem];
+  &__title {
+    @apply text-white mr-3 font-medium truncate w-[8.5rem];
   }
 }
