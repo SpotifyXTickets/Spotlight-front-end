@@ -26,7 +26,9 @@ export default function EventCard(props: {
       <div>
         <div
           className={`event-card__percentage ${
-            props.data.percentage > 60 ? "bg-percentage_green" : "bg-blue-700"
+            props.data.percentage > 60
+              ? "bg-percentage_green"
+              : "bg-percentage_blue"
           }`}
         >
           {props.data.percentage}%

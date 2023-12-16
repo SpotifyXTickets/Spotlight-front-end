@@ -61,7 +61,7 @@ export default function SelectPlaylists() {
   };
 
   const handleSelectAll = () => {
-    if (selectedPlaylists.length === playlists.length) {
+    if (selectedPlaylists.length > 0) {
       setSelectedPlaylists([]);
     } else {
       setSelectedPlaylists(playlists.map((playlist) => playlist.id));
@@ -82,7 +82,9 @@ export default function SelectPlaylists() {
           className="select-playlists__all-button"
           onClick={handleSelectAll}
         >
-          Select All Playlists
+          {selectedPlaylists.length > 0
+            ? "Clear Selection"
+            : "Select All Playlists"}
         </button>
 
         <PlaylistSection

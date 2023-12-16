@@ -90,6 +90,7 @@ const config: Config = {
         grey_medium: "#A7A7A7",
         grey_light: "#F0F0F0",
         percentage_green: "#36C578",
+        percentage_blue: "#1F6CDF",
       },
 
       spacing: {

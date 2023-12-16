@@ -10,7 +10,7 @@
   }
 
   &__percentage {
-    @apply absolute py-1 px-2 rounded-r-md rounded-tl-md text-white;
+    @apply absolute py-1 px-2 rounded-r-md rounded-tl-md text-white opacity-60;
   }
 
   &__span {

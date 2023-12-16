@@ -10,7 +10,9 @@ export default function FavouriteEvents() {
     <section className="recommendations-section">
       <NavBar />
       <main className="recommendations-selection">
-        <h1 className="text-3xl text-white font-semibold">Favourite events</h1>
+        <h1 className="text-3xl text-white font-semibold mb-6">
+          Favourite events
+        </h1>
         <EventsSection title="" />
         <EventsSection title="" />
       </main>

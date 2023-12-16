@@ -45,6 +45,10 @@ export default function ArtistPage() {
               src={Beyonce}
               alt="Artist image"
             />
+            <div className="artist-page__image-tags">
+              <div className="artist-page__match-tag">90% Match</div>
+              <div className="artist-page__genre-tag">Pop Music</div>
+            </div>
           </div>
           <section className="artist-page__info-section">
             <div className="artist-page__info-section-title">
