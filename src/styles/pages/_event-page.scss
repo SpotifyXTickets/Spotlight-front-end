@@ -1,4 +1,4 @@
-.artist-page {
+.event-page {
   @apply min-h-full bg-dark pb-xs;
 
   padding-top: 100px;
@@ -52,11 +52,11 @@
   }
 
   &__section-title-wrapper {
-    @apply flex flex-row justify-between mb-xs;
+    @apply flex flex-row justify-between mb-sm;
   }
 
   &__section {
-    @apply mb-mob;
+    @apply mt-8 overflow-x-hidden mx-4;
 
     &-title {
       @apply text-xl text-white font-semibold;
@@ -73,5 +73,26 @@
 
   &__button {
     @apply fixed bottom-0 w-full px-12 lg:px-4 flex bg-dark z-10;
+  }
+}
+
+.artist-section {
+  @apply text-white mx-4 flex flex-col gap-4 py-6;
+
+  &__title {
+    @apply text-3xl font-semibold;
+  }
+
+  &__wrapper {
+    @apply flex justify-between;
+  }
+
+  &__events {
+    @apply text-xl font-medium;
+  }
+
+  &__date {
+    background-color: #3a3939;
+    color: white;
   }
 }

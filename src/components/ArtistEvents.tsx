@@ -4,15 +4,17 @@ import Image from "next/image";
 
 import ArrowIcon from "@/assets/icons/arrowSettings.svg";
 
-export default function ArtistEvents({ data }: any) {
-  const totalItems = data.length;
+export default function ArtistEvents(props: { data: any; location: string }) {
+  const totalItems = props.data.length;
 
   return (
     <section className="artist-events">
-      <h4 className="text-white font-medium text-lg">Netherlands</h4>
-      <span className="text-[#888888] font-medium">2 events</span>
+      <h4 className="text-white font-medium text-lg">{props.location}</h4>
+      <span className="text-[#888888] font-medium">
+        {totalItems} {totalItems > 1 ? "events" : "event"}
+      </span>
 
-      {data.map((item: any, index: number) => (
+      {props.data.map((item: any, index: number) => (
         <div className="test" key={item.id}>
           <div className="artist-events__wrapper">
             <div className="artist-events__date">
