@@ -1,9 +1,6 @@
-import "../styles/components/_artist-concert-card-drag.scss";
+import "@/styles/components/_artist-concert-card-drag.scss";
 
-import { useState } from "react";
 import Image from "next/image";
-import HeartIcon from "../assets/heart.svg";
-import FullHeartIcon from "../assets/heart-red.svg";
 import Link from "next/link";
 
 export default function EventCardDrag(props: {

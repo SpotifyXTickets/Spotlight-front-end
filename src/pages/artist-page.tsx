@@ -15,7 +15,7 @@ import TicketIcon from "@/assets/icons/ticket.svg";
 import NavBar from "@/components/NavBar";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
-import EventsSectionDrag from "@/components/EventsSectionDrag";
+import ArtistEvents from "@/components/ArtistEvents";
 
 const data = [
   {
@@ -26,6 +26,27 @@ const data = [
     endTime: "00:00",
     location: "Johan Cruijff ArenA, Amsterdam",
     price: "From €200",
+  },
+];
+
+const eventsData = [
+  {
+    id: 1,
+    month: "JUL",
+    day: "01",
+    year: 2024,
+    time: "Mon • 20:00",
+    location: "Amsterdam Ziggo Dome",
+    tour: "Blue Electric Light Tour",
+  },
+  {
+    id: 2,
+    month: "DEC",
+    day: "11",
+    year: 2024,
+    time: "Thu • 19:00",
+    location: "Amsterdam Ziggo Dome",
+    tour: "Blue Electric Light Tour",
   },
 ];
 
@@ -115,20 +136,18 @@ export default function ArtistPage() {
             <div className="artist-page__section">
               <div className="artist-page__section-title-wrapper">
                 <h2 className="artist-page__section-title">
-                  You might also like
+                  Other Artist Events{" "}
                 </h2>
-                {/* <Link
+                <Link
                   className="artist-page__section-see-all"
-                  href="/recommendations"
+                  href="/artist-page"
                 >
                   See All
-                </Link> */}
+                </Link>
               </div>
-              {/* <p className="artist-page__section-subtitle">
-                Based on your music taste
-              </p> */}
             </div>
-            <EventsSectionDrag />
+
+            <ArtistEvents data={eventsData} />
           </section>
         </div>
       </main>
