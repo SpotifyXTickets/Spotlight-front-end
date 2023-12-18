@@ -27,3 +27,16 @@
     @apply w-full;
   }
 }
+
+.onboarding-window {
+  @apply fixed z-10 top-[20rem] bg-[#202021] border border-[#6e3aff] px-4 pt-4 pb-1 mx-4;
+
+  &__content {
+    @apply flex gap-4 items-start;
+  }
+}
+
+.onboarding-window::after {
+  @apply absolute block left-0 right-0 mx-auto top-full mt-[-0.48rem] w-[17px] h-[17px] bg-[#202021] rotate-45 border-[#6e3aff] border-b border-r border-l-0 border-t-0;
+  content: "";
+}

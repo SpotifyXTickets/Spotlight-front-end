@@ -163,7 +163,7 @@ export default function Login() {
           </Link>
         </div>
       </main>
-      <div className="pt-[132rem] pb-0.5">
+      <div className="pt-[138rem] pb-0.5">
         <Footer />
       </div>
     </section>

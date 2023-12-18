@@ -3,6 +3,7 @@ import "../styles/pages/_select-playlists.scss";
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -10,6 +11,7 @@ import PlaylistSection from "@/components/PlaylistSection";
 import SearchBar from "@/components/SearchBar";
 import Button from "@/components/Button";
 
+import editIcon from "@/assets/icons/edit.svg";
 import IndieRock from "@/assets/IndieRock.jpeg";
 import JazzEvening from "@/assets/JazzEvening.jpeg";
 import Summer from "@/assets/Summer.png";
@@ -68,10 +70,20 @@ export default function SelectPlaylists() {
     }
   };
 
+  const [isOnboardingVisible, setOnboardingVisible] = useState(true);
+
+  const handleCloseOnboarding = () => {
+    setOnboardingVisible(false);
+  };
+
   return (
     <section className="select-playlists__section">
       <NavBar />
-      <main className="select-playlists">
+      <main
+        className={`select-playlists ${
+          isOnboardingVisible ? "opacity-30" : ""
+        }`}
+      >
         <h2 className="select-playlists__header">Let’s get started</h2>
         <p className="select-playlists__info">
           Select playlists for more personalised event recommendations.
@@ -113,6 +125,27 @@ export default function SelectPlaylists() {
       <div className="pb-20">
         <Footer />
       </div>
+
+      {isOnboardingVisible && (
+        <OnboardingWindow onClose={handleCloseOnboarding} />
+      )}
     </section>
+  );
+}
+
+function OnboardingWindow({ onClose }: any) {
+  return (
+    <div className="onboarding-window">
+      <div className="onboarding-window__content">
+        <Image className="mt-1" src={editIcon} alt="Music icon" />
+        <p className="text-white">
+          For best recommendations you can select playlists or do it later and
+          skip this step for now.
+        </p>
+      </div>
+      <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]" onClick={onClose}>
+        Next
+      </Button>
+    </div>
   );
 }
