@@ -15,5 +15,9 @@
 
   &__buttons {
     @apply flex gap-4;
+
+    a {
+      @apply w-full;
+    }
   }
 }
