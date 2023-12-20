@@ -21,7 +21,7 @@ const path02Variants = {
 const navItems = [
   { id: 1, title: "Home", link: "/home-page" },
   { id: 2, title: "Recommended Events", link: "/recommendations" },
-  { id: 3, title: "Recommended Artists" },
+  { id: 3, title: "Recommended Artists", link: "/recommended-artists" },
   { id: 4, title: "Favourite Events", link: "/favourite-events" },
   { id: 5, title: "Settings", link: "/settings" },
   { id: 6, title: "Log Out" },

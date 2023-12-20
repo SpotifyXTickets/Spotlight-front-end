@@ -1,9 +1,9 @@
-import "../styles/components/_events-section.scss";
+import "@/styles/components/_events-section.scss";
 
 import EventCard from "@/components/EventCard";
-import Beyonce from "../assets/beyonce.png";
-import TheWeeknd from "../assets/theweeknd.png";
-import ArianaGrande from "../assets/arianagrande.png";
+import Beyonce from "@/assets/beyonce.png";
+import TheWeeknd from "@/assets/theweeknd.png";
+import ArianaGrande from "@/assets/arianagrande.png";
 
 const data = [
   {
