@@ -2,11 +2,15 @@
   @apply flex rounded-xl h-52 shadow-md bg-dark_lighter font-poppins;
 
   &__image {
-    @apply object-cover max-w-[10.85rem] rounded-l-lg;
+    @apply object-contain max-w-[10.85rem] rounded-l-lg;
   }
 
   &__info {
     @apply flex flex-col justify-between p-4 max-w-[16rem];
+  }
+
+  &__percentage {
+    @apply absolute py-1 px-2 rounded-r-md rounded-tl-md text-white opacity-60;
   }
 
   &__span {

@@ -9,7 +9,14 @@ import { RecommendationEventType } from '@/types/types'
 
 export default function EventCard(props: {
   key: number
-  data: RecommendationEventType
+  data: {
+    id: number
+    artist: string
+    artistImage: any
+    percentage: number
+    date: string
+    location: string
+  }
 }) {
   const [isHeartFilled, setIsHeartFilled] = useState(false)
 
@@ -22,13 +29,22 @@ export default function EventCard(props: {
 
   return (
     <div className="event-card">
-      <Image
-        className="event-card__image"
-        src={props.data.imageUrl}
-        alt="Artist Image"
-        width={300}
-        height={300}
-      />
+      <div>
+        <div
+          className={`event-card__percentage ${
+            props.data.percentage > 60
+              ? 'bg-percentage_green'
+              : 'bg-percentage_blue'
+          }`}
+        >
+          {props.data.percentage}%
+        </div>
+        <Image
+          className="event-card__image"
+          src={props.data.artistImage}
+          alt="Artist Image"
+        />
+      </div>
       <div className="event-card__info">
         <div className="event-card__title">
           <h3>

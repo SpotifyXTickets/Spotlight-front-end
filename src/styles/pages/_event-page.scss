@@ -1,0 +1,98 @@
+.event-page {
+  @apply min-h-full bg-dark pb-xs;
+
+  padding-top: 100px;
+
+  &__container {
+    @apply mx-12 lg:mx-4;
+  }
+
+  &__image-wrapper {
+    @apply -mx-4 relative;
+  }
+
+  &__image {
+    @apply w-full max-h-72 object-contain;
+  }
+
+  &__image-tags {
+    @apply absolute top-2 right-2 flex flex-col gap-1;
+  }
+
+  &__match-tag {
+    @apply py-1 px-2 rounded-md text-white opacity-60 bg-percentage_green text-sm;
+  }
+
+  &__genre-tag {
+    @apply py-1 px-2 rounded-md text-white opacity-60 bg-percentage_blue text-sm;
+  }
+
+  &__info-section {
+    @apply mt-6 flex flex-col gap-3 text-white;
+
+    &-title {
+      @apply text-3xl mb-2 font-semibold flex gap-4;
+    }
+
+    &-icon {
+      @apply w-5 cursor-pointer;
+    }
+
+    &-event-info {
+      @apply flex gap-3;
+    }
+
+    &-line {
+      @apply border-[#222222] my-4;
+    }
+
+    &-description {
+      @apply text-xl;
+    }
+  }
+
+  &__section-title-wrapper {
+    @apply flex flex-row justify-between mb-sm;
+  }
+
+  &__section {
+    @apply mt-8 overflow-x-hidden mx-4;
+
+    &-title {
+      @apply text-xl text-white font-semibold;
+    }
+
+    &-see-all {
+      @apply text-lg text-lead font-medium;
+    }
+
+    &-subtitle {
+      @apply text-grey_medium;
+    }
+  }
+
+  &__button {
+    @apply fixed bottom-0 w-full px-12 lg:px-4 flex bg-dark z-10;
+  }
+}
+
+.artist-section {
+  @apply text-white mx-4 flex flex-col gap-4 py-6;
+
+  &__title {
+    @apply text-3xl font-semibold;
+  }
+
+  &__wrapper {
+    @apply flex justify-between;
+  }
+
+  &__events {
+    @apply text-xl font-medium;
+  }
+
+  &__date {
+    background-color: #3a3939;
+    color: white;
+  }
+}

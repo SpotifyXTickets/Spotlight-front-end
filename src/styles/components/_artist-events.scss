@@ -1,0 +1,19 @@
+.artist-events {
+  @apply bg-dark_lighter rounded-md p-4;
+
+  &__wrapper {
+    @apply flex justify-between py-6;
+  }
+
+  &__date {
+    @apply text-white flex flex-col items-center;
+  }
+
+  &__description {
+    @apply text-[#888888] flex flex-col mr-6;
+  }
+
+  &__line {
+    @apply w-full border-[#222222];
+  }
+}

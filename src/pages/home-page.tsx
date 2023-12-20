@@ -154,7 +154,7 @@ export default function HomePage() {
             </div>
             <EventsSectionDrag />
           </section>
-          <section className="home-page__genres">
+          {/* <section className="home-page__genres">
             <div className="home-page__section">
               <div className="home-page__section-title-wrapper">
                 <h2 className="home-page__section-title">Favourite genres</h2>
@@ -189,7 +189,7 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-          </section>
+          </section> */}
         </div>
         <Footer />
       </main>

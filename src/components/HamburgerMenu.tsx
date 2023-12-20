@@ -20,9 +20,11 @@ const path02Variants = {
 
 const navItems = [
   { id: 1, title: 'Home', link: '/home-page' },
-  { id: 2, title: 'Recommended events', link: '/recommendations' },
-  { id: 3, title: 'Settings' },
-  { id: 4, title: 'Help' },
+  { id: 2, title: 'Recommended Events', link: '/recommendations' },
+  { id: 3, title: 'Recommended Artists' },
+  { id: 4, title: 'Favourite Events', link: '/favourite-events' },
+  { id: 5, title: 'Settings', link: '/settings' },
+  { id: 6, title: 'Log Out' },
 ]
 
 export default function HamburgerMenu() {

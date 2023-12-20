@@ -1,5 +1,4 @@
-import { RecommendationEventType } from '@/types/types'
-import '../styles/components/_artist-concert-card-drag.scss'
+import '@/styles/components/_artist-concert-card-drag.scss'
 
 import Image from 'next/image'
 import Link from 'next/link'

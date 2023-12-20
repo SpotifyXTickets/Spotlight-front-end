@@ -1,25 +1,23 @@
-import '../styles/components/_playlist-section.scss'
-
-import { useState } from 'react'
+import '@/styles/components/_playlist-section.scss'
 
 import Image from 'next/image'
-import IndieRock from '../assets/IndieRock.jpeg'
-import JazzEvening from '../assets/JazzEvening.jpeg'
-import Summer from '../assets/Summer.png'
-import { PlaylistType } from '@/types/types'
 
-export default function PlaylistSection(props: {
-  playlist: PlaylistType['items']
-  onSelectPlaylist: (e: React.ChangeEvent<HTMLInputElement>) => void
-}) {
-  console.log(props.playlist)
+export default function PlaylistSection({
+  playlists,
+  selectedPlaylists,
+  handlePlaylistClick,
+}: any) {
   return (
     <section className="playlist-section">
-      {props.playlist.map((item) => (
-        <label
-          className="playlist-section__card"
+      {playlists.map((item: any) => (
+        <div
           key={item.id}
-          htmlFor={'playlist-section__checkbox_' + item.id}
+          className={`playlist-section__card ${
+            selectedPlaylists.includes(item.id)
+              ? ' border-[#6e3aff]'
+              : 'border-transparent'
+          }`}
+          onClick={() => handlePlaylistClick(item.id)}
         >
           <Image
             className="playlist-section__image"
@@ -28,18 +26,8 @@ export default function PlaylistSection(props: {
             width={300}
             height={300}
           />
-
-          <div className="playlist-section__checkbox">
-            <input
-              className="playlist-section__input"
-              id={'playlist-section__checkbox_' + item.id}
-              type="checkbox"
-              value={item.id}
-              onChange={props.onSelectPlaylist}
-            />
-            <label>{item.name}</label>
-          </div>
-        </label>
+          <h4 className="playlist-section__title">{item.title}</h4>
+        </div>
       ))}
     </section>
   )

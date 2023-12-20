@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Config } from 'tailwindcss'
 
 // Define scaling factors for font sizes
@@ -89,6 +90,8 @@ const config: Config = {
         grey_dark: '#3A3939',
         grey_medium: '#A7A7A7',
         grey_light: '#F0F0F0',
+        percentage_green: '#36C578',
+        percentage_blue: '#1F6CDF',
       },
 
       spacing: {

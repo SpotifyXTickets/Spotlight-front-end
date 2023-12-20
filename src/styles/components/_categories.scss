@@ -1,5 +1,5 @@
 .categories {
-  @apply mt-6 overflow-x-hidden;
+  @apply py-6 overflow-x-hidden;
 
   &__wrapper {
     @apply flex gap-3 w-full cursor-grab;
