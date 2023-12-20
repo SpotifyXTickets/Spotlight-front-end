@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import '../styles/components/_event-card.scss'
 
 import { useState } from 'react'
@@ -5,11 +6,36 @@ import Image from 'next/image'
 
 import HeartIcon from '../assets/icons/heart.svg'
 import FullHeartIcon from '../assets/icons/heart-red.svg'
-import { RecommendationEventType } from '@/types/types'
 
 export default function EventCard(props: {
   key: number
-  data: RecommendationEventType
+  data: {
+    _id: string
+    description?: string
+    name: string
+    imageUrl: string
+    tickets: Array<{
+      ticketeer: 'ticketmaster'
+      venue: {
+        city: string
+        country: string
+        address: string
+        postalCode: string
+        locationLon: string
+        locationLat: string
+      }
+      ticketId: string
+      ticketLink: string
+      eventStartDate: string
+      eventEndData: string
+      ticketSaleStartDate: string
+      ticketSaleEndDate: string
+    }>
+    _embedded: {
+      artists: any[]
+      tracks: any[]
+    }
+  }
 }) {
   const [isHeartFilled, setIsHeartFilled] = useState(false)
 
@@ -44,15 +70,16 @@ export default function EventCard(props: {
           />
         </div>
         <span className="event-card__span">
-          {formatter.format(new Date(props.data.startDate))}
+          {formatter.format(new Date(props.data.tickets[0].eventStartDate))}
         </span>
         <span className="event-card__span">
-          {props.data.address}, {props.data.city}
+          {props.data.tickets[0].venue.address},{' '}
+          {props.data.tickets[0].venue.city}
         </span>
         <button
           onClick={(e) => {
             e.preventDefault()
-            window.location.href = `/event/${props.data.ticketMasterId}`
+            window.location.href = `/event/${props.data.tickets[0].ticketId}`
           }}
           className="event-card__button"
         >

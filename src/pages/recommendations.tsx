@@ -17,7 +17,6 @@ import { useSetRedirctUrl } from '@/hooks/useSetRedirectUrl'
 export default function Home() {
   const { user } = useContext(UserContext)
   useSetRedirctUrl()
-  const [playlist, setPlaylist] = useState<Array<PlaylistItemType>>()
   const apiHost = getApiHost()
 
   const [events, setEvents] = useState([])
@@ -25,13 +24,20 @@ export default function Home() {
     if (!user) {
       return
     }
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const selected_playlists = urlParams.get('selected_playlists')
     const cookies = new Cookies()
     const accessToken = cookies.get('twix_access_token')
-    fetch(`${apiHost}/recommendations`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+    fetch(
+      `${apiHost}/recommendationsV2` +
+        (selected_playlists ? '?playlistIds=' + selected_playlists : ''),
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       },
-    })
+    )
       .then((res) => {
         if (res.status === 401) {
           window.location.href = `/spotify_authorizer`

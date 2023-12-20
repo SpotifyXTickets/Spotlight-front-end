@@ -19,8 +19,9 @@ import Cookies from 'universal-cookie'
 export default function HomePage() {
   const { user } = useContext(UserContext)
   useSetRedirctUrl()
-  const [playlist, setPlaylist] = useState<Array<PlaylistItemType>>()
   const apiHost = getApiHost()
+
+  const [selectedPlaylists, setSelectedPlaylists] = useState<string>('')
 
   const [events, setEvents] = useState<RecommendationEventType[]>([])
   useEffect(() => {
@@ -30,10 +31,11 @@ export default function HomePage() {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const selected_playlists = urlParams.get('selected_playlists')
+    setSelectedPlaylists(selected_playlists as string)
     const cookies = new Cookies()
     const accessToken = cookies.get('twix_access_token')
     fetch(
-      `${apiHost}/recommendations` +
+      `${apiHost}/recommendationsV2` +
         (selected_playlists ? '?playlistIds=' + selected_playlists : ''),
       {
         headers: {
@@ -68,7 +70,9 @@ export default function HomePage() {
                 <h2 className="home-page__section-title">Recommended events</h2>
                 <Link
                   className="home-page__section-see-all"
-                  href="/recommendations"
+                  href={
+                    '/recommendations?selected_playlists=' + selectedPlaylists
+                  }
                 >
                   See All
                 </Link>
