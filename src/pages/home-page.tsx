@@ -1,7 +1,10 @@
-import "../app/globals.scss";
-import "../styles/pages/_home-page.scss";
+import "@/app/globals.scss";
+import "@/styles/pages/_home-page.scss";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+
 import NavBar from "@/components/NavBar";
 import SearchBar from "@/components/SearchBar";
 import Footer from "@/components/Footer";
@@ -10,11 +13,21 @@ import EventsSection from "@/components/EventsSection";
 import StackedImageRow from "@/components/StackedImageRow";
 import Button from "@/components/Button";
 
+import percentageIcon from "@/assets/icons/percentage.svg";
+import noteIcon from "@/assets/icons/singleNote.svg";
+import ArtistList from "@/components/ArtistList";
+
 export default function HomePage() {
+  const [isOnboardingVisible, setOnboardingVisible] = useState(true);
+
+  const handleCloseOnboarding = () => {
+    setOnboardingVisible(false);
+  };
+
   return (
-    <section>
+    <section className="bg-dark">
       <NavBar />
-      <main className="home-page">
+      <main className={`home-page ${isOnboardingVisible ? "opacity-30" : ""}`}>
         <div className="home-page__container">
           <h1 className="home-page__title">Home</h1>
           <div className="home-page__searchbar-wrapper">
@@ -34,18 +47,15 @@ export default function HomePage() {
               <p className="home-page__section-subtitle">
                 Based on your music taste
               </p>
+
               <EventsSection title="" />
             </div>
-
-            {/* <EventsSectionDrag /> */}
           </section>
 
           <section className="home-page__draggable-events">
             <div className="home-page__section">
               <div className="home-page__section-title-wrapper">
-                <h2 className="home-page__section-title">
-                  Events of favourite artists
-                </h2>
+                <h2 className="home-page__section-title">Artists</h2>
                 <Link
                   className="home-page__section-see-all"
                   href="/recommendations"
@@ -54,10 +64,11 @@ export default function HomePage() {
                 </Link>
               </div>
               <p className="home-page__section-subtitle">
-                Select artists to see all their concerts
+                Select artists to see all their concerts.
               </p>
             </div>
-            <EventsSectionDrag concertCards={true} />
+            <ArtistList />
+            {/* <EventsSectionDrag concertCards={true} /> */}
           </section>
           <section className="home-page__flow">
             <h2 className="home-page__section-title-description">
@@ -73,62 +84,40 @@ export default function HomePage() {
               </Button>
             </Link>
           </section>
-          <section>
-            <div className="home-page__section">
-              <div className="home-page__section-title-wrapper">
-                <h2 className="home-page__section-title">100% for you</h2>
-                <Link
-                  className="home-page__section-see-all"
-                  href="/recommendations"
-                >
-                  See All
-                </Link>
-              </div>
-              <p className="home-page__section-subtitle">
-                Based on your music taste
-              </p>
-            </div>
-            <EventsSectionDrag />
-          </section>
-          {/* <section className="home-page__genres">
-            <div className="home-page__section">
-              <div className="home-page__section-title-wrapper">
-                <h2 className="home-page__section-title">Favourite genres</h2>
-              </div>
-              <p className="home-page__section-subtitle">
-                Based on your music taste
-              </p>
-              <div className="home-page__button-grid">
-                <Button text="text-[#fbf9f9]" background="bg-[#3448FC]">
-                  Rock
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#2E7C8F]">
-                  Pop
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#A238FF]">
-                  Jazz
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#4D0193]">
-                  Indie
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#C01FC2]">
-                  Hip-Hop
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#FF663C]">
-                  Classical
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#8F931D]">
-                  Electronic
-                </Button>
-                <Button text="text-[#fbf9f9]" background="bg-[#FF3D3D]">
-                  Metal
-                </Button>
-              </div>
-            </div>
-          </section> */}
         </div>
         <Footer />
       </main>
+
+      {isOnboardingVisible && (
+        <OnboardingWindow
+          onClose={handleCloseOnboarding}
+          icon={percentageIcon}
+          description="Let’s explore your recommended events! The percentage shows the match
+        to your taste profile."
+        />
+      )}
+
+      {/* {isOnboardingVisible && (
+        <OnboardingWindow
+          onClose={handleCloseOnboarding}
+          icon={noteIcon}
+          description="Explore your favourite artists to see all their upcoming events."
+        />
+      )} */}
     </section>
+  );
+}
+
+function OnboardingWindow({ onClose, icon, description }: any) {
+  return (
+    <div className="home-page__onboarding-window">
+      <div className="home-page__onboarding-window__content">
+        <Image className="mt-1" src={icon} alt="Music icon" />
+        <p className="text-white">{description}</p>
+      </div>
+      <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]" onClick={onClose}>
+        Next
+      </Button>
+    </div>
   );
 }

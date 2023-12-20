@@ -29,7 +29,7 @@
 }
 
 .onboarding-window {
-  @apply fixed z-10 top-[20rem] bg-[#202021] border border-[#6e3aff] px-4 pt-4 pb-1 mx-4;
+  @apply fixed z-10 top-[14rem] bg-[#202021] border border-[#6e3aff] px-4 pt-4 pb-1 mx-4 rounded-md;
 
   &__content {
     @apply flex gap-4 items-start;

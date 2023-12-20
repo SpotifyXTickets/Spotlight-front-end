@@ -146,6 +146,11 @@ function OnboardingWindow({ onClose }: any) {
       <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]" onClick={onClose}>
         Next
       </Button>
+      <Link href="/home-page">
+        <Button text="text-[#6e3aff]" background="">
+          Skip Onboarding
+        </Button>
+      </Link>
     </div>
   );
 }

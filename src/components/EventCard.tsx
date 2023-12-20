@@ -1,10 +1,11 @@
-import "../styles/components/_event-card.scss";
+import "@/styles/components/_event-card.scss";
 
 import { useState } from "react";
 import Image from "next/image";
 
-import HeartIcon from "../assets/icons/heart.svg";
-import FullHeartIcon from "../assets/icons/heart-red.svg";
+import HeartIcon from "@/assets/icons/heart.svg";
+import FullHeartIcon from "@/assets/icons/heart-red.svg";
+import Link from "next/link";
 
 export default function EventCard(props: {
   key: number;
@@ -22,7 +23,7 @@ export default function EventCard(props: {
   const toggleHeart = () => setIsHeartFilled(!isHeartFilled);
 
   return (
-    <div className="event-card">
+    <Link href="/event-page" className="event-card">
       <div>
         <div
           className={`event-card__percentage ${
@@ -53,6 +54,6 @@ export default function EventCard(props: {
         <span className="event-card__span">{props.data.location}</span>
         <button className="event-card__button">Learn More {">"}</button>
       </div>
-    </div>
+    </Link>
   );
 }
