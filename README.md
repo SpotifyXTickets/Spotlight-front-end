@@ -1,31 +1,52 @@
-# Front-end boilerplate
-Currently using branch: V2
+# Spotlight frontend
 
-This is a front-end boilerplate for our team to easily create new poc's with the same configurations. This boilerplate should keep evolving during the span of the project so that whenever we use a new technology it will be included in the boilerplate. If anything is unclear or needs to be explained further please notify Raf Schapendonk.
+This repository contains a typescript based proof of concept (POC) for the Spotlight frontend. It is built with Next.js, uses TailwindCSS and SCSS for styling by utilizing the BEM methodology and uses Cypress and Playwright for testing.
 
-## Getting Started
+The frontend provides our application with a user-friendly interface where users can login with their Spotify account and get event recommendations based on their Spotify data. It includes diverse pages, where you can explore recommended events and artists. Each recommended event has a percentage showing how much does it match with your music taste. 
 
-First install the necessary packages:
+## Getting started
 
-```bash
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- npm
+
+### Installing
+1. Clone the repository:
+```
+git clone https://github.com/SpotifyXTickets/General-POC.git
+```
+2. Navigate into the cloned repository:
+```
+cd General-POC
+```
+3. Install the dependencies:
+```
 npm install
 ```
-
-After installling the packages change project name from 'boilerplate' to your project name in the package-lock.json and package.json
-
-Now you can run the development server:
-
-```bash
+4. Start the server:
+```
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/pages/index.tsx`. The page auto-updates as you edit the file.
+You can start editing the pages by modifying the files inside `src/pages/`. The pages auto-update as you edit the file.
 
-This project features a custom tailwind configuration with custom values and a function for responsive pixel based font sizes.
+This project features a custom TailwindCSS configuration with custom values and a function for responsive pixel based font sizes.
 
-All css including tailwind should be written in an scss file with the BEM methodology
+All CSS including tailwind should be written in an SCSS file with the BEM methodology.
+
+## ESLint
+
+```bash
+npm run lint
+```
+In order to automatic fix issues while using ESLint run the following line:
+```bash
+npm run lint -- --fix
+```
 
 ## Testing
 
@@ -41,13 +62,29 @@ In order to use playwright run the following line:
 npm run playwright
 ```
 
-## Learn More
+## Features
 
-To learn more about the technologies we're using, take a look at the following resources:
+- Easy to navigate user-friendly interface
+- Ability to login with Spotify
+- Ability to select the playlists for which you want to receive recommendations.
+- Browsing event recommendations based on your Spotify listening data.
+- Percentage indicating how closely the event aligns with your music preferences.
+- Redirecting to Ticketmaster to buy the ticket for the selected event.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Tailwind documentation](https://tailwindcss.com/docs/installation) - learn about what tailwindcss has to offer
-- [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress) - learn how cypress works.
-- [Playwright documentation](https://playwright.dev/docs/getting-started-vscode) - learn how playwright works.
-- [SCSS syntax](https://sass-lang.com/documentation/syntax/) - see what SCSS has to offer.
-- [What is BEM](https://getbem.com) - BEM methodology explained.
+## Built With
+
+- [Next.js](https://nextjs.org/docs)
+- [TailwindCSS](https://tailwindcss.com/docs/installation)
+- [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
+- [Playwright](https://playwright.dev/docs/getting-started-vscode)
+- [SCSS](https://sass-lang.com/documentation/syntax/)  
+
+## BEM Methodology
+
+- [BEM Methodology](https://getbem.com)
+
+## Authors
+
+- [@denislav-d](https://github.com/denislav-d) Lead front-end developer
+- [@RafSchapendonk](https://github.com/RafSchapendonk) Supporting front-end developer
+- [@annabobrovska](https://github.com/annabobrovska) Lead designer
