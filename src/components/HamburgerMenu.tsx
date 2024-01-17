@@ -7,12 +7,12 @@ import Link from "next/link";
 
 import Logo from "../assets/spotlight-logo.svg";
 
-const path01Variants = {
+const hamburgerVariants1 = {
   open: { d: "M3.06061 2.99999L21.0606 21" },
   closed: { d: "M0 9.5L24 9.5" },
 };
 
-const path02Variants = {
+const hamburgerVariants2 = {
   open: { d: "M3.00006 21.0607L21 3.06064" },
   moving: { d: "M0 14.5L24 14.5" },
   closed: { d: "M10 14.5L24 14.5" },
@@ -76,13 +76,13 @@ export default function HamburgerMenu() {
             strokeWidth="1.75"
             stroke="#FFFFFF"
             animate={animation}
-            variants={path01Variants}
+            variants={hamburgerVariants1}
           />
           <motion.path
             strokeWidth="1.75"
             stroke="#FFFFFF"
             animate={animation}
-            variants={path02Variants}
+            variants={hamburgerVariants2}
           />
         </svg>
       </button>
