@@ -41,7 +41,7 @@ const processData = [
   },
 
   {
-    id: 2,
+    id: 3,
     icon: TicketIcon,
     title: "Buy Tickets Through Our Partner",
     description: "With one click, buy tickets to that perfect event.",
