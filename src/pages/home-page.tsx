@@ -15,26 +15,26 @@ import { PlaylistItemType, RecommendationEventType } from '@/types/types'
 import { getApiHost } from '@/libs/getApiHost'
 import { UserContext } from '@/providers/UserProvider'
 import Cookies from 'universal-cookie'
+import { EmbeddedEvent } from '@/types/event'
 
 export default function HomePage() {
   const { user } = useContext(UserContext)
   useSetRedirctUrl()
-  const [playlist, setPlaylist] = useState<Array<PlaylistItemType>>()
   const apiHost = getApiHost()
 
-  const [events, setEvents] = useState<RecommendationEventType[]>([])
+  const [events, setEvents] = useState<
+    (EmbeddedEvent & { matchScore: number })[]
+  >([])
   useEffect(() => {
     if (!user) {
       return
     }
-    const queryString = window.location.search
-    const urlParams = new URLSearchParams(queryString)
-    const selected_playlists = urlParams.get('selected_playlists')
     const cookies = new Cookies()
     const accessToken = cookies.get('twix_access_token')
+    const playlists = window.sessionStorage.getItem('playlists') ?? ''
     fetch(
-      `${apiHost}/recommendations` +
-        (selected_playlists ? '?playlistIds=' + selected_playlists : ''),
+      `${apiHost}/recommendationsv2` +
+        (playlists.split(',').length > 0 ? '?playlistIds=' + playlists : ''),
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -50,7 +50,7 @@ export default function HomePage() {
       })
       .then((data) => {
         console.log(data)
-        setEvents(data as RecommendationEventType[])
+        setEvents(data as (EmbeddedEvent & { matchScore: number })[])
       })
   }, [user])
   return (
@@ -125,13 +125,22 @@ export default function HomePage() {
           </section>
           <section className="home-page__flow">
             <h2 className="home-page__section-title-description">
-              Unlock Flow by selcting all favorites playlist for improved
+              Unlock Flow by selecting all favorites playlist for improved
               recomendations
             </h2>
             <div className="home-page__stacked-image-row">
               <StackedImageRow />
             </div>
-            <Link href="/select-playlists">
+            <Link
+              href="/select-playlists"
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+
+                window.sessionStorage.removeItem('playlists')
+                window.location.href = '/select-playlists'
+              }}
+            >
               <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
                 Select playlists
               </Button>

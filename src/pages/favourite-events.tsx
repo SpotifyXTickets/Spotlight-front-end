@@ -1,9 +1,9 @@
-import "../app/globals.scss";
-import "../styles/pages/_recommendations-selection.scss";
+import '../app/globals.scss'
+import '../styles/pages/_recommendations-selection.scss'
 
-import NavBar from "@/components/NavBar";
-import EventsSection from "@/components/EventsSection";
-import Footer from "@/components/Footer";
+import NavBar from '@/components/NavBar'
+import EventsSection from '@/components/EventsSection'
+import Footer from '@/components/Footer'
 
 export default function FavouriteEvents() {
   return (
@@ -18,5 +18,5 @@ export default function FavouriteEvents() {
       </main>
       <Footer />
     </section>
-  );
+  )
 }

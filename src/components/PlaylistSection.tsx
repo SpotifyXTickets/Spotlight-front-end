@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import '@/styles/components/_playlist-section.scss'
 
 import Image from 'next/image'
@@ -6,7 +7,11 @@ export default function PlaylistSection({
   playlists,
   selectedPlaylists,
   handlePlaylistClick,
-}: any) {
+}: {
+  playlists: any
+  selectedPlaylists: any
+  handlePlaylistClick: (playlistId: string) => void
+}) {
   return (
     <section className="playlist-section">
       {playlists.map((item: any) => (

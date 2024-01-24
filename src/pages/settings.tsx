@@ -1,40 +1,40 @@
-import "@/app/globals.scss";
-import "@/styles/pages/_settings.scss";
+import '@/app/globals.scss'
+import '@/styles/pages/_settings.scss'
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState } from 'react'
+import Image from 'next/image'
 
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import DeleteModal from "@/components/DeleteModal";
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
+import DeleteModal from '@/components/DeleteModal'
 
-import arrowIcon from "@/assets/icons/arrowSettings.svg";
-import editIcon from "@/assets/icons/edit.svg";
-import setIcon from "@/assets/icons/set.svg";
-import pastIcon from "@/assets/icons/noteSettings.svg";
-import deleteIcon from "@/assets/icons/delete.svg";
+import arrowIcon from '@/assets/icons/arrowSettings.svg'
+import editIcon from '@/assets/icons/edit.svg'
+import setIcon from '@/assets/icons/set.svg'
+import pastIcon from '@/assets/icons/noteSettings.svg'
+import deleteIcon from '@/assets/icons/delete.svg'
 
 const settingsList = [
-  { id: 1, icon: editIcon, title: "Edit Playlists" },
-  { id: 2, icon: setIcon, title: "Set Preferences" },
-  { id: 3, icon: pastIcon, title: "Past Events" },
-  { id: 4, icon: deleteIcon, title: "Delete Account and Wipe Data" },
-];
+  { id: 1, icon: editIcon, title: 'Edit Playlists' },
+  { id: 2, icon: setIcon, title: 'Set Preferences' },
+  { id: 3, icon: pastIcon, title: 'Past Events' },
+  { id: 4, icon: deleteIcon, title: 'Delete Account and Wipe Data' },
+]
 
 export default function Settings() {
-  const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
+  const [isDeleteModalVisible, setDeleteModalVisible] = useState(false)
 
   const handleDeleteClick = () => {
-    setDeleteModalVisible(true);
-  };
+    setDeleteModalVisible(true)
+  }
 
   const handleCloseModal = () => {
-    setDeleteModalVisible(false);
-  };
+    setDeleteModalVisible(false)
+  }
 
   return (
     <section className="settings">
-      <div className={`${isDeleteModalVisible ? "opacity-30" : ""}`}>
+      <div className={`${isDeleteModalVisible ? 'opacity-30' : ''}`}>
         <NavBar />
         <h2 className="settings__title">Settings</h2>
         <div className="settings__list">
@@ -61,5 +61,5 @@ export default function Settings() {
 
       {isDeleteModalVisible && <DeleteModal onClose={handleCloseModal} />}
     </section>
-  );
+  )
 }

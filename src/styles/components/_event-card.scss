@@ -1,5 +1,9 @@
 .event-card {
-  @apply flex rounded-xl h-52 shadow-md bg-dark_lighter font-poppins;
+  @apply relative flex rounded-xl min-h-[13rem] shadow-md bg-dark_lighter font-poppins;
+
+  &__image-holder {
+    @apply relative min-w-[10rem];
+  }
 
   &__image {
     @apply object-contain max-w-[10.85rem] rounded-l-lg;
@@ -10,7 +14,7 @@
   }
 
   &__percentage {
-    @apply absolute py-1 px-2 rounded-r-md rounded-tl-md text-white opacity-60;
+    @apply absolute py-1 px-2 rounded-r-md rounded-tl-md text-white opacity-60 z-20;
   }
 
   &__span {
@@ -22,7 +26,7 @@
   }
 
   &__heart {
-    @apply cursor-pointer;
+    @apply cursor-pointer absolute top-2 right-2 z-20;
   }
 
   &__button {

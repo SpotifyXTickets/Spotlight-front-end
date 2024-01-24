@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import '@/styles/components/_button.scss'
 
 import Image from 'next/image'

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import '../app/globals.scss'
 import '../styles/pages/_select-playlists.scss'
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link'
+import Image from 'next/image'
 
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
@@ -17,6 +18,8 @@ import { useContext, useEffect, useState } from 'react'
 import { useGetTokenOrRedirect } from '@/hooks/useGetTokenOrRedirect'
 import { getApiHost } from '@/libs/getApiHost'
 import { UserContext } from '@/providers/UserProvider'
+
+import editIcon from '@/assets/icons/edit.svg'
 
 type PageProps = {
   playlist: PlaylistType | null
@@ -69,84 +72,48 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
     getPlaylists(accessToken)
   }, [user])
 
-  const selectPlaylist = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setSelectedPlaylists([...selectedPlaylists, e.target.value])
+  useEffect(() => {
+    const playlists = window.sessionStorage.getItem('playlists')
+    if (playlists) {
+      setSelectedPlaylists(playlists.split(','))
+    }
+  }, [playlist])
+
+  useEffect(() => {
+    window.sessionStorage.setItem('playlists', selectedPlaylists.toString())
+  }, [selectedPlaylists, setSelectedPlaylists])
+
+  const handlePlaylistClick = (playlistId: string) => {
+    if (!selectedPlaylists.includes(playlistId)) {
+      setSelectedPlaylists([...selectedPlaylists, playlistId])
     } else {
       setSelectedPlaylists(
-        selectedPlaylists.filter((item) => item !== e.target.value),
+        selectedPlaylists.filter((item) => item !== playlistId),
       )
     }
   }
 
-import editIcon from "@/assets/icons/edit.svg";
-import IndieRock from "@/assets/IndieRock.jpeg";
-
-const playlists = [
-  {
-    id: 1,
-    title: "Testing a longer title in order not to break",
-    playlistImage: IndieRock,
-  },
-  {
-    id: 2,
-    title: "Jazz Evening",
-    playlistImage: JazzEvening,
-  },
-  {
-    id: 3,
-    title: "Summer 2021",
-    playlistImage: Summer,
-  },
-  {
-    id: 4,
-    title: "Indie Rock",
-    playlistImage: IndieRock,
-  },
-  {
-    id: 5,
-    title: "Jazz Evening",
-    playlistImage: JazzEvening,
-  },
-  {
-    id: 6,
-    title: "Summer 2021",
-    playlistImage: Summer,
-  },
-];
-
-export default function SelectPlaylists() {
-  const [selectedPlaylists, setSelectedPlaylists] = useState([] as any);
-
-  const handlePlaylistClick = (id: any) => {
-    if (selectedPlaylists.includes(id)) {
-      setSelectedPlaylists(
-        selectedPlaylists.filter((playlistId: any) => playlistId !== id)
-      );
-    } else {
-      setSelectedPlaylists([...selectedPlaylists, id]);
-    }
-  };
-
   const handleSelectAll = () => {
     if (selectedPlaylists.length > 0) {
-      setSelectedPlaylists([]);
+      setSelectedPlaylists([])
     } else {
-      setSelectedPlaylists(playlists.map((playlist) => playlist.id));
+      setSelectedPlaylists(playlist!.map((p) => p.id))
     }
-  };
+  }
 
-  const [isOnboardingVisible, setOnboardingVisible] = useState(true);
+  const [isOnboardingVisible, setOnboardingVisible] = useState(true)
 
   const handleCloseOnboarding = () => {
-    setOnboardingVisible(false);
-  };
+    setOnboardingVisible(false)
+  }
 
+  console.log(playlist)
   return (
     <section className="select-playlists__section">
       <NavBar />
+      <main
         className={`select-playlists ${
-          isOnboardingVisible ? "opacity-30" : ""
+          isOnboardingVisible ? 'opacity-30' : ''
         }`}
       >
         <h2 className="select-playlists__header">Let’s get started</h2>
@@ -160,15 +127,19 @@ export default function SelectPlaylists() {
           onClick={handleSelectAll}
         >
           {selectedPlaylists.length > 0
-            ? "Clear Selection"
-            : "Select All Playlists"}
+            ? 'Clear Selection'
+            : 'Select All Playlists'}
         </button>
 
-        <PlaylistSection
-          playlists={playlists}
-          selectedPlaylists={selectedPlaylists}
-          handlePlaylistClick={handlePlaylistClick}
-        />
+        {playlist ? (
+          <PlaylistSection
+            playlists={playlist}
+            selectedPlaylists={selectedPlaylists}
+            handlePlaylistClick={handlePlaylistClick}
+          />
+        ) : (
+          ''
+        )}
       </main>
       <section className="select-playlists__buttons">
         <Link className="select-playlists__link" href="/home-page">
@@ -186,8 +157,11 @@ export default function SelectPlaylists() {
           href="/home-page"
           onClick={(e) => {
             e.preventDefault()
-            window.location.href =
-              '/home-page?selected_playlists=' + selectedPlaylists.toString()
+            window.sessionStorage.setItem(
+              'playlists',
+              playlist?.map((p) => p.id).toString() ?? '',
+            )
+            window.location.href = '/home-page'
           }}
         >
           <Button text="text-[#fbf9f9]" background="bg-[#6e3aff]">
@@ -220,5 +194,7 @@ function OnboardingWindow({ onClose }: any) {
         Next
       </Button>
     </div>
-  );
+  )
 }
+
+export default SelectPlaylists

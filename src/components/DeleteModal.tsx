@@ -1,9 +1,10 @@
-import "@/app/globals.scss";
-import "@/styles/components/_delete-modal.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import '@/app/globals.scss'
+import '@/styles/components/_delete-modal.scss'
 
-import Image from "next/image";
-import Button from "@/components/Button";
-import closeIcon from "@/assets/icons/close.svg";
+import Image from 'next/image'
+import Button from '@/components/Button'
+import closeIcon from '@/assets/icons/close.svg'
 
 export default function DeleteModal({ onClose }: any) {
   return (
@@ -31,5 +32,5 @@ export default function DeleteModal({ onClose }: any) {
         </Button>
       </section>
     </section>
-  );
+  )
 }

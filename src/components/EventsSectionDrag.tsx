@@ -9,6 +9,7 @@ import BeyonceDrag from '../assets/BeyonceDrag.png'
 import TheWeekndDrag from '../assets/TheweekndDrag.png'
 import ArianaGrandeDrag from '../assets/ArianaDrag.png'
 import { RecommendationEventType } from '@/types/types'
+import Artist from '@/types/artist'
 
 const data = [
   {
@@ -37,20 +38,30 @@ const data = [
   },
 ] as RecommendationEventType[]
 
-export default function EventsSectionDrag(props: { concertCards?: boolean }) {
+export default function EventsSectionDrag(props: {
+  concertCards?: boolean
+  artists?: Artist[]
+}) {
+  console.log(props.artists)
   const dragSlider = useRef<HTMLDivElement | null>(null)
 
   let content: JSX.Element[] | null
 
-  switch (true) {
-    case props.concertCards:
-      content = data.map((item, i) => (
-        <ArtistConcertCardDrag key={i} data={item} />
-      ))
-      break
+  if (props.artists) {
+    content = props.artists!.map((item, i) => (
+      <ArtistConcertCardDrag key={i} data={item} />
+    ))
+  } else {
+    switch (true) {
+      case props.concertCards:
+        content = data.map((item, i) => (
+          <ArtistConcertCardDrag key={i} data={item} />
+        ))
+        break
 
-    default:
-      content = data.map((item, i) => <EventCardDrag key={i} data={item} />)
+      default:
+        content = data.map((item, i) => <EventCardDrag key={i} data={item} />)
+    }
   }
 
   useEffect(() => {

@@ -1,16 +1,18 @@
 import '@/styles/components/_artist-concert-card-drag.scss'
+import Artist from '@/types/artist'
+import { RecommendationEventType } from '@/types/types'
 
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function EventCardDrag(props: {
+export default function ArtistConcertCardDrag(props: {
   key: number
   smallClass?: boolean
-  data: RecommendationEventType
+  data: RecommendationEventType | Artist
 }) {
   return (
     <div className="artist-concert-card-drag">
-      <Link href="/artist-page">
+      <Link href={'/artist/' + (props.data as Artist)._id}>
         <Image
           className="artist-concert-card-drag__image"
           src={props.data.imageUrl}

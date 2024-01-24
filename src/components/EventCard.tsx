@@ -6,17 +6,11 @@ import Image from 'next/image'
 import HeartIcon from '../assets/icons/heart.svg'
 import FullHeartIcon from '../assets/icons/heart-red.svg'
 import { RecommendationEventType } from '@/types/types'
+import Event, { EmbeddedEvent } from '@/types/event'
 
 export default function EventCard(props: {
-  key: number
-  data: {
-    id: number
-    artist: string
-    artistImage: any
-    percentage: number
-    date: string
-    location: string
-  }
+  key: string
+  data: EmbeddedEvent & { matchScore?: number }
 }) {
   const [isHeartFilled, setIsHeartFilled] = useState(false)
 
@@ -29,20 +23,26 @@ export default function EventCard(props: {
 
   return (
     <div className="event-card">
-      <div>
-        <div
-          className={`event-card__percentage ${
-            props.data.percentage > 60
-              ? 'bg-percentage_green'
-              : 'bg-percentage_blue'
-          }`}
-        >
-          {props.data.percentage}%
-        </div>
+      <div className="event-card__image-holder">
+        {props.data.matchScore ? (
+          <div
+            className={`event-card__percentage ${
+              props.data.matchScore * 100 > 60
+                ? 'bg-percentage_green'
+                : 'bg-percentage_blue'
+            }`}
+          >
+            {Math.floor(props.data.matchScore * 100)}%
+          </div>
+        ) : (
+          ''
+        )}
         <Image
           className="event-card__image"
-          src={props.data.artistImage}
+          src={props.data.imageUrl}
+          fill={true}
           alt="Artist Image"
+          objectFit="cover"
         />
       </div>
       <div className="event-card__info">
@@ -60,15 +60,16 @@ export default function EventCard(props: {
           />
         </div>
         <span className="event-card__span">
-          {formatter.format(new Date(props.data.startDate))}
+          {formatter.format(new Date(props.data.tickets[0].eventStartDate))}
         </span>
         <span className="event-card__span">
-          {props.data.address}, {props.data.city}
+          {props.data.tickets[0].venue.address},{' '}
+          {props.data.tickets[0].venue.city}
         </span>
         <button
           onClick={(e) => {
             e.preventDefault()
-            window.location.href = `/event/${props.data.ticketMasterId}`
+            window.location.href = `/event/${props.data._id}`
           }}
           className="event-card__button"
         >
