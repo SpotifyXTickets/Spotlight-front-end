@@ -33,7 +33,7 @@ export default function HomePage() {
     const accessToken = cookies.get('twix_access_token')
     const playlists = window.sessionStorage.getItem('playlists') ?? ''
     fetch(
-      `${apiHost}/recommendationsv2` +
+      `${apiHost}/recommendation` +
         (playlists.split(',').length > 0 ? '?playlistIds=' + playlists : ''),
       {
         headers: {

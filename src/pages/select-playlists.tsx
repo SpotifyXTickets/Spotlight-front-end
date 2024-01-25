@@ -157,10 +157,14 @@ export const SelectPlaylists: NextPage<PageProps> = (props) => {
           href="/home-page"
           onClick={(e) => {
             e.preventDefault()
-            window.sessionStorage.setItem(
-              'playlists',
-              playlist?.map((p) => p.id).toString() ?? '',
-            )
+            const sessionPlaylists = window.sessionStorage.getItem('playlists')
+            if (sessionPlaylists === '') {
+              window.sessionStorage.setItem(
+                'playlists',
+                playlist?.map((p) => p.id).toString() ?? '',
+              )
+            }
+
             window.location.href = '/home-page'
           }}
         >
